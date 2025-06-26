@@ -224,11 +224,27 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
         <div class="contact-content">
           <div class="contact-form">
             <h3>📧 Send Us a Message</h3>
+            
+            <!-- Progress Bar -->
+            <div class="wizard-progress">
+              <div class="progress-bar">
+                <div class="progress-fill" [style.width.%]="(currentStep / totalSteps) * 100"></div>
+              </div>
+              <div class="step-indicators">
+                <div class="step-indicator" 
+                     *ngFor="let step of [1,2,3,4]" 
+                     [class.active]="currentStep >= step"
+                     [class.current]="currentStep === step">
+                  {{ step }}
+                </div>
+              </div>
+            </div>
+
             <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
               
-              <!-- Section 1: Contact Information -->
-              <div class="form-section">
-                <h4 class="section-title">Contact Information</h4>
+              <!-- Step 1: Contact Information -->
+              <div class="form-step" *ngIf="currentStep === 1">
+                <h4 class="step-title">📞 Contact Information</h4>
                 
                 <div class="form-group">
                   <label>Your Name *</label>
@@ -261,9 +277,9 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
                 </div>
               </div>
 
-              <!-- Section 2: Project Overview -->
-              <div class="form-section">
-                <h4 class="section-title">Project Overview</h4>
+              <!-- Step 2: Project Overview -->
+              <div class="form-step" *ngIf="currentStep === 2">
+                <h4 class="step-title">🎯 Project Overview</h4>
                 
                 <div class="form-group">
                   <label>Project Type *</label>
@@ -285,7 +301,7 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
                 </div>
                 
                 <div class="form-group">
-                  <label>Primary Goals * (Select all that apply)</label>
+                  <label>Primary Goals (Select all that apply)</label>
                   <div class="checkbox-group">
                     <label class="checkbox-item">
                       <input type="checkbox" formControlName="goalOnlinePresence">
@@ -322,15 +338,14 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
                 </div>
               </div>
 
-              <!-- Section 3: Budget & Timeline -->
-              <div class="form-section">
-                <h4 class="section-title">Budget & Timeline</h4>
+              <!-- Step 3: Budget & Timeline -->
+              <div class="form-step" *ngIf="currentStep === 3">
+                <h4 class="step-title">💰 Budget & Timeline</h4>
                 
                 <div class="form-group">
                   <label>Project Budget Range *</label>
                   <select formControlName="budget" required>
                     <option value="">Select budget range</option>
-                    <option value="under-500">Under $500</option>
                     <option value="500-1500">$500 - $1,500</option>
                     <option value="1500-3000">$1,500 - $3,000</option>
                     <option value="3000-5000">$3,000 - $5,000</option>
@@ -344,27 +359,11 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
                   <label>Desired Launch Date *</label>
                   <select formControlName="timeline" required>
                     <option value="">Select timeline</option>
-                    <option value="asap">ASAP (Rush job - may include rush fees)</option>
+                    <option value="1-2-weeks">Within 1-2 weeks</option>
                     <option value="2-4-weeks">Within 2-4 weeks</option>
                     <option value="1-2-months">Within 1-2 months</option>
-                    <option value="3-6-months">Within 3-6 months</option>
-                    <option value="flexible">Flexible timeline</option>
                   </select>
                 </div>
-                
-                <div class="form-group">
-                  <label>Is this date flexible? *</label>
-                  <select formControlName="timelineFlexible" required>
-                    <option value="">Select option</option>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                  </select>
-                </div>
-              </div>
-
-              <!-- Section 4: Technical Requirements -->
-              <div class="form-section">
-                <h4 class="section-title">Technical Requirements</h4>
                 
                 <div class="form-group">
                   <label>Do you have an existing website? *</label>
@@ -380,16 +379,15 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
                   <input type="url" formControlName="websiteUrl" placeholder="https://yourwebsite.com">
                 </div>
                 
-                <div class="form-group">
-                  <label>Hosting Preference *</label>
-                  <select formControlName="hosting" required>
-                    <option value="">Select option</option>
-                    <option value="need-recommendations">I need hosting recommendations</option>
-                    <option value="have-hosting">I have existing hosting</option>
-                    <option value="specific-hosting">I prefer specific hosting (please specify)</option>
-                    <option value="need-advice">Unsure/Need advice</option>
-                  </select>
+                <div class="form-group" *ngIf="contactForm.get('hasWebsite')?.value === 'yes'">
+                  <label>If yes, which host do you use?</label>
+                  <input type="text" formControlName="currentHost" placeholder="e.g., HostGator, GoDaddy, AWS">
                 </div>
+              </div>
+
+              <!-- Step 4: Additional Details -->
+              <div class="form-step" *ngIf="currentStep === 4">
+                <h4 class="step-title">✨ Additional Details</h4>
                 
                 <div class="form-group">
                   <label>Required Features (Select all that apply)</label>
@@ -443,11 +441,6 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
                     <input type="text" formControlName="featureOther" placeholder="Other features (please specify)">
                   </div>
                 </div>
-              </div>
-
-              <!-- Section 5: Design & Content -->
-              <div class="form-section">
-                <h4 class="section-title">Design & Content</h4>
                 
                 <div class="form-group">
                   <label>Design Style Preference (Select all that apply)</label>
@@ -480,8 +473,8 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
                 </div>
                 
                 <div class="form-group">
-                  <label>Do you have existing branding? *</label>
-                  <select formControlName="branding" required>
+                  <label>Do you have existing branding?</label>
+                  <select formControlName="branding">
                     <option value="">Select option</option>
                     <option value="yes">Yes - Logo, colors, fonts available</option>
                     <option value="partial">Partial - Some elements available</option>
@@ -490,8 +483,8 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
                 </div>
                 
                 <div class="form-group">
-                  <label>Content Status *</label>
-                  <select formControlName="contentStatus" required>
+                  <label>Content Status</label>
+                  <select formControlName="contentStatus">
                     <option value="">Select option</option>
                     <option value="ready">I have all content ready</option>
                     <option value="partial">I have some content, need help with rest</option>
@@ -502,13 +495,8 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
                 
                 <div class="form-group">
                   <label>Reference Websites (Optional)</label>
-                  <textarea formControlName="referenceWebsites" placeholder="Share 2-3 websites you like and explain what you like about them" rows="3"></textarea>
+                  <textarea formControlName="referenceWebsites" placeholder="Share 2-3 websites you like and why" rows="3"></textarea>
                 </div>
-              </div>
-
-              <!-- Section 6: Additional Information -->
-              <div class="form-section">
-                <h4 class="section-title">Additional Information</h4>
                 
                 <div class="form-group">
                   <label>Special Requirements or Concerns</label>
@@ -543,10 +531,31 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
                 </div>
               </div>
 
-              <button type="submit" class="btn btn-primary btn-full" [disabled]="!contactForm.valid || isSubmitting">
-                <span *ngIf="!isSubmitting">📤 Send Message</span>
-                <span *ngIf="isSubmitting">Sending...</span>
-              </button>
+              <!-- Navigation Buttons -->
+              <div class="wizard-navigation">
+                <button type="button" 
+                        class="btn btn-outline" 
+                        *ngIf="currentStep > 1"
+                        (click)="prevStep()">
+                  ← Previous
+                </button>
+                
+                <button type="button" 
+                        class="btn btn-primary" 
+                        *ngIf="currentStep < totalSteps"
+                        [disabled]="!isStepValid(currentStep)"
+                        (click)="nextStep()">
+                  Next →
+                </button>
+                
+                <button type="submit" 
+                        class="btn btn-primary" 
+                        *ngIf="currentStep === totalSteps"
+                        [disabled]="!contactForm.valid || isSubmitting">
+                  <span *ngIf="!isSubmitting">📤 Send Message</span>
+                  <span *ngIf="isSubmitting">Sending...</span>
+                </button>
+              </div>
               
               <div *ngIf="submitMessage" class="submit-message" [class.success]="submitSuccess" [class.error]="!submitSuccess">
                 {{ submitMessage }}
@@ -643,6 +652,8 @@ export class HomeComponent {
   isSubmitting = false;
   submitMessage = '';
   submitSuccess = false;
+  currentStep = 1;
+  totalSteps = 4;
 
   constructor(private router: Router, private fb: FormBuilder) {
     this.contactForm = this.fb.group({
@@ -668,12 +679,11 @@ export class HomeComponent {
       // Budget & Timeline
       budget: ['', Validators.required],
       timeline: ['', Validators.required],
-      timelineFlexible: ['', Validators.required],
       
       // Technical Requirements
       hasWebsite: ['', Validators.required],
       websiteUrl: [''],
-      hosting: ['', Validators.required],
+      currentHost: [''],
       featureContactForms: [false],
       featureBooking: [false],
       featurePayments: [false],
@@ -709,6 +719,37 @@ export class HomeComponent {
 
   goToPortfolio(): void {
     this.router.navigate(['/portfolio']);
+  }
+
+  nextStep(): void {
+    if (this.currentStep < this.totalSteps) {
+      this.currentStep++;
+    }
+  }
+
+  prevStep(): void {
+    if (this.currentStep > 1) {
+      this.currentStep--;
+    }
+  }
+
+  isStepValid(step: number): boolean {
+    switch (step) {
+      case 1:
+        return !!(this.contactForm.get('name')?.valid && 
+                 this.contactForm.get('email')?.valid && 
+                 this.contactForm.get('contactMethod')?.valid);
+      case 2:
+        return !!(this.contactForm.get('projectType')?.valid && 
+                 this.contactForm.get('description')?.valid);
+      case 3:
+        return !!(this.contactForm.get('budget')?.valid && 
+                 this.contactForm.get('timeline')?.valid);
+      case 4:
+        return true; // Optional fields
+      default:
+        return true;
+    }
   }
 
   onSubmit(): void {
