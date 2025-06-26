@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   template: `
     <!-- Hero Section -->
     <section class="hero">
@@ -223,22 +224,333 @@ import { Router } from '@angular/router';
         <div class="contact-content">
           <div class="contact-form">
             <h3>📧 Send Us a Message</h3>
-            <form>
-              <div class="form-group">
-                <label>Your Name *</label>
-                <input type="text" placeholder="Enter your full name" required>
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+              
+              <!-- Section 1: Contact Information -->
+              <div class="form-section">
+                <h4 class="section-title">Contact Information</h4>
+                
+                <div class="form-group">
+                  <label>Your Name *</label>
+                  <input type="text" formControlName="name" placeholder="Enter your full name" required>
+                </div>
+                
+                <div class="form-group">
+                  <label>Email Address *</label>
+                  <input type="email" formControlName="email" placeholder="your.email@example.com" required>
+                </div>
+                
+                <div class="form-group">
+                  <label>Company/Organization</label>
+                  <input type="text" formControlName="company" placeholder="Your company name (optional)">
+                </div>
+                
+                <div class="form-group">
+                  <label>Phone Number</label>
+                  <input type="tel" formControlName="phone" placeholder="+1 (555) 123-4567">
+                </div>
+                
+                <div class="form-group">
+                  <label>Preferred Contact Method *</label>
+                  <select formControlName="contactMethod" required>
+                    <option value="">Select preferred method</option>
+                    <option value="email">Email</option>
+                    <option value="phone">Phone</option>
+                    <option value="whatsapp">WhatsApp</option>
+                  </select>
+                </div>
               </div>
-              <div class="form-group">
-                <label>Email Address *</label>
-                <input type="email" placeholder="your.email@example.com" required>
+
+              <!-- Section 2: Project Overview -->
+              <div class="form-section">
+                <h4 class="section-title">Project Overview</h4>
+                
+                <div class="form-group">
+                  <label>Project Type *</label>
+                  <select formControlName="projectType" required>
+                    <option value="">Select project type</option>
+                    <option value="new-website">New Website Design & Development</option>
+                    <option value="redesign">Website Redesign/Refresh</option>
+                    <option value="ecommerce">E-commerce Store</option>
+                    <option value="landing-page">Landing Page</option>
+                    <option value="web-app">Web Application</option>
+                    <option value="maintenance">Maintenance/Updates to Existing Site</option>
+                    <option value="other">Other (please specify)</option>
+                  </select>
+                </div>
+                
+                <div class="form-group">
+                  <label>Brief Project Description *</label>
+                  <textarea formControlName="description" placeholder="Describe your project in 2-3 sentences" rows="3" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                  <label>Primary Goals * (Select all that apply)</label>
+                  <div class="checkbox-group">
+                    <label class="checkbox-item">
+                      <input type="checkbox" formControlName="goalOnlinePresence">
+                      <span>Increase online presence</span>
+                    </label>
+                    <label class="checkbox-item">
+                      <input type="checkbox" formControlName="goalLeads">
+                      <span>Generate leads/sales</span>
+                    </label>
+                    <label class="checkbox-item">
+                      <input type="checkbox" formControlName="goalPortfolio">
+                      <span>Showcase portfolio/services</span>
+                    </label>
+                    <label class="checkbox-item">
+                      <input type="checkbox" formControlName="goalEcommerce">
+                      <span>Sell products online</span>
+                    </label>
+                    <label class="checkbox-item">
+                      <input type="checkbox" formControlName="goalUX">
+                      <span>Improve user experience</span>
+                    </label>
+                    <label class="checkbox-item">
+                      <input type="checkbox" formControlName="goalMobile">
+                      <span>Mobile optimization</span>
+                    </label>
+                    <label class="checkbox-item">
+                      <input type="checkbox" formControlName="goalSEO">
+                      <span>SEO improvement</span>
+                    </label>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" formControlName="goalOther" placeholder="Other goals (please specify)">
+                  </div>
+                </div>
               </div>
-              <div class="form-group">
-                <label>Project Description *</label>
-                <textarea placeholder="Tell us about your project, goals, timeline, and any specific requirements..." rows="5" required></textarea>
+
+              <!-- Section 3: Budget & Timeline -->
+              <div class="form-section">
+                <h4 class="section-title">Budget & Timeline</h4>
+                
+                <div class="form-group">
+                  <label>Project Budget Range *</label>
+                  <select formControlName="budget" required>
+                    <option value="">Select budget range</option>
+                    <option value="under-500">Under $500</option>
+                    <option value="500-1500">$500 - $1,500</option>
+                    <option value="1500-3000">$1,500 - $3,000</option>
+                    <option value="3000-5000">$3,000 - $5,000</option>
+                    <option value="5000-10000">$5,000 - $10,000</option>
+                    <option value="10000-plus">$10,000+</option>
+                    <option value="discuss">Let's discuss</option>
+                  </select>
+                </div>
+                
+                <div class="form-group">
+                  <label>Desired Launch Date *</label>
+                  <select formControlName="timeline" required>
+                    <option value="">Select timeline</option>
+                    <option value="asap">ASAP (Rush job - may include rush fees)</option>
+                    <option value="2-4-weeks">Within 2-4 weeks</option>
+                    <option value="1-2-months">Within 1-2 months</option>
+                    <option value="3-6-months">Within 3-6 months</option>
+                    <option value="flexible">Flexible timeline</option>
+                  </select>
+                </div>
+                
+                <div class="form-group">
+                  <label>Is this date flexible? *</label>
+                  <select formControlName="timelineFlexible" required>
+                    <option value="">Select option</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                  </select>
+                </div>
               </div>
-              <button type="submit" class="btn btn-primary btn-full">
-                📤 Send Message
+
+              <!-- Section 4: Technical Requirements -->
+              <div class="form-section">
+                <h4 class="section-title">Technical Requirements</h4>
+                
+                <div class="form-group">
+                  <label>Do you have an existing website? *</label>
+                  <select formControlName="hasWebsite" required>
+                    <option value="">Select option</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                  </select>
+                </div>
+                
+                <div class="form-group" *ngIf="contactForm.get('hasWebsite')?.value === 'yes'">
+                  <label>Website URL</label>
+                  <input type="url" formControlName="websiteUrl" placeholder="https://yourwebsite.com">
+                </div>
+                
+                <div class="form-group">
+                  <label>Hosting Preference *</label>
+                  <select formControlName="hosting" required>
+                    <option value="">Select option</option>
+                    <option value="need-recommendations">I need hosting recommendations</option>
+                    <option value="have-hosting">I have existing hosting</option>
+                    <option value="specific-hosting">I prefer specific hosting (please specify)</option>
+                    <option value="need-advice">Unsure/Need advice</option>
+                  </select>
+                </div>
+                
+                <div class="form-group">
+                  <label>Required Features (Select all that apply)</label>
+                  <div class="checkbox-group">
+                    <label class="checkbox-item">
+                      <input type="checkbox" formControlName="featureContactForms">
+                      <span>Contact forms</span>
+                    </label>
+                    <label class="checkbox-item">
+                      <input type="checkbox" formControlName="featureBooking">
+                      <span>Online booking/scheduling</span>
+                    </label>
+                    <label class="checkbox-item">
+                      <input type="checkbox" formControlName="featurePayments">
+                      <span>Payment processing</span>
+                    </label>
+                    <label class="checkbox-item">
+                      <input type="checkbox" formControlName="featureUserAccounts">
+                      <span>User accounts/login</span>
+                    </label>
+                    <label class="checkbox-item">
+                      <input type="checkbox" formControlName="featureBlog">
+                      <span>Blog/news section</span>
+                    </label>
+                    <label class="checkbox-item">
+                      <input type="checkbox" formControlName="featureGallery">
+                      <span>Photo galleries</span>
+                    </label>
+                    <label class="checkbox-item">
+                      <input type="checkbox" formControlName="featureSocial">
+                      <span>Social media integration</span>
+                    </label>
+                    <label class="checkbox-item">
+                      <input type="checkbox" formControlName="featureNewsletter">
+                      <span>Email newsletter signup</span>
+                    </label>
+                    <label class="checkbox-item">
+                      <input type="checkbox" formControlName="featureSearch">
+                      <span>Search functionality</span>
+                    </label>
+                    <label class="checkbox-item">
+                      <input type="checkbox" formControlName="featureMultiLanguage">
+                      <span>Multi-language support</span>
+                    </label>
+                    <label class="checkbox-item">
+                      <input type="checkbox" formControlName="featureAnalytics">
+                      <span>Analytics tracking</span>
+                    </label>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" formControlName="featureOther" placeholder="Other features (please specify)">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section 5: Design & Content -->
+              <div class="form-section">
+                <h4 class="section-title">Design & Content</h4>
+                
+                <div class="form-group">
+                  <label>Design Style Preference (Select all that apply)</label>
+                  <div class="checkbox-group">
+                    <label class="checkbox-item">
+                      <input type="checkbox" formControlName="styleModern">
+                      <span>Modern/minimalist</span>
+                    </label>
+                    <label class="checkbox-item">
+                      <input type="checkbox" formControlName="styleCreative">
+                      <span>Creative/artistic</span>
+                    </label>
+                    <label class="checkbox-item">
+                      <input type="checkbox" formControlName="styleProfessional">
+                      <span>Professional/corporate</span>
+                    </label>
+                    <label class="checkbox-item">
+                      <input type="checkbox" formControlName="stylePlayful">
+                      <span>Playful/colorful</span>
+                    </label>
+                    <label class="checkbox-item">
+                      <input type="checkbox" formControlName="styleIndustry">
+                      <span>Industry-specific design</span>
+                    </label>
+                    <label class="checkbox-item">
+                      <input type="checkbox" formControlName="styleUnsure">
+                      <span>Not sure - need guidance</span>
+                    </label>
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label>Do you have existing branding? *</label>
+                  <select formControlName="branding" required>
+                    <option value="">Select option</option>
+                    <option value="yes">Yes - Logo, colors, fonts available</option>
+                    <option value="partial">Partial - Some elements available</option>
+                    <option value="no">No - Need complete branding</option>
+                  </select>
+                </div>
+                
+                <div class="form-group">
+                  <label>Content Status *</label>
+                  <select formControlName="contentStatus" required>
+                    <option value="">Select option</option>
+                    <option value="ready">I have all content ready</option>
+                    <option value="partial">I have some content, need help with rest</option>
+                    <option value="need-help">I need help creating all content</option>
+                    <option value="copywriting">I need copywriting services</option>
+                  </select>
+                </div>
+                
+                <div class="form-group">
+                  <label>Reference Websites (Optional)</label>
+                  <textarea formControlName="referenceWebsites" placeholder="Share 2-3 websites you like and explain what you like about them" rows="3"></textarea>
+                </div>
+              </div>
+
+              <!-- Section 6: Additional Information -->
+              <div class="form-section">
+                <h4 class="section-title">Additional Information</h4>
+                
+                <div class="form-group">
+                  <label>Special Requirements or Concerns</label>
+                  <textarea formControlName="specialRequirements" placeholder="Any specific technical needs, accessibility requirements, or concerns?" rows="3"></textarea>
+                </div>
+                
+                <div class="form-group">
+                  <label>How did you hear about Chapadevs?</label>
+                  <select formControlName="hearAboutUs">
+                    <option value="">Select option</option>
+                    <option value="google">Google search</option>
+                    <option value="social-media">Social media</option>
+                    <option value="referral">Referral</option>
+                    <option value="previous-client">Previous client</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                
+                <div class="form-group" *ngIf="contactForm.get('hearAboutUs')?.value === 'referral'">
+                  <label>Referral Source</label>
+                  <input type="text" formControlName="referralSource" placeholder="Who referred you to us?">
+                </div>
+                
+                <div class="form-group" *ngIf="contactForm.get('hearAboutUs')?.value === 'other'">
+                  <label>Please specify</label>
+                  <input type="text" formControlName="hearAboutUsOther" placeholder="How did you hear about us?">
+                </div>
+                
+                <div class="form-group">
+                  <label>Additional Comments</label>
+                  <textarea formControlName="additionalComments" placeholder="Anything else you'd like us to know about your project?" rows="3"></textarea>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-full" [disabled]="!contactForm.valid || isSubmitting">
+                <span *ngIf="!isSubmitting">📤 Send Message</span>
+                <span *ngIf="isSubmitting">Sending...</span>
               </button>
+              
+              <div *ngIf="submitMessage" class="submit-message" [class.success]="submitSuccess" [class.error]="!submitSuccess">
+                {{ submitMessage }}
+              </div>
             </form>
           </div>
           <div class="contact-info">
@@ -273,7 +585,7 @@ import { Router } from '@angular/router';
                 <span class="contact-icon">📧</span>
                 <div>
                   <strong>Email Us</strong>
-                  <p>hello@chapadevs.com</p>
+                  <p>inquire@chapadevs.com</p>
                 </div>
               </div>
               <div class="contact-method">
@@ -314,7 +626,7 @@ import { Router } from '@angular/router';
             <div class="link-group">
               <h4>Get In Touch</h4>
               <p>Ready to start your project?</p>
-              <a href="mailto:hello@chapadevs.com" class="contact-link">hello@chapadevs.com</a>
+              <a href="mailto:inquire@chapadevs.com" class="contact-link">inquire@chapadevs.com</a>
             </div>
           </div>
         </div>
@@ -327,9 +639,164 @@ import { Router } from '@angular/router';
   styles: []
 })
 export class HomeComponent {
-  constructor(private router: Router) {}
+  contactForm: FormGroup;
+  isSubmitting = false;
+  submitMessage = '';
+  submitSuccess = false;
+
+  constructor(private router: Router, private fb: FormBuilder) {
+    this.contactForm = this.fb.group({
+      // Contact Information
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      company: [''],
+      phone: [''],
+      contactMethod: ['', Validators.required],
+      
+      // Project Overview
+      projectType: ['', Validators.required],
+      description: ['', Validators.required],
+      goalOnlinePresence: [false],
+      goalLeads: [false],
+      goalPortfolio: [false],
+      goalEcommerce: [false],
+      goalUX: [false],
+      goalMobile: [false],
+      goalSEO: [false],
+      goalOther: [''],
+      
+      // Budget & Timeline
+      budget: ['', Validators.required],
+      timeline: ['', Validators.required],
+      timelineFlexible: ['', Validators.required],
+      
+      // Technical Requirements
+      hasWebsite: ['', Validators.required],
+      websiteUrl: [''],
+      hosting: ['', Validators.required],
+      featureContactForms: [false],
+      featureBooking: [false],
+      featurePayments: [false],
+      featureUserAccounts: [false],
+      featureBlog: [false],
+      featureGallery: [false],
+      featureSocial: [false],
+      featureNewsletter: [false],
+      featureSearch: [false],
+      featureMultiLanguage: [false],
+      featureAnalytics: [false],
+      featureOther: [''],
+      
+      // Design & Content
+      styleModern: [false],
+      styleCreative: [false],
+      styleProfessional: [false],
+      stylePlayful: [false],
+      styleIndustry: [false],
+      styleUnsure: [false],
+      branding: ['', Validators.required],
+      contentStatus: ['', Validators.required],
+      referenceWebsites: [''],
+      
+      // Additional Information
+      specialRequirements: [''],
+      hearAboutUs: [''],
+      referralSource: [''],
+      hearAboutUsOther: [''],
+      additionalComments: ['']
+    });
+  }
 
   goToPortfolio(): void {
     this.router.navigate(['/portfolio']);
+  }
+
+  onSubmit(): void {
+    if (this.contactForm.valid) {
+      this.isSubmitting = true;
+      this.submitMessage = '';
+
+      // Format the form data for email
+      const formData = this.formatFormData(this.contactForm.value);
+      
+      // Here you would typically send the data to your backend
+      // For now, we'll simulate the submission
+      this.simulateSubmission(formData);
+    } else {
+      this.submitMessage = 'Please fill in all required fields.';
+      this.submitSuccess = false;
+    }
+  }
+
+  private formatFormData(data: any): any {
+    // Format the data into a more readable format for email
+    const formatted = {
+      ...data,
+      goals: this.getSelectedGoals(data),
+      features: this.getSelectedFeatures(data),
+      styles: this.getSelectedStyles(data)
+    };
+    
+    return formatted;
+  }
+
+  private getSelectedGoals(data: any): string[] {
+    const goals = [];
+    if (data.goalOnlinePresence) goals.push('Increase online presence');
+    if (data.goalLeads) goals.push('Generate leads/sales');
+    if (data.goalPortfolio) goals.push('Showcase portfolio/services');
+    if (data.goalEcommerce) goals.push('Sell products online');
+    if (data.goalUX) goals.push('Improve user experience');
+    if (data.goalMobile) goals.push('Mobile optimization');
+    if (data.goalSEO) goals.push('SEO improvement');
+    if (data.goalOther) goals.push(`Other: ${data.goalOther}`);
+    return goals;
+  }
+
+  private getSelectedFeatures(data: any): string[] {
+    const features = [];
+    if (data.featureContactForms) features.push('Contact forms');
+    if (data.featureBooking) features.push('Online booking/scheduling');
+    if (data.featurePayments) features.push('Payment processing');
+    if (data.featureUserAccounts) features.push('User accounts/login');
+    if (data.featureBlog) features.push('Blog/news section');
+    if (data.featureGallery) features.push('Photo galleries');
+    if (data.featureSocial) features.push('Social media integration');
+    if (data.featureNewsletter) features.push('Email newsletter signup');
+    if (data.featureSearch) features.push('Search functionality');
+    if (data.featureMultiLanguage) features.push('Multi-language support');
+    if (data.featureAnalytics) features.push('Analytics tracking');
+    if (data.featureOther) features.push(`Other: ${data.featureOther}`);
+    return features;
+  }
+
+  private getSelectedStyles(data: any): string[] {
+    const styles = [];
+    if (data.styleModern) styles.push('Modern/minimalist');
+    if (data.styleCreative) styles.push('Creative/artistic');
+    if (data.styleProfessional) styles.push('Professional/corporate');
+    if (data.stylePlayful) styles.push('Playful/colorful');
+    if (data.styleIndustry) styles.push('Industry-specific design');
+    if (data.styleUnsure) styles.push('Not sure - need guidance');
+    return styles;
+  }
+
+  private simulateSubmission(formData: any): void {
+    // Simulate API call delay
+    setTimeout(() => {
+      console.log('Form Data:', formData);
+      
+      // For now, just show success message
+      // In a real app, you'd send this to your backend/email service
+      this.isSubmitting = false;
+      this.submitSuccess = true;
+      this.submitMessage = 'Thank you! Your message has been sent successfully. We\'ll get back to you within 24 hours.';
+      
+      // Reset form after successful submission
+      setTimeout(() => {
+        this.contactForm.reset();
+        this.submitMessage = '';
+      }, 5000);
+    }, 2000);
   }
 } 
