@@ -1,0 +1,87 @@
+{
+  // Cursor AI Settings
+  "cursor.chat.alwaysShowSendButton": true,
+  "cursor.general.enableTerminalShortcuts": true,
+  "cursor.cpp.enableInlineCompletion": true,
+  "cursor.general.gitCommitShortcut": true,
+  "cursor.chat.showInlineSuggestions": true,
+  "cursor.cpp.disableInEditor": false,
+  "cursor.general.enableContextualProgramming": true,
+  
+  // TypeScript & Angular Settings
+  "typescript.preferences.includePackageJsonAutoImports": "auto",
+  "typescript.suggest.autoImports": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.preferences.includePackageJsonAutoImports": "auto",
+  
+  // Editor Enhancements
+  "editor.suggestSelection": "first",
+  "editor.tabCompletion": "on",
+  "editor.wordBasedSuggestions": "matchingDocuments",
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": true,
+    "strings": true
+  },
+  "editor.inlineSuggest.enabled": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
+  
+  // File Associations
+  "files.associations": {
+    "*.component.html": "html",
+    "*.component.scss": "scss"
+  },
+  
+  // Angular Specific
+  "html.suggest.html5": true,
+  "emmet.includeLanguages": {
+    "typescript": "html"
+  },
+  "emmet.triggerExpansionOnTab": true,
+  
+  // Minimap and UI
+  "editor.minimap.enabled": true,
+  "editor.minimap.showSlider": "always",
+  "workbench.editor.enablePreview": false,
+  
+  // Terminal
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  
+  // Additional Productivity Settings
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
+  "editor.linkedEditing": true,
+  "editor.matchBrackets": "always",
+  "editor.showFoldingControls": "always",
+  "editor.foldingStrategy": "indentation",
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.snippetSuggestions": "top",
+  "editor.suggest.snippetsPreventQuickSuggestions": false,
+  
+  // File Explorer
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.compactFolders": false,
+  
+  // Search
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/.git": true,
+    "**/.angular": true
+  },
+  
+  // Breadcrumbs
+  "breadcrumbs.enabled": true,
+  "breadcrumbs.showFiles": true,
+  "breadcrumbs.showSymbols": true,
+  
+  // Performance
+  "typescript.disableAutomaticTypeAcquisition": false,
+  "typescript.preferences.includePackageJsonAutoImports": "auto",
+  "typescript.workspaceSymbols.scope": "allOpenProjects"
+} 

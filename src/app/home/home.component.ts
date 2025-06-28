@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import emailjs from '@emailjs/browser';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -647,7 +649,7 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
   `,
   styles: []
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   contactForm: FormGroup;
   isSubmitting = false;
   submitMessage = '';
@@ -717,6 +719,11 @@ export class HomeComponent {
     });
   }
 
+  ngOnInit(): void {
+    // Initialize EmailJS
+    emailjs.init(environment.emailService.publicKey);
+  }
+
   goToPortfolio(): void {
     this.router.navigate(['/portfolio']);
   }
@@ -760,9 +767,8 @@ export class HomeComponent {
       // Format the form data for email
       const formData = this.formatFormData(this.contactForm.value);
       
-      // Here you would typically send the data to your backend
-      // For now, we'll simulate the submission
-      this.simulateSubmission(formData);
+      // Send the data via EmailJS
+      this.sendEmail(formData);
     } else {
       this.submitMessage = 'Please fill in all required fields.';
       this.submitSuccess = false;
@@ -822,13 +828,51 @@ export class HomeComponent {
     return styles;
   }
 
-  private simulateSubmission(formData: any): void {
-    // Simulate API call delay
-    setTimeout(() => {
-      console.log('Form Data:', formData);
+  private async sendEmail(formData: any): Promise<void> {
+    try {
+      console.log('📧 Sending email with data:', formData);
       
-      // For now, just show success message
-      // In a real app, you'd send this to your backend/email service
+      // Prepare email parameters for EmailJS
+      const emailParams = {
+        to_email: 'admin@chapadevs.com',
+        from_name: formData.name,
+        from_email: formData.email,
+        company_name: formData.company,
+        phone: formData.phone || 'Not provided',
+        contact_method: formData.contactMethod || 'email',
+        project_type: formData.projectType,
+        project_description: formData.description,
+        goals: formData.goals && formData.goals.length > 0 ? formData.goals.join(', ') : 'Not specified',
+        features: formData.features && formData.features.length > 0 ? formData.features.join(', ') : 'Not specified',
+        styles: formData.styles && formData.styles.length > 0 ? formData.styles.join(', ') : 'Not specified',
+        budget: formData.budget,
+        timeline: formData.timeline,
+        has_website: formData.hasWebsite || 'Not specified',
+        website_url: formData.websiteUrl || 'Not provided',
+        current_host: formData.currentHost || 'Not provided',
+        branding: formData.branding || 'Not specified',
+        content_status: formData.contentStatus || 'Not specified',
+        reference_websites: formData.referenceWebsites || 'Not provided',
+        special_requirements: formData.specialRequirements || 'None',
+        hear_about_us: formData.hearAboutUs || 'Not specified',
+        referral_source: formData.referralSource || 'Not provided',
+        hear_about_us_other: formData.hearAboutUsOther || 'Not provided',
+        additional_comments: formData.additionalComments || 'None',
+        submission_date: new Date().toLocaleString()
+      };
+
+      console.log('📤 About to send email with params:', emailParams);
+      
+      // Send email via EmailJS
+      const result = await emailjs.send(
+        environment.emailService.serviceId,
+        environment.emailService.templateId,
+        emailParams
+      );
+      
+      console.log('✅ Email sent successfully:', result);
+      
+      // Show success message
       this.isSubmitting = false;
       this.submitSuccess = true;
       this.submitMessage = 'Thank you! Your message has been sent successfully. We\'ll get back to you within 24 hours.';
@@ -836,8 +880,17 @@ export class HomeComponent {
       // Reset form after successful submission
       setTimeout(() => {
         this.contactForm.reset();
+        this.currentStep = 1;
         this.submitMessage = '';
+        this.submitSuccess = false;
       }, 5000);
-    }, 2000);
+      
+    } catch (error) {
+      console.error('❌ Email sending failed:', error);
+      
+      this.isSubmitting = false;
+      this.submitSuccess = false;
+      this.submitMessage = 'Sorry, there was an error sending your message. Please try again or contact us directly at admin@chapadevs.com';
+    }
   }
 } 

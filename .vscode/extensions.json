@@ -1,0 +1,29 @@
+{
+  "recommendations": [
+    // Angular Essentials
+    "angular.ng-template",
+    "ms-vscode.vscode-typescript-next",
+    "bradlc.vscode-tailwindcss",
+    
+    // Code Quality & Formatting
+    "esbenp.prettier-vscode",
+    "ms-vscode.vscode-eslint",
+    "streetsidesoftware.code-spell-checker",
+    
+    // Git & Workflow
+    "eamodio.gitlens",
+    "ms-vscode.vscode-json",
+    
+    // HTML & CSS
+    "formulahendry.auto-rename-tag",
+    "zignd.html-css-class-completion",
+    
+    // Productivity
+    "ms-vscode.vscode-todo-highlight",
+    "aaron-bond.better-comments",
+    "usernamehw.errorlens",
+    
+    // Testing
+    "ms-vscode.vscode-jest"
+  ]
+} 

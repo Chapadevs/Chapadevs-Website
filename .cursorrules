@@ -1,0 +1,48 @@
+# Cursor AI Rules for Angular Development
+
+## Project Context
+This is an Angular project for ChaPaDevs website. Focus on modern Angular best practices, TypeScript, and SCSS styling.
+
+**Note:** For specific project goals, current features, and detailed requirements, discuss directly in chat for dynamic context.
+
+## Code Style & Quality
+- Use TypeScript strict mode
+- Prefer modern ES6+ syntax
+- Use Angular standalone components when possible
+- Follow Angular style guide conventions
+- Use SCSS for styling with CSS custom properties
+- Prefer reactive programming with RxJS observables
+
+## AI Assistance Preferences
+- Always suggest type-safe solutions
+- Include proper error handling
+- Add JSDoc comments for complex functions
+- Suggest performance optimizations
+- Recommend accessibility improvements
+- Use Angular CLI schematics when appropriate
+
+## File Patterns
+- Components: Use OnPush change detection by default
+- Services: Make them injectable with providedIn: 'root'
+- Models: Use interfaces over classes when possible
+- Routing: Implement lazy loading for feature modules
+
+## Code Generation Rules
+- Auto-import dependencies
+- Generate unit tests when creating new components/services
+- Include proper lifecycle hooks
+- Use Angular reactive forms over template-driven forms
+- Implement proper cleanup in ngOnDestroy
+
+## Angular Specific
+- Use Angular signals for state management when available
+- Prefer standalone components over NgModules
+- Use Angular CDK utilities when applicable
+- Follow Angular security best practices
+- Implement proper form validation
+
+## Development Workflow
+- Suggest running tests after major changes
+- Recommend linting fixes
+- Propose build optimizations
+- Suggest accessibility audits 
