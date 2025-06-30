@@ -22,10 +22,10 @@ import { environment } from '../../environments/environment';
             Your Digital Vision, <span class="text-green">Our Code</span>
           </h1>
           <p class="hero-description">
-            We turn your business ideas into powerful web applications with cutting-edge technology and AI-driven development. Let's build something amazing together.
+            We turn your business ideas into powerful web applications with modern technology and professional development practices. Let's build something amazing together.
           </p>
           <div class="hero-buttons">
-            <button class="btn btn-primary">
+            <button class="btn btn-primary" (click)="scrollToContact()">
               Start Your Project <span class="arrow">→</span>
             </button>
             <button class="btn btn-outline" (click)="goToPortfolio()">View Our Work</button>
@@ -59,12 +59,14 @@ import { environment } from '../../environments/environment';
           <span class="section-badge">Our Team</span>
           <h2 class="section-title">Meet Our Team</h2>
           <p class="section-description">
-            We're a passionate team of developers who combine traditional coding expertise with AI-driven development approaches to deliver exceptional web solutions.
+            We're a passionate team of developers who combine traditional coding expertise with modern development practices to deliver exceptional web solutions.
           </p>
         </div>
         <div class="team-grid">
           <div class="team-card">
-            <div class="team-avatar">ER</div>
+            <div class="team-avatar">
+              <img src="assets/erik-avatar.png" alt="Erik Avatar" class="avatar-image">
+            </div>
             <h3 class="team-name">Erik</h3>
             <p class="team-role">Project Owner & DevOps</p>
             <p class="team-bio">
@@ -72,37 +74,42 @@ import { environment } from '../../environments/environment';
             </p>
             <div class="team-skills">
               <span class="skill">Project Management</span>
-              <span class="skill">AWS/Cloud</span>
+              <span class="skill">Docker containerization</span>
+              <span class="skill">Oracle OCI/Cloud</span>
               <span class="skill">DevOps</span>
               <span class="skill">System Design</span>
             </div>
           </div>
           <div class="team-card">
-            <div class="team-avatar">RO</div>
+            <div class="team-avatar">
+              <img src="assets/romano-avatar.png" alt="Romano Avatar" class="avatar-image">
+            </div>
             <h3 class="team-name">Romano</h3>
             <p class="team-role">Frontend Developer</p>
             <p class="team-bio">
-              Creates stunning user interfaces with modern React frameworks and ensures perfect user experiences.
+              Creates stunning user interfaces with modern Angular frameworks and ensures perfect user experiences.
             </p>
             <div class="team-skills">
-              <span class="skill">React</span>
+              <span class="skill">Angular</span>
               <span class="skill">TypeScript</span>
               <span class="skill">UI/UX</span>
               <span class="skill">Responsive Design</span>
+              <span class="skill">Vercel deployment</span>
             </div>
           </div>
           <div class="team-card">
             <div class="team-avatar">MX</div>
-            <h3 class="team-name">Maxell</h3>
+            <h3 class="team-name">Maxel</h3>
             <p class="team-role">Backend Developer</p>
             <p class="team-bio">
               Builds robust server architectures and APIs that power scalable web applications.
             </p>
             <div class="team-skills">
-              <span class="skill">Node.js</span>
+              <span class="skill">Java/Spring Boot</span>
               <span class="skill">Databases</span>
               <span class="skill">API Design</span>
               <span class="skill">Security</span>
+              <span class="skill">Oracle OCI/Cloud</span>
             </div>
           </div>
         </div>
@@ -115,18 +122,18 @@ import { environment } from '../../environments/environment';
         <div class="features-grid">
           <div class="feature">
             <div class="feature-icon">⚡</div>
-            <h3>AI-Driven Development</h3>
-            <p>We leverage cutting-edge AI tools to accelerate development and ensure code quality.</p>
+            <h3>Lightning Fast Response</h3>
+            <p>Same-day responses to all inquiries and quick turnaround times. Professional websites delivered in 1-4 weeks without compromising quality.</p>
           </div>
           <div class="feature">
-            <div class="feature-icon">🎯</div>
-            <h3>Results Focused</h3>
-            <p>Every project is delivered with measurable business impact and user satisfaction in mind.</p>
+            <div class="feature-icon">👁️</div>
+            <h3>Complete Transparency</h3>
+            <p>Visual project plans, database models, and workflow diagrams keep you informed and involved at every step.</p>
           </div>
           <div class="feature">
-            <div class="feature-icon">👥</div>
-            <h3>Collaborative Approach</h3>
-            <p>We work closely with clients throughout the development process for optimal results.</p>
+            <div class="feature-icon">📋</div>
+            <h3>Notion Project Management</h3>
+            <p>Complete project tracking and client follow-up through Notion workspaces. Stay updated on every milestone with organized communication.</p>
           </div>
         </div>
       </div>
@@ -146,68 +153,278 @@ import { environment } from '../../environments/environment';
           <div class="service-card">
             <div class="service-icon green">🌐</div>
             <h3>Full-Stack Web Applications</h3>
-            <p>Complete web solutions from frontend to backend, designed for scalability and performance.</p>
+            <p>Complete web solutions from frontend to backend, built with modern technologies for scalability and performance.</p>
             <ul class="service-list">
-              <li>React & Next.js</li>
-              <li>Node.js & Express</li>
-              <li>Database Design</li>
-              <li>Cloud Deployment</li>
+              <li>Angular & TypeScript</li>
+              <li>Java Spring Boot</li>
+              <li>PostgreSQL Database</li>
+              <li>Oracle Cloud Infrastructure</li>
             </ul>
           </div>
-          <div class="service-card">
-            <div class="service-icon blue">🤖</div>
-            <h3>AI-Driven Development</h3>
-            <p>Leveraging artificial intelligence to accelerate development and enhance code quality.</p>
+                      <div class="service-card">
+            <div class="service-icon blue">⚡</div>
+            <h3>Fast Response & Notion Tracking</h3>
+            <p>Lightning-fast communication with comprehensive project management. Every project tracked through dedicated Notion workspaces.</p>
             <ul class="service-list">
-              <li>Code Generation</li>
-              <li>Automated Testing</li>
-              <li>Smart Debugging</li>
-              <li>Performance Optimization</li>
+              <li>Same-Day Response Time</li>
+              <li>Notion Project Workspaces</li>
+              <li>Real-time Progress Updates</li>
+              <li>1-4 Week Delivery</li>
             </ul>
           </div>
           <div class="service-card">
             <div class="service-icon purple">💜</div>
-            <h3>Modern Frontend Solutions</h3>
-            <p>Beautiful, responsive user interfaces that provide exceptional user experiences.</p>
+            <h3>Modern Frontend Development</h3>
+            <p>Beautiful, responsive user interfaces built with cutting-edge frameworks and best practices.</p>
             <ul class="service-list">
-              <li>React/Vue/Angular</li>
+              <li>Angular & SCSS</li>
               <li>Responsive Design</li>
-              <li>UI/UX Design</li>
+              <li>UI/UX Optimization</li>
               <li>Progressive Web Apps</li>
             </ul>
           </div>
           <div class="service-card">
             <div class="service-icon orange">🗄️</div>
-            <h3>Backend API Development</h3>
-            <p>Robust server architectures and APIs that power your applications reliably.</p>
+            <h3>Enterprise Backend Solutions</h3>
+            <p>Robust server architectures and APIs built with Java and deployed on Oracle Cloud Infrastructure.</p>
             <ul class="service-list">
-              <li>RESTful APIs</li>
-              <li>GraphQL</li>
-              <li>Database Integration</li>
-              <li>Security Implementation</li>
+              <li>Java Spring Boot APIs</li>
+              <li>PostgreSQL Integration</li>
+              <li>Oracle OCI Deployment</li>
+              <li>Security & Performance</li>
+            </ul>
+          </div>
+          <div class="service-card">
+            <div class="service-icon green">🔧</div>
+            <h3>Ongoing Maintenance & Support</h3>
+            <p>Continuous application monitoring, updates, and support with flexible monthly payment plans.</p>
+            <ul class="service-list">
+              <li>24/7 Application Monitoring</li>
+              <li>Regular Updates & Patches</li>
+              <li>Performance Optimization</li>
             </ul>
           </div>
           <div class="service-card">
             <div class="service-icon teal">📱</div>
-            <h3>Mobile-First Design</h3>
-            <p>Responsive designs that work perfectly across all devices and screen sizes.</p>
+            <h3>Mobile-First Responsive Design</h3>
+            <p>Websites that work flawlessly across all devices, from smartphones to desktop computers.</p>
             <ul class="service-list">
               <li>Mobile Optimization</li>
-              <li>Touch Interfaces</li>
-              <li>Cross-Platform</li>
-              <li>App-like Experience</li>
+              <li>Touch-Friendly Interfaces</li>
+              <li>Cross-Browser Compatible</li>
+              <li>Fast Loading Times</li>
             </ul>
           </div>
           <div class="service-card">
             <div class="service-icon violet">🛠️</div>
-            <h3>Custom Development</h3>
-            <p>Tailored solutions built specifically for your unique business requirements.</p>
+            <h3>Professional Development Process</h3>
+            <p>Streamlined workflows and modern tools ensure quality code and reliable project delivery.</p>
             <ul class="service-list">
-              <li>Custom Features</li>
-              <li>Third-party Integration</li>
-              <li>Legacy Modernization</li>
-              <li>Consultation</li>
+              <li>GitHub Version Control</li>
+              <li>Automated Testing</li>
+              <li>Code Reviews</li>
+              <li>Documentation</li>
             </ul>
+          </div>
+          <div class="service-card">
+            <div class="service-icon yellow">🎨</div>
+            <h3>Complete Brand Identity & Design</h3>
+            <p>Full branding assistance from concept to execution. We create cohesive brand experiences that stand out.</p>
+            <ul class="service-list">
+              <li>Logo Design & Brand Identity</li>
+              <li>Color Schemes & Typography</li>
+              <li>Business Cards & Stationery</li>
+              <li>Social Media Graphics</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Transparency Section -->
+    <section class="transparency">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Project Transparency</span>
+          <h2 class="section-title">We Keep You In The Loop</h2>
+          <p class="section-description">
+            No black boxes here. We believe in complete transparency and client involvement throughout your project development.
+          </p>
+        </div>
+        <div class="transparency-timeline">
+          <div class="timeline-item">
+            <div class="timeline-connector"></div>
+            <div class="timeline-icon">📋</div>
+            <div class="timeline-content">
+              <h3>Visual Project Planning</h3>
+              <p>Interactive project roadmaps and visual timelines help you understand every phase of development from start to finish.</p>
+              <div class="timeline-features">
+                <span class="feature-tag">Milestone Tracking</span>
+                <span class="feature-tag">Progress Bars</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-connector"></div>
+            <div class="timeline-icon">🗂️</div>
+            <div class="timeline-content">
+              <h3>Database Model Sharing</h3>
+              <p>Clear database structure diagrams and explanations so you understand how your data is organized and managed.</p>
+              <div class="timeline-features">
+                <span class="feature-tag">Entity Diagrams</span>
+                <span class="feature-tag">Data Flow</span>
+                <span class="feature-tag">Schema Docs</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-connector"></div>
+            <div class="timeline-icon">⚡</div>
+            <div class="timeline-content">
+              <h3>Workflow Visualization</h3>
+              <p>Step-by-step process flows showing exactly how your application works and how users will interact with it.</p>
+              <div class="timeline-features">
+                <span class="feature-tag">User Journeys</span>
+                <span class="feature-tag">Flowcharts</span>
+                <span class="feature-tag">Wireframes</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-connector last"></div>
+            <div class="timeline-icon">👥</div>
+            <div class="timeline-content">
+              <h3>Collaborative Review Sessions</h3>
+              <p>Regular meetings to review progress, explain technical decisions, and gather your feedback at every milestone.</p>
+              <div class="timeline-features">
+                <span class="feature-tag">Live Demos</span>
+                <span class="feature-tag">Code Reviews</span>
+                <span class="feature-tag">Feedback Sessions</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="transparency-details">
+          <h3>What You Get Access To:</h3>
+          <div class="details-grid">
+            <div class="detail-item">
+              <span class="check">✅</span>
+              <div>
+                <strong>Shared Notion Workspace</strong>
+                <p>Real-time access to project documentation, progress updates, and technical specifications</p>
+              </div>
+            </div>
+            <div class="detail-item">
+              <span class="check">✅</span>
+              <div>
+                <strong>Technical Documentation</strong>
+                <p>Easy-to-understand explanations of code structure, features, and system architecture</p>
+              </div>
+            </div>
+            <div class="detail-item">
+              <span class="check">✅</span>
+              <div>
+                <strong>Live Demo Access</strong>
+                <p>Preview your project at any stage with staging environments and development previews</p>
+              </div>
+            </div>
+            <div class="detail-item">
+              <span class="check">✅</span>
+              <div>
+                <strong>Version Control Access</strong>
+                <p>View code changes, commits, and development history through our GitHub repositories</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Support & Maintenance Section -->
+    <section class="support">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Post-Launch Support</span>
+          <h2 class="section-title">We Don't Just Build - We Maintain</h2>
+          <p class="section-description">
+            Your website launch is just the beginning. We provide comprehensive follow-up and ongoing maintenance to ensure your application stays secure, fast, and up-to-date.
+          </p>
+        </div>
+        <div class="support-dashboard">
+          <div class="dashboard-main">
+            <div class="service-package">
+              <div class="package-header">
+                <h3>🎯 Complete Support Package</h3>
+              </div>
+              <div class="package-description">
+                Everything you need to keep your website running smoothly and growing your business.
+              </div>
+              <div class="package-features">
+                <div class="feature-row">
+                  <span class="feature-icon">📊</span>
+                  <div class="feature-info">
+                    <strong>24/7 Monitoring</strong>
+                    <p>Proactive issue detection and instant alerts</p>
+                  </div>
+                </div>
+                <div class="feature-row">
+                  <span class="feature-icon">🔄</span>
+                  <div class="feature-info">
+                    <strong>Monthly Updates</strong>
+                    <p>Security patches and performance optimizations</p>
+                  </div>
+                </div>
+                <div class="feature-row">
+                  <span class="feature-icon">💬</span>
+                  <div class="feature-info">
+                    <strong>Priority Support</strong>
+                    <p>Direct access via Notion and email</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="dashboard-sidebar">
+            <div class="addon-services">
+              <h4>🎨 Add-On Services</h4>
+              <div class="addon-item">
+                <div class="addon-header">
+                  <span class="addon-icon">🎨</span>
+                  <strong>Brand Design</strong>
+                </div>
+                <p>Logos, business cards, marketing materials</p>
+              </div>
+              <div class="addon-item">
+                <div class="addon-header">
+                  <span class="addon-icon">📈</span>
+                  <strong>Marketing Assets</strong>
+                </div>
+                <p>Brochures, banners, email templates</p>
+              </div>
+              <div class="addon-item">
+                <div class="addon-header">
+                  <span class="addon-icon">⚡</span>
+                  <strong>Performance Boost</strong>
+                </div>
+                <p>Speed optimization and SEO improvements</p>
+              </div>
+            </div>
+            
+            <div class="support-stats">
+              <h4>📈 Our Track Record</h4>
+              <div class="stat-item">
+                <div class="stat-number">99.9%</div>
+                <div class="stat-label">Uptime Guarantee</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">&lt;2hrs</div>
+                <div class="stat-label">Response Time</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -596,14 +813,14 @@ import { environment } from '../../environments/environment';
                 <span class="contact-icon">📧</span>
                 <div>
                   <strong>Email Us</strong>
-                  <p>inquire@chapadevs.com</p>
+                  <p>contact@chapadevs.com</p>
                 </div>
               </div>
               <div class="contact-method">
                 <span class="contact-icon">📞</span>
                 <div>
                   <strong>Call Us</strong>
-                  <p>+1 (555) 123-4567</p>
+                  <p>+1 (862) 235 8352</p>
                 </div>
               </div>
               <div class="contact-method">
@@ -625,7 +842,7 @@ import { environment } from '../../environments/environment';
         <div class="footer-content">
           <div class="footer-brand">
             <h3>Chapadevs</h3>
-            <p>Transforming business ideas into powerful web applications with cutting-edge technology and AI-driven development.</p>
+            <p>Transforming business ideas into powerful web applications with modern technology and professional development practices.</p>
           </div>
           <div class="footer-links">
             <div class="link-group">
@@ -647,7 +864,516 @@ import { environment } from '../../environments/environment';
       </div>
     </footer>
   `,
-  styles: []
+  styles: [`
+    .team-avatar {
+      width: 80px;
+      height: 90px;
+      border-radius: 50%;
+      border: 1px solid rgb(0, 110, 10);
+      background: linear-gradient(135deg, #10b981, #059669);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      font-size: 1.5rem;
+      margin: 0 auto 1rem;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .avatar-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* Transparency Section Styles */
+    .transparency {
+      padding: 5rem 0;
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    }
+
+    .transparency .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .transparency .section-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 25px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .transparency .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 1rem;
+    }
+
+    .transparency .section-description {
+      font-size: 1.125rem;
+      color: #64748b;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .transparency-timeline {
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      position: relative;
+    }
+
+    .timeline-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-connector {
+      position: absolute;
+      left: 30px;
+      top: 60px;
+      width: 3px;
+      height: calc(100% + 3rem);
+      background: linear-gradient(180deg, #10b981, #059669);
+      border-radius: 2px;
+    }
+
+    .timeline-connector.last {
+      display: none;
+    }
+
+    .timeline-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #10b981, #059669);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: white;
+      margin-right: 2rem;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+      position: relative;
+      z-index: 2;
+      flex-shrink: 0;
+    }
+
+    .timeline-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      border: 1px solid #e2e8f0;
+      flex: 1;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .timeline-content:hover {
+      transform: translateX(8px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    .timeline-content::before {
+      content: '';
+      position: absolute;
+      left: -8px;
+      top: 24px;
+      width: 0;
+      height: 0;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-right: 8px solid white;
+      filter: drop-shadow(-1px 0 1px rgba(0, 0, 0, 0.1));
+    }
+
+    .timeline-content h3 {
+      font-size: 1.375rem;
+      font-weight: 600;
+      color: #1e293b;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .timeline-content p {
+      color: #64748b;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .timeline-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .feature-tag {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .transparency-details {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e2e8f0;
+    }
+
+    .transparency-details h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #1e293b;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .detail-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem;
+      background: #f8fafc;
+      border-radius: 12px;
+      border-left: 4px solid #10b981;
+    }
+
+    .detail-item .check {
+      color: #10b981;
+      font-size: 1.25rem;
+      font-weight: bold;
+      flex-shrink: 0;
+      margin-top: 0.125rem;
+    }
+
+    .detail-item strong {
+      display: block;
+      color: #1e293b;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      font-size: 1rem;
+    }
+
+    .detail-item p {
+      color: #64748b;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* Support Dashboard Styles */
+    .support-dashboard {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .dashboard-main {
+      background: white;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+      overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .service-package {
+      padding: 2rem;
+    }
+
+    .package-header {
+      display: flex;
+      justify-content: between;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid #f1f5f9;
+    }
+
+    .package-header h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #1e293b;
+      margin: 0;
+    }
+
+    .price-tag {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.875rem;
+    }
+
+    .package-description {
+      color: #64748b;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .package-features {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .feature-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: #f8fafc;
+      border-radius: 8px;
+      border-left: 3px solid #10b981;
+    }
+
+    .feature-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .feature-info {
+      flex: 1;
+    }
+
+    .feature-info strong {
+      display: block;
+      color: #1e293b;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .feature-info p {
+      color: #64748b;
+      font-size: 0.875rem;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .feature-status {
+      color: #10b981;
+      font-weight: 600;
+      font-size: 0.875rem;
+    }
+
+    .dashboard-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .addon-services {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .addon-services h4 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #1e293b;
+      margin-bottom: 1rem;
+    }
+
+    .addon-item {
+      padding: 1rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      margin-bottom: 0.75rem;
+      transition: all 0.2s ease;
+    }
+
+    .addon-item:hover {
+      border-color: #10b981;
+      background: #f0fdf4;
+    }
+
+    .addon-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .addon-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .addon-icon {
+      font-size: 1.125rem;
+    }
+
+    .addon-header strong {
+      color: #1e293b;
+      font-weight: 600;
+    }
+
+    .addon-item p {
+      color: #64748b;
+      font-size: 0.875rem;
+      margin: 0 0 0.5rem 0;
+      line-height: 1.4;
+    }
+
+    .addon-price {
+      color: #10b981;
+      font-weight: 600;
+      font-size: 0.875rem;
+    }
+
+    .support-stats {
+      background: linear-gradient(135deg, #1e293b, #334155);
+      color: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .support-stats h4 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: white;
+    }
+
+    .stat-item {
+      margin-bottom: 1rem;
+    }
+
+    .stat-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .stat-number {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #10b981;
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-label {
+      font-size: 0.875rem;
+      color: #cbd5e1;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .transparency {
+        padding: 3rem 0;
+      }
+      
+      .transparency .section-title {
+        font-size: 2rem;
+      }
+      
+      .transparency-timeline {
+        max-width: 100%;
+        padding: 0 1rem;
+      }
+      
+      .timeline-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      
+      .timeline-connector {
+        left: 50%;
+        transform: translateX(-50%);
+        height: 2rem;
+        top: 80px;
+      }
+      
+      .timeline-icon {
+        margin-right: 0;
+        margin-bottom: 1rem;
+      }
+      
+      .timeline-content {
+        padding: 1.5rem;
+        margin-top: 0;
+      }
+      
+      .timeline-content::before {
+        display: none;
+      }
+      
+      .timeline-content:hover {
+        transform: translateY(-4px);
+      }
+      
+      .transparency-details {
+        padding: 1.5rem;
+      }
+      
+      .details-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      
+      .detail-item {
+        padding: 0.75rem;
+      }
+      
+      .support-dashboard {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
+      .package-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+      }
+      
+      .feature-row {
+        padding: 0.75rem;
+      }
+      
+      .addon-services {
+        padding: 1rem;
+      }
+      
+      .support-stats {
+        padding: 1rem;
+      }
+    }
+  `]
 })
 export class HomeComponent implements OnInit {
   contactForm: FormGroup;
@@ -726,6 +1452,16 @@ export class HomeComponent implements OnInit {
 
   goToPortfolio(): void {
     this.router.navigate(['/portfolio']);
+  }
+
+  scrollToContact(): void {
+    const contactElement = document.getElementById('contact');
+    if (contactElement) {
+      contactElement.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start' 
+      });
+    }
   }
 
   nextStep(): void {

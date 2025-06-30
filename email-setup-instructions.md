@@ -24,7 +24,7 @@
 
 2. **Fill out the form** with test data
 3. **Submit the form**
-4. **Check your email** (tech@chapadevs.com) for the inquiry
+4. **Check your email** (admin@chapadevs.com) for the inquiry
 
 ## Expected Email Format
 

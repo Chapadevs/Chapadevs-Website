@@ -4,7 +4,7 @@
 
 **Technology Stack:**
 - **Frontend**: Angular + Vercel (Romano deploys independently)
-- **Backend**: Java Oracle Functions + API Gateway (Erik + Maxell deploy)
+- **Backend**: Java Oracle Functions + API Gateway (Erik + Maxel deploy)
 - **Project Management**: Linear workspace with GitHub integration
 - **Email**: tech@chapadevs.com via Oracle Email Delivery
 
@@ -23,7 +23,7 @@ Contact Form → Java Oracle Function → Linear Issue + Emails → Erik Analysi
 ### Java Oracle Function
 - **Location**: `oracle-functions/submit-inquiry-java/`
 - **Handles**: Linear API, Email delivery, CORS
-- **Deploys**: Erik and Maxell only
+- **Deploys**: Erik and Maxel only
 - **Endpoint**: Oracle API Gateway
 
 ### Angular Contact Form
@@ -50,7 +50,7 @@ Contact Form → Java Oracle Function → Linear Issue + Emails → Erik Analysi
 - UI/UX implementation
 - No Oracle knowledge required
 
-**Maxell (Backend):**
+**Maxel (Backend):**
 - Java function development and debugging
 - Oracle infrastructure support
 - Performance optimization
