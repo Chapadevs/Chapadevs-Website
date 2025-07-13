@@ -10,14 +10,13 @@ import { environment } from '../../environments/environment';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   template: `
+    <header class="main-header">
+      <img src="assets/logos/chapadevs-logo.png" alt="ChaPaDevs Logo" class="header-logo" />
+    </header>
     <!-- Hero Section -->
     <section class="hero">
       <div class="container">
         <div class="hero-content">
-          <div class="brand">
-            <span class="code-icon">&lt;/&gt;</span>
-            <span class="brand-name">Chapadevs</span>
-          </div>
           <h1 class="hero-title">
             Your Digital Vision, <span class="text-green">Our Code</span>
           </h1>
@@ -65,7 +64,7 @@ import { environment } from '../../environments/environment';
         <div class="team-grid">
           <div class="team-card">
             <div class="team-avatar">
-              <img src="assets/erik-avatar.png" alt="Erik Avatar" class="avatar-image">
+              <img src="assets/icons/avatars/erik-avatar.png" alt="Erik Avatar" class="avatar-image">
             </div>
             <h3 class="team-name">Erik</h3>
             <p class="team-role">Project Owner & DevOps</p>
@@ -82,7 +81,7 @@ import { environment } from '../../environments/environment';
           </div>
           <div class="team-card">
             <div class="team-avatar">
-              <img src="assets/romano-avatar.png" alt="Romano Avatar" class="avatar-image">
+              <img src="assets/icons/avatars/romano-avatar.png" alt="Romano Avatar" class="avatar-image">
             </div>
             <h3 class="team-name">Romano</h3>
             <p class="team-role">Frontend Developer</p>
@@ -98,7 +97,9 @@ import { environment } from '../../environments/environment';
             </div>
           </div>
           <div class="team-card">
-            <div class="team-avatar">MX</div>
+            <div class="team-avatar">
+              <img src="assets/icons/avatars/maxel-avatar.png" alt="Maxel Avatar" class="avatar-image">
+            </div>
             <h3 class="team-name">Maxel</h3>
             <p class="team-role">Backend Developer</p>
             <p class="team-bio">
