@@ -297,12 +297,9 @@ import { environment } from '../../environments/environment';
         <div class="transparency-timeline">
           <div class="timeline-item">
             <div class="timeline-connector"></div>
-            <div class="timeline-icon transparency-icon-planning">
-              <span class="icon-main">📋</span>
-              <span class="icon-transparency">👁️</span>
-            </div>
+            <div class="timeline-icon">📋</div>
             <div class="timeline-content">
-              <h3>Visual Project Planning <span class="transparency-indicator">🔍 Live View</span></h3>
+              <h3>Visual Project Planning</h3>
               <p>Interactive project roadmaps and visual timelines help you understand every phase of development from start to finish.</p>
               <div class="timeline-features">
                 <span class="feature-tag">Milestone Tracking</span>
@@ -314,12 +311,9 @@ import { environment } from '../../environments/environment';
           
           <div class="timeline-item">
             <div class="timeline-connector"></div>
-            <div class="timeline-icon transparency-icon-database">
-              <span class="icon-main">🗂️</span>
-              <span class="icon-transparency">📊</span>
-            </div>
+            <div class="timeline-icon">🗂️</div>
             <div class="timeline-content">
-              <h3>Database Model Sharing <span class="transparency-indicator">🔍 Full Access</span></h3>
+              <h3>Database Model Sharing</h3>
               <p>Clear database structure diagrams and explanations so you understand how your data is organized and managed.</p>
               <div class="timeline-features">
                 <span class="feature-tag">Entity Diagrams</span>
@@ -331,12 +325,9 @@ import { environment } from '../../environments/environment';
           
           <div class="timeline-item">
             <div class="timeline-connector"></div>
-            <div class="timeline-icon transparency-icon-workflow">
-              <span class="icon-main">⚡</span>
-              <span class="icon-transparency">🔄</span>
-            </div>
+            <div class="timeline-icon">⚡</div>
             <div class="timeline-content">
-              <h3>Workflow Visualization <span class="transparency-indicator">🔍 Step-by-Step</span></h3>
+              <h3>Workflow Visualization</h3>
               <p>Step-by-step process flows showing exactly how your application works and how users will interact with it.</p>
               <div class="timeline-features">
                 <span class="feature-tag">User Journeys</span>
@@ -348,12 +339,9 @@ import { environment } from '../../environments/environment';
           
           <div class="timeline-item">
             <div class="timeline-connector last"></div>
-            <div class="timeline-icon transparency-icon-collaboration">
-              <span class="icon-main">👥</span>
-              <span class="icon-transparency">💬</span>
-            </div>
+            <div class="timeline-icon">👥</div>
             <div class="timeline-content">
-              <h3>Collaborative Review Sessions <span class="transparency-indicator">🔍 Open Discussion</span></h3>
+              <h3>Collaborative Review Sessions</h3>
               <p>Regular meetings to review progress, explain technical decisions, and gather your feedback at every milestone.</p>
               <div class="timeline-features">
                 <span class="feature-tag">Live Demos</span>
@@ -926,436 +914,9 @@ import { environment } from '../../environments/environment';
     }
 
     /* Transparency Section Styles */
-    .transparency {
-      padding: 5rem 0;
-      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-    }
 
-    .transparency .section-header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
 
-    .transparency-badge-container {
-      position: relative;
-      margin-bottom: 2rem;
-    }
 
-    .transparency-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(16, 185, 129, 0.1);
-      border: 2px solid rgba(16, 185, 129, 0.3);
-      backdrop-filter: blur(10px);
-      color: #10b981;
-      padding: 0.75rem 2rem;
-      border-radius: 50px;
-      font-size: 1rem;
-      font-weight: 600;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-
-    .transparency-badge:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
-      border-color: rgba(16, 185, 129, 0.5);
-      background: rgba(16, 185, 129, 0.15);
-    }
-
-    .transparency-icon {
-      font-size: 1.2rem;
-      animation: pulse 2s infinite;
-    }
-
-    .transparency-glow {
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-      transition: left 0.5s;
-    }
-
-    .transparency-badge:hover .transparency-glow {
-      left: 100%;
-    }
-
-    .badge-text {
-      position: relative;
-      z-index: 1;
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-    }
-
-    .transparency-promise {
-      margin-top: 3rem;
-      margin-bottom: 4rem;
-    }
-
-    .promise-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .promise-card {
-      background: rgba(255, 255, 255, 0.9);
-      border: 2px solid rgba(16, 185, 129, 0.2);
-      border-radius: 20px;
-      padding: 2.5rem;
-      text-align: center;
-      backdrop-filter: blur(10px);
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .promise-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.1), transparent);
-      transition: left 0.6s ease;
-    }
-
-    .promise-card:hover::before {
-      left: 100%;
-    }
-
-    .promise-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2);
-      border-color: rgba(16, 185, 129, 0.4);
-    }
-
-    .promise-icon {
-      font-size: 3rem;
-      margin-bottom: 1.5rem;
-      display: block;
-      animation: float 3s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-    }
-
-    .promise-card h4 {
-      font-size: 1.5rem;
-      color: #1e293b;
-      margin-bottom: 1rem;
-      font-family: 'Code Bold', Arial, Helvetica, sans-serif;
-    }
-
-    .promise-card p {
-      color: #64748b;
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-      font-size: 1rem;
-    }
-
-    .promise-features {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      text-align: left;
-    }
-
-    .feature-bullet {
-      color: #10b981;
-      font-size: 0.9rem;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .feature-bullet::before {
-      content: '';
-      width: 6px;
-      height: 6px;
-      background: #10b981;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
-    .transparency .section-title {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #1e293b;
-      margin-bottom: 1rem;
-    }
-
-    .transparency .section-description {
-      font-size: 1.125rem;
-      color: #64748b;
-      max-width: 600px;
-      margin: 0 auto;
-      line-height: 1.7;
-    }
-
-    .transparency-timeline {
-      max-width: 800px;
-      margin: 0 auto 3rem;
-      position: relative;
-    }
-
-    .timeline-item {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 3rem;
-      position: relative;
-    }
-
-    .timeline-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .timeline-connector {
-      position: absolute;
-      left: 30px;
-      top: 60px;
-      width: 3px;
-      height: calc(100% + 3rem);
-      background: linear-gradient(180deg, #10b981, #059669);
-      border-radius: 2px;
-    }
-
-    .timeline-connector.last {
-      display: none;
-    }
-
-    .timeline-icon {
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, #10b981, #059669);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      color: white;
-      margin-right: 2rem;
-      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
-      position: relative;
-      z-index: 2;
-      flex-shrink: 0;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-
-    .timeline-icon:hover {
-      transform: scale(1.1);
-      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
-    }
-
-    .icon-main {
-      position: absolute;
-      transition: all 0.3s ease;
-    }
-
-    .icon-transparency {
-      position: absolute;
-      opacity: 0;
-      transform: scale(0.5);
-      transition: all 0.3s ease;
-    }
-
-    .timeline-icon:hover .icon-main {
-      opacity: 0;
-      transform: scale(0.5);
-    }
-
-    .timeline-icon:hover .icon-transparency {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    .transparency-indicator {
-      font-size: 0.75rem;
-      color: #10b981;
-      background: rgba(16, 185, 129, 0.1);
-      padding: 0.25rem 0.5rem;
-      border-radius: 12px;
-      margin-left: 0.5rem;
-      font-weight: 500;
-      white-space: nowrap;
-    }
-
-    .timeline-content {
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-      border: 1px solid #e2e8f0;
-      flex: 1;
-      position: relative;
-      transition: all 0.3s ease;
-    }
-
-    .timeline-content:hover {
-      transform: translateX(8px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-    }
-
-    .timeline-content::before {
-      content: '';
-      position: absolute;
-      left: -8px;
-      top: 24px;
-      width: 0;
-      height: 0;
-      border-top: 8px solid transparent;
-      border-bottom: 8px solid transparent;
-      border-right: 8px solid white;
-      filter: drop-shadow(-1px 0 1px rgba(0, 0, 0, 0.1));
-    }
-
-    .timeline-content h3 {
-      font-size: 1.375rem;
-      font-weight: 600;
-      color: #1e293b;
-      margin-bottom: 0.75rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .timeline-content p {
-      color: #64748b;
-      line-height: 1.6;
-      margin-bottom: 1rem;
-      font-size: 0.95rem;
-    }
-
-    .timeline-features {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .feature-tag {
-      background: linear-gradient(135deg, #10b981, #059669);
-      color: white;
-      padding: 0.25rem 0.75rem;
-      border-radius: 20px;
-      font-size: 0.75rem;
-      font-weight: 500;
-      white-space: nowrap;
-    }
-
-    .transparency-guarantee {
-      background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(16, 185, 129, 0.1));
-      border: 2px solid rgba(16, 185, 129, 0.2);
-      border-radius: 24px;
-      padding: 3rem;
-      max-width: 900px;
-      margin: 0 auto;
-      backdrop-filter: blur(10px);
-    }
-
-    .guarantee-content h3 {
-      font-size: 2rem;
-      font-family: 'Code Bold', Arial, Helvetica, sans-serif;
-      color: #1e293b;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-
-    .guarantee-content > p {
-      font-size: 1.1rem;
-      color: #64748b;
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .guarantee-box {
-      background: rgba(255, 255, 255, 0.9);
-      border: 2px solid rgba(16, 185, 129, 0.3);
-      border-radius: 20px;
-      padding: 2rem;
-      margin-bottom: 2rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 1.5rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .guarantee-box::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, #10b981, #059669);
-    }
-
-    .guarantee-icon {
-      font-size: 2.5rem;
-      flex-shrink: 0;
-      animation: pulse 2s infinite;
-    }
-
-    .guarantee-text h4 {
-      font-size: 1.3rem;
-      color: #1e293b;
-      margin-bottom: 0.5rem;
-      line-height: 1.4;
-    }
-
-    .guarantee-text p {
-      color: #64748b;
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
-    .transparency-benefits {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .benefit-item {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 1rem;
-      background: rgba(255, 255, 255, 0.7);
-      border-radius: 12px;
-      border: 1px solid rgba(16, 185, 129, 0.2);
-      transition: all 0.3s ease;
-    }
-
-    .benefit-item:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
-    }
-
-    .benefit-icon {
-      font-size: 1.5rem;
-      flex-shrink: 0;
-    }
-
-    .benefit-text {
-      color: #1e293b;
-      font-weight: 500;
-      font-size: 0.95rem;
-    }
 
     /* Support Dashboard Styles */
     .support-dashboard {
