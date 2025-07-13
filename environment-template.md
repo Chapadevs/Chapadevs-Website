@@ -5,7 +5,7 @@
 Create a `.env` file in the project root with these variables:
 
 ```bash
-# ChaPaDevs Environment Variables
+# Chapadevs Environment Variables
 # DO NOT COMMIT THIS FILE TO GIT
 
 # EmailJS Configuration (Required)
@@ -14,7 +14,7 @@ EMAILJS_TEMPLATE_ID=your_template_id_here
 EMAILJS_PUBLIC_KEY=your_public_key_here
 
 # Application Configuration
-APP_NAME=ChaPaDevs
+APP_NAME=Chapadevs
 APP_URL_DEV=http://localhost:4200
 APP_URL_PROD=https://your-domain.vercel.app
 

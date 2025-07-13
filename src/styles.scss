@@ -1,16 +1,8 @@
 /* Custom Fonts */
 @font-face {
-  font-family: 'Adam';
-  src: url('./assets/fonts/Adam-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Asgalt';
-  src: url('./assets/fonts/Asgalt-Regular.ttf') format('truetype');
-  font-weight: 400;
+  font-family: 'Coolvetica';
+  src: url('assets/fonts/Coolvetica\ Rg.otf') format('opentype');
+  font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
@@ -32,15 +24,15 @@
 
 html {
   scroll-behavior: smooth;
-  font-family: 'Code Bold', Arial, Helvetica, sans-serif;
-  font-weight: bold;
+  font-family: 'Coolvetica', Arial, Helvetica, sans-serif;
+  font-weight: 300;
   letter-spacing: 0.01em;
   color: var(--text-primary);
 }
 
 body {
-  font-family: 'Code Bold', Arial, Helvetica, sans-serif;
-  font-weight: bold;
+  font-family: 'Coolvetica', Arial, Helvetica, sans-serif;
+  font-weight: 300;
   letter-spacing: 0.01em;
   line-height: 1.6;
   color: var(--text-primary);
@@ -64,7 +56,7 @@ body {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
+  font-family: 'Code Bold', Arial, Helvetica, sans-serif;
   line-height: 1.2;
   margin-bottom: 1rem;
 }
@@ -74,9 +66,8 @@ h2 { font-size: 2.5rem; }
 h3 { font-size: 1.5rem; }
 
 /* Font Utility Classes */
-.font-adam { font-family: 'Adam', sans-serif; }
-.font-asgalt { font-family: 'Asgalt', sans-serif; }
-.font-inter { font-family: 'Inter', sans-serif; }
+.font-coolvetica { font-family: 'Coolvetica', sans-serif; }
+.font-code-bold { font-family: 'Code Bold', sans-serif; }
 
 /* Layout */
 .container {
@@ -167,7 +158,6 @@ h3 { font-size: 1.5rem; }
 .code-icon {
   color: var(--primary-green);
   font-size: 0.6rem;
-  font-weight: bold;
 }
 
 .brand-name {
@@ -329,7 +319,6 @@ section {
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
-  font-weight: bold;
   margin: 0 auto 1.5rem;
 }
 
@@ -340,7 +329,7 @@ section {
 
 .team-role {
   color: var(--primary-green);
-  font-weight: 600;
+  font-weight: 500;
   margin-bottom: 1rem;
 }
 
@@ -1312,9 +1301,16 @@ section {
   }
 }
 
-h1, h2, h3, h4, h5, h6, .hero-title, .section-title, .brand-logo, p, li, span, label, input, textarea, button {
+/* Title classes use Code Bold */
+.hero-title, .section-title, .brand-logo {
   font-family: 'Code Bold', Arial, Helvetica, sans-serif;
-  font-weight: bold;
+  letter-spacing: 0.01em;
+}
+
+/* Normal text elements use Coolvetica */
+p, li, span, label, input, textarea, button {
+  font-family: 'Coolvetica', Arial, Helvetica, sans-serif;
+  font-weight: 300;
   letter-spacing: 0.01em;
 }
 

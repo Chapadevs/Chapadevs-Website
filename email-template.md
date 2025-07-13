@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="header">
-        <h2>🚀 New Project Inquiry - ChaPaDevs</h2>
+        <h2>🚀 New Project Inquiry - Chapadevs</h2>
         <p>A potential client is interested in working with you!</p>
     </div>
     
@@ -133,7 +133,7 @@
         <p><strong>Submitted:</strong> {{submission_date}}</p>
         <p>💡 <strong>Next Step:</strong> Reply directly to {{from_email}} to follow up</p>
         <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 15px 0;">
-        <p>ChaPaDevs - Building Amazing Websites</p>
+        <p>Chapadevs - Building Amazing Websites</p>
     </div>
 </body>
 </html>

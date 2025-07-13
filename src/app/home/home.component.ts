@@ -11,14 +11,14 @@ import { environment } from '../../environments/environment';
   imports: [CommonModule, ReactiveFormsModule],
   template: `
     <header class="main-header">
-      <img src="assets/logos/chapadevs-logo.png" alt="ChaPaDevs Logo" class="header-logo" />
+      <img src="assets/logos/chapadevs-logo.png" alt="Chapadevs Logo" class="header-logo" />
     </header>
     <!-- Hero Section -->
     <section class="hero">
       <div class="container">
         <div class="hero-content">
           <h1 class="hero-title">
-            Your Digital Vision, <span class="text-green">Our Code</span>
+            Your Digital Vision, <span class="text-green">OUR CODE</span>
           </h1>
           <p class="hero-description">
             We turn your business ideas into powerful web applications with modern technology and professional development practices. Let's build something amazing together.
@@ -246,31 +246,80 @@ import { environment } from '../../environments/environment';
     <section class="transparency">
       <div class="container">
         <div class="section-header">
-          <span class="section-badge">Project Transparency</span>
+          <div class="transparency-badge-container">
+            <span class="section-badge transparency-badge">
+              <span class="transparency-icon">👁️</span>
+              <span class="badge-text">Zero Surprises Guarantee</span>
+              <span class="transparency-glow"></span>
+            </span>
+          </div>
           <h2 class="section-title">We Keep You In The Loop</h2>
           <p class="section-description">
             No black boxes here. We believe in complete transparency and client involvement throughout your project development.
           </p>
+          <div class="transparency-promise">
+            <div class="promise-grid">
+              <div class="promise-card">
+                <div class="promise-icon">📱</div>
+                <h4>Live Project Dashboard</h4>
+                <p>Track your project's progress in real-time with our custom client portal. See exactly what we're working on, when it will be done, and what's coming next.</p>
+                <div class="promise-features">
+                  <span class="feature-bullet">• Live progress tracking</span>
+                  <span class="feature-bullet">• Milestone notifications</span>
+                  <span class="feature-bullet">• Time & budget updates</span>
+                </div>
+              </div>
+              
+              <div class="promise-card">
+                <div class="promise-icon">💻</div>
+                <h4>See Your Code in Action</h4>
+                <p>Preview your website at every stage of development. No waiting until the end - you'll see your vision come to life step by step.</p>
+                <div class="promise-features">
+                  <span class="feature-bullet">• Staging environment access</span>
+                  <span class="feature-bullet">• Mobile & desktop previews</span>
+                  <span class="feature-bullet">• Instant feedback integration</span>
+                </div>
+              </div>
+              
+              <div class="promise-card">
+                <div class="promise-icon">🗣️</div>
+                <h4>Direct Communication</h4>
+                <p>No middlemen, no confusion. Chat directly with your developer, get immediate answers, and make decisions together in real-time.</p>
+                <div class="promise-features">
+                  <span class="feature-bullet">• Direct developer access</span>
+                  <span class="feature-bullet">• Video call reviews</span>
+                  <span class="feature-bullet">• Instant messaging support</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="transparency-timeline">
           <div class="timeline-item">
             <div class="timeline-connector"></div>
-            <div class="timeline-icon">📋</div>
+            <div class="timeline-icon transparency-icon-planning">
+              <span class="icon-main">📋</span>
+              <span class="icon-transparency">👁️</span>
+            </div>
             <div class="timeline-content">
-              <h3>Visual Project Planning</h3>
+              <h3>Visual Project Planning <span class="transparency-indicator">🔍 Live View</span></h3>
               <p>Interactive project roadmaps and visual timelines help you understand every phase of development from start to finish.</p>
               <div class="timeline-features">
                 <span class="feature-tag">Milestone Tracking</span>
                 <span class="feature-tag">Progress Bars</span>
+                <span class="feature-tag">Real-time Updates</span>
               </div>
             </div>
           </div>
           
           <div class="timeline-item">
             <div class="timeline-connector"></div>
-            <div class="timeline-icon">🗂️</div>
+            <div class="timeline-icon transparency-icon-database">
+              <span class="icon-main">🗂️</span>
+              <span class="icon-transparency">📊</span>
+            </div>
             <div class="timeline-content">
-              <h3>Database Model Sharing</h3>
+              <h3>Database Model Sharing <span class="transparency-indicator">🔍 Full Access</span></h3>
               <p>Clear database structure diagrams and explanations so you understand how your data is organized and managed.</p>
               <div class="timeline-features">
                 <span class="feature-tag">Entity Diagrams</span>
@@ -282,9 +331,12 @@ import { environment } from '../../environments/environment';
           
           <div class="timeline-item">
             <div class="timeline-connector"></div>
-            <div class="timeline-icon">⚡</div>
+            <div class="timeline-icon transparency-icon-workflow">
+              <span class="icon-main">⚡</span>
+              <span class="icon-transparency">🔄</span>
+            </div>
             <div class="timeline-content">
-              <h3>Workflow Visualization</h3>
+              <h3>Workflow Visualization <span class="transparency-indicator">🔍 Step-by-Step</span></h3>
               <p>Step-by-step process flows showing exactly how your application works and how users will interact with it.</p>
               <div class="timeline-features">
                 <span class="feature-tag">User Journeys</span>
@@ -296,9 +348,12 @@ import { environment } from '../../environments/environment';
           
           <div class="timeline-item">
             <div class="timeline-connector last"></div>
-            <div class="timeline-icon">👥</div>
+            <div class="timeline-icon transparency-icon-collaboration">
+              <span class="icon-main">👥</span>
+              <span class="icon-transparency">💬</span>
+            </div>
             <div class="timeline-content">
-              <h3>Collaborative Review Sessions</h3>
+              <h3>Collaborative Review Sessions <span class="transparency-indicator">🔍 Open Discussion</span></h3>
               <p>Regular meetings to review progress, explain technical decisions, and gather your feedback at every milestone.</p>
               <div class="timeline-features">
                 <span class="feature-tag">Live Demos</span>
@@ -308,35 +363,15 @@ import { environment } from '../../environments/environment';
             </div>
           </div>
         </div>
-        <div class="transparency-details">
-          <h3>What You Get Access To:</h3>
-          <div class="details-grid">
-            <div class="detail-item">
-              <span class="check">✅</span>
-              <div>
-                <strong>Shared Notion Workspace</strong>
-                <p>Real-time access to project documentation, progress updates, and technical specifications</p>
-              </div>
-            </div>
-            <div class="detail-item">
-              <span class="check">✅</span>
-              <div>
-                <strong>Technical Documentation</strong>
-                <p>Easy-to-understand explanations of code structure, features, and system architecture</p>
-              </div>
-            </div>
-            <div class="detail-item">
-              <span class="check">✅</span>
-              <div>
-                <strong>Live Demo Access</strong>
-                <p>Preview your project at any stage with staging environments and development previews</p>
-              </div>
-            </div>
-            <div class="detail-item">
-              <span class="check">✅</span>
-              <div>
-                <strong>Version Control Access</strong>
-                <p>View code changes, commits, and development history through our GitHub repositories</p>
+        <div class="transparency-guarantee">
+          <div class="guarantee-content">
+            <h3>Our Transparency Guarantee</h3>
+            <p>We're so confident in our transparent approach that we offer a simple promise:</p>
+            <div class="guarantee-box">
+              <div class="guarantee-icon">🛡️</div>
+              <div class="guarantee-text">
+                <h4>If you're ever left in the dark about your project's progress, timeline, or costs - we'll give you a full refund, no questions asked.</h4>
+                <p>That's how committed we are to keeping you informed every step of the way.</p>
               </div>
             </div>
           </div>
@@ -901,15 +936,159 @@ import { environment } from '../../environments/environment';
       margin-bottom: 3rem;
     }
 
-    .transparency .section-badge {
-      display: inline-block;
-      background: linear-gradient(135deg, #10b981, #059669);
-      color: white;
-      padding: 0.5rem 1.5rem;
-      border-radius: 25px;
-      font-size: 0.875rem;
+    .transparency-badge-container {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .transparency-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(16, 185, 129, 0.1);
+      border: 2px solid rgba(16, 185, 129, 0.3);
+      backdrop-filter: blur(10px);
+      color: #10b981;
+      padding: 0.75rem 2rem;
+      border-radius: 50px;
+      font-size: 1rem;
       font-weight: 600;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .transparency-badge:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+      border-color: rgba(16, 185, 129, 0.5);
+      background: rgba(16, 185, 129, 0.15);
+    }
+
+    .transparency-icon {
+      font-size: 1.2rem;
+      animation: pulse 2s infinite;
+    }
+
+    .transparency-glow {
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transition: left 0.5s;
+    }
+
+    .transparency-badge:hover .transparency-glow {
+      left: 100%;
+    }
+
+    .badge-text {
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .transparency-promise {
+      margin-top: 3rem;
+      margin-bottom: 4rem;
+    }
+
+    .promise-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .promise-card {
+      background: rgba(255, 255, 255, 0.9);
+      border: 2px solid rgba(16, 185, 129, 0.2);
+      border-radius: 20px;
+      padding: 2.5rem;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .promise-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.1), transparent);
+      transition: left 0.6s ease;
+    }
+
+    .promise-card:hover::before {
+      left: 100%;
+    }
+
+    .promise-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2);
+      border-color: rgba(16, 185, 129, 0.4);
+    }
+
+    .promise-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      display: block;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .promise-card h4 {
+      font-size: 1.5rem;
+      color: #1e293b;
       margin-bottom: 1rem;
+      font-family: 'Code Bold', Arial, Helvetica, sans-serif;
+    }
+
+    .promise-card p {
+      color: #64748b;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+    }
+
+    .promise-features {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: left;
+    }
+
+    .feature-bullet {
+      color: #10b981;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .feature-bullet::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: #10b981;
+      border-radius: 50%;
+      flex-shrink: 0;
     }
 
     .transparency .section-title {
@@ -973,6 +1152,46 @@ import { environment } from '../../environments/environment';
       position: relative;
       z-index: 2;
       flex-shrink: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .timeline-icon:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+    }
+
+    .icon-main {
+      position: absolute;
+      transition: all 0.3s ease;
+    }
+
+    .icon-transparency {
+      position: absolute;
+      opacity: 0;
+      transform: scale(0.5);
+      transition: all 0.3s ease;
+    }
+
+    .timeline-icon:hover .icon-main {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+
+    .timeline-icon:hover .icon-transparency {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .transparency-indicator {
+      font-size: 0.75rem;
+      color: #10b981;
+      background: rgba(16, 185, 129, 0.1);
+      padding: 0.25rem 0.5rem;
+      border-radius: 12px;
+      margin-left: 0.5rem;
+      font-weight: 500;
+      white-space: nowrap;
     }
 
     .timeline-content {
@@ -1037,59 +1256,105 @@ import { environment } from '../../environments/environment';
       white-space: nowrap;
     }
 
-    .transparency-details {
-      background: white;
-      padding: 2.5rem;
-      border-radius: 16px;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-      border: 1px solid #e2e8f0;
+    .transparency-guarantee {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(16, 185, 129, 0.1));
+      border: 2px solid rgba(16, 185, 129, 0.2);
+      border-radius: 24px;
+      padding: 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+      backdrop-filter: blur(10px);
     }
 
-    .transparency-details h3 {
-      font-size: 1.5rem;
-      font-weight: 600;
+    .guarantee-content h3 {
+      font-size: 2rem;
+      font-family: 'Code Bold', Arial, Helvetica, sans-serif;
       color: #1e293b;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
       text-align: center;
     }
 
-    .details-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
+    .guarantee-content > p {
+      font-size: 1.1rem;
+      color: #64748b;
+      text-align: center;
+      margin-bottom: 2rem;
     }
 
-    .detail-item {
+    .guarantee-box {
+      background: rgba(255, 255, 255, 0.9);
+      border: 2px solid rgba(16, 185, 129, 0.3);
+      border-radius: 20px;
+      padding: 2rem;
+      margin-bottom: 2rem;
       display: flex;
       align-items: flex-start;
+      gap: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .guarantee-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #10b981, #059669);
+    }
+
+    .guarantee-icon {
+      font-size: 2.5rem;
+      flex-shrink: 0;
+      animation: pulse 2s infinite;
+    }
+
+    .guarantee-text h4 {
+      font-size: 1.3rem;
+      color: #1e293b;
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+
+    .guarantee-text p {
+      color: #64748b;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .transparency-benefits {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .benefit-item {
+      display: flex;
+      align-items: center;
       gap: 1rem;
       padding: 1rem;
-      background: #f8fafc;
+      background: rgba(255, 255, 255, 0.7);
       border-radius: 12px;
-      border-left: 4px solid #10b981;
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      transition: all 0.3s ease;
     }
 
-    .detail-item .check {
-      color: #10b981;
-      font-size: 1.25rem;
-      font-weight: bold;
+    .benefit-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+    }
+
+    .benefit-icon {
+      font-size: 1.5rem;
       flex-shrink: 0;
-      margin-top: 0.125rem;
     }
 
-    .detail-item strong {
-      display: block;
+    .benefit-text {
       color: #1e293b;
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-      font-size: 1rem;
-    }
-
-    .detail-item p {
-      color: #64748b;
-      font-size: 0.875rem;
-      line-height: 1.5;
-      margin: 0;
+      font-weight: 500;
+      font-size: 0.95rem;
     }
 
     /* Support Dashboard Styles */
@@ -1572,8 +1837,10 @@ export class HomeComponent implements OnInit {
       // Prepare email parameters for EmailJS
       const emailParams = {
         to_email: 'admin@chapadevs.com',
-        from_name: formData.name,
+        from_name: `${formData.name} (Chapadevs Inquiry)`,
         from_email: formData.email,
+        reply_to: formData.email,
+        customer_email: formData.email,
         company_name: formData.company,
         phone: formData.phone || 'Not provided',
         contact_method: formData.contactMethod || 'email',

@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-website-mockup',
@@ -268,7 +268,6 @@ import { CommonModule } from '@angular/common';
     }
 
     .logo {
-      font-weight: bold;
       font-size: 12px;
     }
 
@@ -331,7 +330,6 @@ import { CommonModule } from '@angular/common';
 
     .price {
       color: #e74c3c;
-      font-weight: bold;
       font-size: 9px;
     }
 
@@ -365,7 +363,6 @@ import { CommonModule } from '@angular/common';
 
     .nav-item.active {
       color: #3498db;
-      font-weight: bold;
     }
 
     .app-main {
@@ -408,7 +405,6 @@ import { CommonModule } from '@angular/common';
     .stat-number {
       display: block;
       font-size: 12px;
-      font-weight: bold;
       color: #3498db;
     }
 
@@ -447,7 +443,6 @@ import { CommonModule } from '@angular/common';
     }
 
     .corp-logo {
-      font-weight: bold;
       font-size: 12px;
     }
 
@@ -505,7 +500,6 @@ import { CommonModule } from '@angular/common';
     }
 
     .eco-logo {
-      font-weight: bold;
       font-size: 12px;
     }
 
@@ -534,7 +528,6 @@ import { CommonModule } from '@angular/common';
     .metric-value {
       display: block;
       font-size: 14px;
-      font-weight: bold;
     }
 
     .metric-label {
@@ -580,7 +573,6 @@ import { CommonModule } from '@angular/common';
     }
 
     .social-logo {
-      font-weight: bold;
       font-size: 12px;
       color: white;
     }
@@ -622,7 +614,6 @@ import { CommonModule } from '@angular/common';
     }
 
     .username {
-      font-weight: bold;
       font-size: 9px;
     }
 
