@@ -1393,15 +1393,16 @@ export class HomeComponent implements OnInit {
 
   private async sendEmail(formData: any): Promise<void> {
     try {
-      console.log('📧 Sending email with data:', formData);
+      console.log('📧 Sending emails with data:', formData);
       
-      // Prepare email parameters for EmailJS
-      const emailParams = {
+      // Prepare email parameters for both emails
+      const adminEmailParams = {
         to_email: 'admin@chapadevs.com',
         from_name: `${formData.name} (Chapadevs Inquiry)`,
         from_email: formData.email,
         reply_to: formData.email,
         customer_email: formData.email,
+        customer_name: formData.name,
         company_name: formData.company,
         phone: formData.phone || 'Not provided',
         contact_method: formData.contactMethod || 'email',
@@ -1426,21 +1427,44 @@ export class HomeComponent implements OnInit {
         submission_date: new Date().toLocaleString()
       };
 
-      console.log('📤 About to send email with params:', emailParams);
+      // Prepare user confirmation email parameters
+      const userEmailParams = {
+        customer_email: formData.email,
+        customer_name: formData.name,
+        company_name: formData.company || '',
+        project_type: formData.projectType,
+        budget: formData.budget,
+        timeline: formData.timeline,
+        contact_method: formData.contactMethod || 'email',
+        submission_date: new Date().toLocaleDateString()
+      };
+
+      console.log('📤 Sending admin notification email...');
       
-      // Send email via EmailJS
-      const result = await emailjs.send(
+      // Send admin notification email
+      const adminResult = await emailjs.send(
         environment.emailService.serviceId,
         environment.emailService.templateId,
-        emailParams
+        adminEmailParams
       );
       
-      console.log('✅ Email sent successfully:', result);
+      console.log('✅ Admin email sent successfully:', adminResult);
+
+      console.log('📤 Sending user confirmation email...');
+      
+      // Send user confirmation email
+      const userResult = await emailjs.send(
+        environment.emailService.serviceId,
+        environment.emailService.userTemplateId,
+        userEmailParams
+      );
+      
+      console.log('✅ User confirmation email sent successfully:', userResult);
       
       // Show success message
       this.isSubmitting = false;
       this.submitSuccess = true;
-      this.submitMessage = 'Thank you! Your message has been sent successfully. We\'ll get back to you within 24 hours.';
+      this.submitMessage = 'Thank you! Your message has been sent successfully. We\'ve also sent you a confirmation email. We\'ll get back to you within 24 hours.';
       
       // Reset form after successful submission
       setTimeout(() => {
