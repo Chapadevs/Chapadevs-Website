@@ -162,17 +162,6 @@ import { environment } from '../../environments/environment';
               <li>Oracle Cloud Infrastructure</li>
             </ul>
           </div>
-                      <div class="service-card">
-            <div class="service-icon blue">⚡</div>
-            <h3>Fast Response & Notion Tracking</h3>
-            <p>Lightning-fast communication with comprehensive project management. Every project tracked through dedicated Notion workspaces.</p>
-            <ul class="service-list">
-              <li>Same-Day Response Time</li>
-              <li>Notion Project Workspaces</li>
-              <li>Real-time Progress Updates</li>
-              <li>1-4 Week Delivery</li>
-            </ul>
-          </div>
           <div class="service-card">
             <div class="service-icon purple">💜</div>
             <h3>Modern Frontend Development</h3>
@@ -182,17 +171,6 @@ import { environment } from '../../environments/environment';
               <li>Responsive Design</li>
               <li>UI/UX Optimization</li>
               <li>Progressive Web Apps</li>
-            </ul>
-          </div>
-          <div class="service-card">
-            <div class="service-icon orange">🗄️</div>
-            <h3>Enterprise Backend Solutions</h3>
-            <p>Robust server architectures and APIs built with Java and deployed on Oracle Cloud Infrastructure.</p>
-            <ul class="service-list">
-              <li>Java Spring Boot APIs</li>
-              <li>PostgreSQL Integration</li>
-              <li>Oracle OCI Deployment</li>
-              <li>Security & Performance</li>
             </ul>
           </div>
           <div class="service-card">
@@ -217,17 +195,6 @@ import { environment } from '../../environments/environment';
             </ul>
           </div>
           <div class="service-card">
-            <div class="service-icon violet">🛠️</div>
-            <h3>Professional Development Process</h3>
-            <p>Streamlined workflows and modern tools ensure quality code and reliable project delivery.</p>
-            <ul class="service-list">
-              <li>GitHub Version Control</li>
-              <li>Automated Testing</li>
-              <li>Code Reviews</li>
-              <li>Documentation</li>
-            </ul>
-          </div>
-          <div class="service-card">
             <div class="service-icon yellow">🎨</div>
             <h3>Complete Brand Identity & Design</h3>
             <p>Full branding assistance from concept to execution. We create cohesive brand experiences that stand out.</p>
@@ -235,7 +202,6 @@ import { environment } from '../../environments/environment';
               <li>Logo Design & Brand Identity</li>
               <li>Color Schemes & Typography</li>
               <li>Business Cards & Stationery</li>
-              <li>Social Media Graphics</li>
             </ul>
           </div>
         </div>
@@ -323,19 +289,7 @@ import { environment } from '../../environments/environment';
             </div>
           </div>
           
-          <div class="timeline-item">
-            <div class="timeline-connector"></div>
-            <div class="timeline-icon">⚡</div>
-            <div class="timeline-content">
-              <h3>Workflow Visualization</h3>
-              <p>Step-by-step process flows showing exactly how your application works and how users will interact with it.</p>
-              <div class="timeline-features">
-                <span class="feature-tag">User Journeys</span>
-                <span class="feature-tag">Flowcharts</span>
-                <span class="feature-tag">Wireframes</span>
-              </div>
-            </div>
-          </div>
+
           
           <div class="timeline-item">
             <div class="timeline-connector last"></div>
@@ -370,83 +324,37 @@ import { environment } from '../../environments/environment';
     <!-- Support & Maintenance Section -->
     <section class="support">
       <div class="container">
-        <div class="section-header">
-          <span class="section-badge">Post-Launch Support</span>
-          <h2 class="section-title">We Don't Just Build - We Maintain</h2>
-          <p class="section-description">
-            Your website launch is just the beginning. We provide comprehensive follow-up and ongoing maintenance to ensure your application stays secure, fast, and up-to-date.
-          </p>
-        </div>
-        <div class="support-dashboard">
-          <div class="dashboard-main">
-            <div class="service-package">
-              <div class="package-header">
-                <h3>🎯 Complete Support Package</h3>
-              </div>
-              <div class="package-description">
-                Everything you need to keep your website running smoothly and growing your business.
-              </div>
-              <div class="package-features">
-                <div class="feature-row">
-                  <span class="feature-icon">📊</span>
-                  <div class="feature-info">
-                    <strong>24/7 Monitoring</strong>
-                    <p>Proactive issue detection and instant alerts</p>
-                  </div>
-                </div>
-                <div class="feature-row">
-                  <span class="feature-icon">🔄</span>
-                  <div class="feature-info">
-                    <strong>Monthly Updates</strong>
-                    <p>Security patches and performance optimizations</p>
-                  </div>
-                </div>
-                <div class="feature-row">
-                  <span class="feature-icon">💬</span>
-                  <div class="feature-info">
-                    <strong>Priority Support</strong>
-                    <p>Direct access via Notion and email</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <div class="support-card">
+          <div class="support-header">
+            <span class="support-badge">Post-Launch Support</span>
+            <h2 class="support-title">We Don't Just Build - We Maintain</h2>
+            <p class="support-description">
+              Your website launch is just the beginning. We provide comprehensive follow-up and ongoing maintenance to ensure your application stays secure, fast, and up-to-date.
+            </p>
           </div>
           
-          <div class="dashboard-sidebar">
-            <div class="addon-services">
-              <h4>🎨 Add-On Services</h4>
-              <div class="addon-item">
-                <div class="addon-header">
-                  <span class="addon-icon">🎨</span>
-                  <strong>Brand Design</strong>
-                </div>
-                <p>Logos, business cards, marketing materials</p>
-              </div>
-              <div class="addon-item">
-                <div class="addon-header">
-                  <span class="addon-icon">📈</span>
-                  <strong>Marketing Assets</strong>
-                </div>
-                <p>Brochures, banners, email templates</p>
-              </div>
-              <div class="addon-item">
-                <div class="addon-header">
-                  <span class="addon-icon">⚡</span>
-                  <strong>Performance Boost</strong>
-                </div>
-                <p>Speed optimization and SEO improvements</p>
+          <div class="support-features">
+            <div class="support-feature">
+              <div class="feature-icon">📊</div>
+              <div class="feature-content">
+                <h3>24/7 Monitoring</h3>
+                <p>Proactive issue detection and instant alerts to keep your website running smoothly</p>
               </div>
             </div>
             
-            <div class="support-stats">
-              <h4>📈 Our Track Record</h4>
-              <div class="stat-item">
-                <div class="stat-number">99.9%</div>
-                <div class="stat-label">Uptime Guarantee</div>
+            <div class="support-feature">
+              <div class="feature-icon">🔄</div>
+              <div class="feature-content">
+                <h3>Monthly Updates</h3>
+                <p>Security patches and performance optimizations to keep your site fast and secure</p>
               </div>
-              <div class="stat-item">
-                <div class="stat-number">&lt;2hrs</div>
-                <div class="stat-label">Response Time</div>
+            </div>
+            
+            <div class="support-feature">
+              <div class="feature-icon">💬</div>
+              <div class="feature-content">
+                <h3>Priority Support</h3>
+                <p>Direct access via Notion and email with response times under 2 hours</p>
               </div>
             </div>
           </div>
