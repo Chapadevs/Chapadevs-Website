@@ -1,0 +1,251 @@
+// hero.component.scss
+// ==========================================
+
+// Variables
+$primary-green: #10b981;
+$primary-teal: #0d9488;
+$dark-charcoal: #111827;
+$muted-grey: #6b7280;
+$light-green: #a7f3d0;
+
+// Mixins
+@mixin button-base {
+  padding: 0.875rem 2rem;
+  border: 2px solid transparent;
+  border-radius: 0.5rem;
+  font-family: 'Code Bold', monospace;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@mixin responsive($breakpoint) {
+  @if $breakpoint == mobile {
+    @media (min-width: 320px) { @content; }
+  } @else if $breakpoint == large-mobile {
+    @media (min-width: 376px) { @content; }
+  } @else if $breakpoint == tablet {
+    @media (min-width: 768px) { @content; }
+  } @else if $breakpoint == desktop {
+    @media (min-width: 1024px) { @content; }
+  } @else if $breakpoint == large-desktop {
+    @media (min-width: 1440px) { @content; }
+  }
+}
+
+// Animations
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+// Component Styles
+.hero-section {
+  background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23a7f3d0" stroke-width="0.5" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    opacity: 0.5;
+    z-index: 1;
+  }
+
+  @include responsive(tablet) {
+    min-height: 80vh;
+    padding: 4rem 0;
+  }
+
+  @include responsive(large-desktop) {
+    min-height: 90vh;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.title {
+  font-family: 'Code Bold', monospace;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: $dark-charcoal;
+
+  &--hero {
+    font-size: 2.5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+
+    @include responsive(large-mobile) {
+      font-size: 2.75rem;
+    }
+
+    @include responsive(tablet) {
+      font-size: 3rem;
+    }
+
+    @include responsive(desktop) {
+      font-size: 3.5rem;
+    }
+
+    @include responsive(large-desktop) {
+      font-size: 4rem;
+    }
+  }
+
+  &--accent {
+    color: $primary-green;
+    position: relative;
+    display: inline-block;
+    animation: pulse 2s infinite;
+  }
+}
+
+.text {
+  font-family: 'Coolvetica', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: $muted-grey;
+
+  &--lead {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: $muted-grey;
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include responsive(desktop) {
+      font-size: 1.375rem;
+    }
+  }
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  @include responsive(mobile) {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  @include responsive(tablet) {
+    flex-direction: row;
+    width: auto;
+  }
+}
+
+.btn {
+  @include button-base;
+
+  &--primary {
+    background: $primary-green;
+    color: #FFFFFF;
+    border-color: $primary-green;
+
+    &:hover {
+      background: $primary-teal;
+      border-color: $primary-teal;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+    }
+  }
+
+  &--secondary {
+    background: transparent;
+    color: $primary-green;
+    border-color: $primary-green;
+
+    &:hover {
+      background: $primary-green;
+      color: #FFFFFF;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  @include responsive(mobile) {
+    width: 100%;
+    justify-content: center;
+  }
+
+  @include responsive(tablet) {
+    width: auto;
+  }
+}
+
+.btn-arrow {
+  transition: transform 0.3s ease;
+}
+
+.btn:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+// Focus states for accessibility
+.btn:focus {
+  outline: 2px solid $primary-green;
+  outline-offset: 2px;
+}
+
+// Loading state
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+} 
