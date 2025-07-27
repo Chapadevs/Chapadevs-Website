@@ -1,58 +1,23 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-hero',
+  selector: "app-hero",
   standalone: true,
-  template: `
-    <section class="hero-section">
-      <div class="container">
-        <div class="hero-content">
-          <!-- Main Headline -->
-          <h1 class="title title--hero">
-            Your <span class="highlight">Digital Vision</span>, <span class="title--accent">&lt;/&gt;</span> <span class="highlight">OUR CODE</span>
-          </h1>
-          
-          <!-- Subtitle -->
-          <p class="text text--lead">
-            We turn your <span class="highlight">business ideas</span> into <span class="highlight">powerful web applications</span> with <span class="highlight">speed</span> and the <span class="highlight">control</span> you need.
-          </p>
-          
-          <!-- Enhanced CTA Buttons -->
-          <div class="hero-buttons">
-            <button class="btn btn--primary" (click)="scrollToInquiryForm()">
-              <span class="btn-text">Start Your Project</span>
-              <div class="btn-glow"></div>
-            </button>
-            <button class="btn btn--secondary" (click)="goToPortfolio()">
-              <span class="btn-text">View Our Work</span>
-              <span class="btn-icon">&lt;/&gt;</span>
-            </button>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Background Elements -->
-      <div class="hero-bg-elements">
-        <div class="bg-triangle bg-triangle--1"></div>
-        <div class="bg-triangle bg-triangle--2"></div>
-        <div class="bg-code">&lt;/&gt;</div>
-      </div>
-    </section>
-  `,
-  styleUrls: ['./hero.component.scss']
+  templateUrl: "./hero.component.html",
+  styleUrls: ["./hero.component.scss"],
 })
 export class HeroComponent {
   constructor(private router: Router) {}
 
   scrollToInquiryForm() {
-    const el = document.getElementById('inquiry-form');
+    const el = document.getElementById("inquiry-form");
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+      el.scrollIntoView({ behavior: "smooth" });
     }
   }
 
   goToPortfolio() {
-    this.router.navigate(['/portfolio']);
+    this.router.navigate(["/portfolio"]);
   }
-} 
+}

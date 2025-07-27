@@ -1,0 +1,191 @@
+<div class="website-mockup">
+  <div class="mockup-browser">
+    <div class="browser-bar">
+      <div class="browser-dots">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+      </div>
+      <div class="url-bar">{{ getUrl() }}</div>
+    </div>
+    <div class="website-content" [ngClass]="getClass()">
+      <ng-container [ngSwitch]="projectId">
+        <!-- E-commerce -->
+        <div *ngSwitchCase="1">
+          <header class="site-header">
+            <div class="logo">TechCorp</div>
+            <nav class="main-nav">
+              <span>Products</span>
+              <span>Categories</span>
+              <span>Cart (3)</span>
+            </nav>
+          </header>
+          <div class="hero-banner">
+            <h1>Latest Tech Gadgets</h1>
+            <p>30% OFF Black Friday Sale</p>
+            <button class="cta-btn">Shop Now</button>
+          </div>
+          <div class="product-grid">
+            <div class="product-card">
+              <div class="product-img"></div>
+              <h3>Smart Watch Pro</h3>
+              <span class="price">$299</span>
+            </div>
+            <div class="product-card">
+              <div class="product-img"></div>
+              <h3>Wireless Earbuds</h3>
+              <span class="price">$149</span>
+            </div>
+            <div class="product-card">
+              <div class="product-img"></div>
+              <h3>Gaming Laptop</h3>
+              <span class="price">$1,299</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Healthcare -->
+        <div *ngSwitchCase="2" class="healthcare-layout">
+          <div class="app-sidebar">
+            <div class="logo">MedFlow</div>
+            <div class="nav-item active">Dashboard</div>
+            <div class="nav-item">Patients</div>
+            <div class="nav-item">Appointments</div>
+          </div>
+          <div class="app-main">
+            <div class="app-header">
+              <h2>Patient Dashboard</h2>
+              <div class="user-info">Dr. Sarah Johnson</div>
+            </div>
+            <div class="stats-row">
+              <div class="stat-card">
+                <span class="stat-number">247</span>
+                <span class="stat-label">Patients Today</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">32</span>
+                <span class="stat-label">Appointments</span>
+              </div>
+            </div>
+            <div class="patient-list">
+              <div class="patient-row">
+                <span class="patient-name">John Smith</span>
+                <span class="status urgent">Urgent</span>
+              </div>
+              <div class="patient-row">
+                <span class="patient-name">Mary Johnson</span>
+                <span class="status routine">Routine</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Corporate -->
+        <div *ngSwitchCase="3">
+          <header class="corporate-header">
+            <div class="corp-logo">Global Finance</div>
+            <nav class="corp-nav">
+              <span>Services</span>
+              <span>Markets</span>
+              <span>About</span>
+            </nav>
+          </header>
+          <div class="corporate-hero">
+            <h1>Financial Excellence Since 1985</h1>
+            <p>Trusted by over 10,000 clients worldwide</p>
+          </div>
+          <div class="dashboard-preview">
+            <div class="charts-row">
+              <div class="chart-widget">
+                <div class="chart-line"></div>
+                <span>S&P 500: +2.3%</span>
+              </div>
+              <div class="chart-widget">
+                <div class="chart-bar"></div>
+                <span>Portfolio: +15.8%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sustainability -->
+        <div *ngSwitchCase="4">
+          <header class="eco-header">
+            <div class="eco-logo">🌱 EcoTrack</div>
+            <div class="co2-display">CO₂ Saved: 2.3 tons</div>
+          </header>
+          <div class="eco-dashboard">
+            <div class="metric-grid">
+              <div class="eco-metric">
+                <span class="metric-value">45%</span>
+                <span class="metric-label">Carbon Reduction</span>
+              </div>
+              <div class="eco-metric">
+                <span class="metric-value">1,247</span>
+                <span class="metric-label">Trees Equivalent</span>
+              </div>
+            </div>
+            <div class="sensor-map">
+              <div class="map-area">
+                <div class="sensor-dot" style="top: 30%; left: 20%"></div>
+                <div class="sensor-dot" style="top: 60%; left: 45%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Social -->
+        <div *ngSwitchCase="5">
+          <header class="social-header">
+            <div class="social-logo">🍽️ FoodieConnect</div>
+            <div class="social-nav">
+              <span>Feed</span>
+              <span>Discover</span>
+              <span>Profile</span>
+            </div>
+          </header>
+          <div class="social-content">
+            <div class="feed-post">
+              <div class="post-header">
+                <div class="user-avatar">👤</div>
+                <span class="username">Sarah M.</span>
+              </div>
+              <div class="post-image"></div>
+              <div class="post-actions">
+                <span>❤️ 24</span>
+                <span>💬 8</span>
+              </div>
+            </div>
+            <div class="recommendations">
+              <div class="resto-card">
+                <span>Italian Garden - 4.8⭐</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Logistics -->
+        <div *ngSwitchCase="6" class="logistics-layout">
+          <div class="fleet-sidebar">
+            <div class="fleet-logo">🚛 SmartLogistics</div>
+            <div class="nav-item active">Live Map</div>
+            <div class="nav-item">Vehicles</div>
+          </div>
+          <div class="fleet-main">
+            <div class="fleet-header">
+              <h3>Fleet Overview</h3>
+              <span>847 Active</span>
+            </div>
+            <div class="fleet-map">
+              <div class="vehicle-marker" style="top: 25%; left: 30%">🚛</div>
+              <div class="vehicle-marker" style="top: 60%; left: 60%">🚛</div>
+            </div>
+            <div class="alerts">
+              <div class="alert-item">Vehicle #247 - Maintenance Due</div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

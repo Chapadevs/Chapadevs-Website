@@ -1,15 +1,18 @@
+/* Font Awesome */
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
 /* Custom Fonts */
 @font-face {
-  font-family: 'Coolvetica';
-  src: url('assets/fonts/Coolvetica\ Rg.otf') format('opentype');
+  font-family: "Coolvetica";
+  src: url("assets/fonts/Coolvetica\ Rg.otf") format("opentype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Code Bold';
-  src: url('assets/fonts/Code-Bold.otf') format('opentype');
+  font-family: "Code Bold";
+  src: url("assets/fonts/Code-Bold.otf") format("opentype");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -24,14 +27,14 @@
 
 html {
   scroll-behavior: smooth;
-  font-family: 'Coolvetica', Arial, Helvetica, sans-serif;
+  font-family: "Coolvetica", Arial, Helvetica, sans-serif;
   font-weight: 300;
   letter-spacing: 0.01em;
   color: var(--text-primary);
 }
 
 body {
-  font-family: 'Coolvetica', Arial, Helvetica, sans-serif;
+  font-family: "Coolvetica", Arial, Helvetica, sans-serif;
   font-weight: 300;
   letter-spacing: 0.01em;
   line-height: 1.6;
@@ -55,19 +58,34 @@ body {
 }
 
 /* Typography */
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Code Bold', Arial, Helvetica, sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Code Bold", Arial, Helvetica, sans-serif;
   line-height: 1.2;
   margin-bottom: 1rem;
 }
 
-h1 { font-size: 3.5rem; }
-h2 { font-size: 2.5rem; }
-h3 { font-size: 1.5rem; }
+h1 {
+  font-size: 3.5rem;
+}
+h2 {
+  font-size: 2.5rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
 
 /* Font Utility Classes */
-.font-coolvetica { font-family: 'Coolvetica', sans-serif; }
-.font-code-bold { font-family: 'Code Bold', sans-serif; }
+.font-coolvetica {
+  font-family: "Coolvetica", sans-serif;
+}
+.font-code-bold {
+  font-family: "Code Bold", sans-serif;
+}
 
 /* Layout */
 .container {
@@ -76,8 +94,12 @@ h3 { font-size: 1.5rem; }
   padding: 0 2rem;
 }
 
-.text-center { text-align: center; }
-.text-green { color: var(--primary-green); }
+.text-center {
+  text-align: center;
+}
+.text-green {
+  color: var(--primary-green);
+}
 
 /* Buttons */
 .btn {
@@ -217,9 +239,15 @@ h3 { font-size: 1.5rem; }
   border-radius: 50%;
 }
 
-.dot.red { background: #ef4444; }
-.dot.yellow { background: #f59e0b; }
-.dot.green { background: var(--primary-green); }
+.dot.red {
+  background: #ef4444;
+}
+.dot.yellow {
+  background: #f59e0b;
+}
+.dot.green {
+  background: var(--primary-green);
+}
 
 .browser-content {
   padding: 2rem;
@@ -233,8 +261,12 @@ h3 { font-size: 1.5rem; }
   margin-bottom: 12px;
 }
 
-.code-line.short { width: 70%; }
-.code-line.medium { width: 85%; }
+.code-line.short {
+  width: 70%;
+}
+.code-line.medium {
+  width: 85%;
+}
 
 .code-block {
   height: 60px;
@@ -267,8 +299,31 @@ section {
 }
 
 .section-badge::before {
-  content: "👥";
+  content: "\f0c0";
+  font-family: "Font Awesome 5 Free", "Font Awesome 6 Free";
+  font-weight: 900;
   font-size: 1rem;
+  margin-right: 0.5rem;
+}
+
+/* Team Section Badge */
+.team .section-badge::before {
+  content: "\f500";
+}
+
+/* Services Section Badge */
+.services .section-badge::before {
+  content: "\f7d9";
+}
+
+/* Contact Section Badge */
+.contact .section-badge::before {
+  content: "\f095";
+}
+
+/* Support Section Badge */
+.support .section-badge::before {
+  content: "\f590";
 }
 
 .section-title {
@@ -398,10 +453,6 @@ section {
   background: var(--background-gray);
 }
 
-.services .section-badge::before {
-  content: "🛠️";
-}
-
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -432,12 +483,24 @@ section {
   margin-bottom: 1.5rem;
 }
 
-.service-icon.green { background: var(--background-light-green); }
-.service-icon.blue { background: #dbeafe; }
-.service-icon.purple { background: #f3e8ff; }
-.service-icon.orange { background: #fed7aa; }
-.service-icon.teal { background: #ccfbf1; }
-.service-icon.violet { background: #e7e5ff; }
+.service-icon.green {
+  background: var(--background-light-green);
+}
+.service-icon.blue {
+  background: #dbeafe;
+}
+.service-icon.purple {
+  background: #f3e8ff;
+}
+.service-icon.orange {
+  background: #fed7aa;
+}
+.service-icon.teal {
+  background: #ccfbf1;
+}
+.service-icon.violet {
+  background: #e7e5ff;
+}
 
 .service-card h3 {
   margin-bottom: 1rem;
@@ -469,10 +532,6 @@ section {
 /* Contact Section */
 .contact {
   background: white;
-}
-
-.contact .section-badge::before {
-  content: "📞";
 }
 
 .contact-content {
@@ -1169,7 +1228,9 @@ section {
 }
 
 .project-results li::before {
-  content: "✅";
+  content: "\f00c";
+  font-family: "Font Awesome 5 Free", "Font Awesome 6 Free";
+  font-weight: 900;
   margin-right: 12px;
 }
 
@@ -1212,34 +1273,34 @@ section {
     grid-template-columns: 1fr;
     text-align: center;
   }
-  
+
   .hero-title {
     font-size: 2.5rem;
   }
-  
+
   .hero-buttons {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .section-title {
     font-size: 2rem;
   }
-  
+
   .team-grid,
   .services-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .contact-content {
     grid-template-columns: 1fr;
   }
-  
+
   .footer-content {
     grid-template-columns: 1fr;
     text-align: center;
   }
-  
+
   .footer-links {
     justify-content: center;
   }
@@ -1282,34 +1343,42 @@ section {
   .container {
     padding: 0 1rem;
   }
-  
+
   .hero-title {
     font-size: 2rem;
   }
-  
+
   .section-title {
     font-size: 1.8rem;
   }
-  
+
   .hero-buttons {
     flex-direction: column;
     gap: 1rem;
   }
-  
+
   .btn {
     width: 100%;
   }
 }
 
 /* Title classes use Code Bold */
-.hero-title, .section-title, .brand-logo {
-  font-family: 'Code Bold', Arial, Helvetica, sans-serif;
+.hero-title,
+.section-title,
+.brand-logo {
+  font-family: "Code Bold", Arial, Helvetica, sans-serif;
   letter-spacing: 0.01em;
 }
 
 /* Normal text elements use Coolvetica */
-p, li, span, label, input, textarea, button {
-  font-family: 'Coolvetica', Arial, Helvetica, sans-serif;
+p,
+li,
+span,
+label,
+input,
+textarea,
+button {
+  font-family: "Coolvetica", Arial, Helvetica, sans-serif;
   font-weight: 300;
   letter-spacing: 0.01em;
 }
@@ -1320,7 +1389,7 @@ p, li, span, label, input, textarea, button {
   display: flex;
   align-items: center;
   background: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   padding-left: 24px;
   padding-right: 24px;
   position: sticky;
@@ -1377,8 +1446,13 @@ p, li, span, label, input, textarea, button {
 }
 
 @keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
 }
 
 .transparency-promise {
@@ -1418,7 +1492,7 @@ p, li, span, label, input, textarea, button {
   font-size: 1.5rem;
   color: #1e293b;
   margin-bottom: 1rem;
-  font-family: 'Code Bold', Arial, Helvetica, sans-serif;
+  font-family: "Code Bold", Arial, Helvetica, sans-serif;
 }
 
 .promise-card p {
@@ -1445,7 +1519,7 @@ p, li, span, label, input, textarea, button {
 }
 
 .feature-bullet::before {
-  content: '';
+  content: "";
   width: 6px;
   height: 6px;
   background: #10b981;
@@ -1533,7 +1607,7 @@ p, li, span, label, input, textarea, button {
 }
 
 .timeline-content::before {
-  content: '';
+  content: "";
   position: absolute;
   left: -8px;
   top: 24px;
@@ -1575,7 +1649,11 @@ p, li, span, label, input, textarea, button {
 }
 
 .transparency-guarantee {
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(16, 185, 129, 0.1));
+  background: linear-gradient(
+    135deg,
+    rgba(16, 185, 129, 0.05),
+    rgba(16, 185, 129, 0.1)
+  );
   border: 2px solid rgba(16, 185, 129, 0.2);
   border-radius: 24px;
   padding: 3rem;
@@ -1585,7 +1663,7 @@ p, li, span, label, input, textarea, button {
 
 .guarantee-content h3 {
   font-size: 2rem;
-  font-family: 'Code Bold', Arial, Helvetica, sans-serif;
+  font-family: "Code Bold", Arial, Helvetica, sans-serif;
   color: #1e293b;
   margin-bottom: 1rem;
   text-align: center;
@@ -1626,7 +1704,7 @@ p, li, span, label, input, textarea, button {
   color: #64748b;
   font-size: 1rem;
   line-height: 1.6;
-} 
+}
 
 /* Support Section - Modern Card Design */
 .support {
@@ -1648,7 +1726,7 @@ p, li, span, label, input, textarea, button {
 }
 
 .support-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -1711,7 +1789,11 @@ p, li, span, label, input, textarea, button {
   align-items: center;
   gap: 2rem;
   padding: 2rem;
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.03), rgba(16, 185, 129, 0.06));
+  background: linear-gradient(
+    135deg,
+    rgba(16, 185, 129, 0.03),
+    rgba(16, 185, 129, 0.06)
+  );
   border-radius: 16px;
   border: 1px solid rgba(16, 185, 129, 0.1);
   transition: all 0.3s ease;
@@ -1720,13 +1802,17 @@ p, li, span, label, input, textarea, button {
 }
 
 .support-feature::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(16, 185, 129, 0.1));
+  background: linear-gradient(
+    135deg,
+    rgba(16, 185, 129, 0.05),
+    rgba(16, 185, 129, 0.1)
+  );
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -1787,25 +1873,25 @@ p, li, span, label, input, textarea, button {
   .support {
     padding: 60px 0;
   }
-  
+
   .support-card {
     padding: 2rem;
     margin: 0 1rem;
   }
-  
+
   .support-title {
     font-size: 2rem;
   }
-  
+
   .support-features {
     gap: 1.25rem;
   }
-  
+
   .support-feature {
     padding: 1.5rem;
     gap: 1.5rem;
   }
-  
+
   .feature-icon {
     width: 50px;
     height: 50px;
@@ -1818,23 +1904,23 @@ p, li, span, label, input, textarea, button {
     padding: 1.5rem;
     border-radius: 16px;
   }
-  
+
   .support-title {
     font-size: 1.75rem;
   }
-  
+
   .support-description {
     font-size: 1rem;
   }
-  
+
   .support-feature {
     flex-direction: column;
     text-align: center;
     gap: 1rem;
     padding: 1.25rem;
   }
-  
+
   .feature-icon {
     align-self: center;
   }
-} 
+}

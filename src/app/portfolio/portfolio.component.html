@@ -1,0 +1,211 @@
+<div class="portfolio-page">
+  <!-- Hero Section -->
+  <section class="portfolio-hero">
+    <div class="container">
+      <header class="section-header">
+        <span class="section-badge">Our Work</span>
+        <h1 class="section-title">Success Stories</h1>
+        <p class="section-description">
+          Discover how we've transformed businesses with cutting-edge web
+          solutions and AI-driven development
+        </p>
+      </header>
+      <div class="stats">
+        <div class="stat">
+          <span class="number">50+</span>
+          <span class="label">Projects Delivered</span>
+        </div>
+        <div class="stat">
+          <span class="number">98%</span>
+          <span class="label">Client Satisfaction</span>
+        </div>
+        <div class="stat">
+          <span class="number">2.5x</span>
+          <span class="label">Performance Boost</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter Section -->
+  <section class="portfolio-filter">
+    <div class="container">
+      <div class="filter-buttons">
+        <button
+          class="filter-btn"
+          [class.active]="selectedFilter === 'all'"
+          (click)="filterProjects('all')"
+        >
+          All Projects
+        </button>
+        <button
+          class="filter-btn"
+          [class.active]="selectedFilter === 'E-commerce'"
+          (click)="filterProjects('E-commerce')"
+        >
+          E-commerce
+        </button>
+        <button
+          class="filter-btn"
+          [class.active]="selectedFilter === 'SaaS'"
+          (click)="filterProjects('SaaS')"
+        >
+          SaaS Platform
+        </button>
+        <button
+          class="filter-btn"
+          [class.active]="selectedFilter === 'Corporate'"
+          (click)="filterProjects('Corporate')"
+        >
+          Corporate
+        </button>
+        <button
+          class="filter-btn"
+          [class.active]="selectedFilter === 'Startup'"
+          (click)="filterProjects('Startup')"
+        >
+          Startup
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Grid -->
+  <section class="portfolio-grid">
+    <div class="container">
+      <div class="projects-grid">
+        <div
+          class="project-card"
+          *ngFor="let project of filteredProjects"
+          [class.featured]="project.featured"
+          [class.hidden]="project.hidden"
+          (click)="openModal(project)"
+        >
+          <div class="project-image">
+            <app-website-mockup [projectId]="project.id"></app-website-mockup>
+            <div class="project-overlay">
+              <div class="overlay-content">
+                <span class="view-project">View Project</span>
+                <div class="overlay-icon">&lt;/&gt;</div>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-meta">
+              <span class="project-category">{{ project.category }}</span>
+              <span class="project-year">{{ project.year }}</span>
+            </div>
+            <h3 class="project-title">{{ project.title }}</h3>
+            <p class="project-description">{{ project.description }}</p>
+
+            <div class="project-metrics">
+              <div class="metric" *ngFor="let metric of project.metrics">
+                <span class="metric-value">{{ metric.value }}</span>
+                <span class="metric-label">{{ metric.label }}</span>
+              </div>
+            </div>
+
+            <div class="project-tech">
+              <span
+                class="tech-tag"
+                *ngFor="let tech of project.technologies.slice(0, 3)"
+              >
+                {{ tech }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Modal -->
+  <div class="project-modal" *ngIf="selectedProject" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <button class="close-btn" (click)="closeModal()">&times;</button>
+      <div class="modal-body">
+        <div class="modal-image">
+          <app-website-mockup
+            [projectId]="selectedProject.id"
+          ></app-website-mockup>
+        </div>
+        <div class="modal-info">
+          <div class="modal-header">
+            <h2>{{ selectedProject.title }}</h2>
+            <div class="modal-meta">
+              <span class="category">{{ selectedProject.category }}</span>
+              <span class="year">{{ selectedProject.year }}</span>
+            </div>
+          </div>
+
+          <p class="project-full-description">
+            {{ selectedProject.fullDescription }}
+          </p>
+
+          <div class="challenge-solution">
+            <div class="challenge">
+              <h4>Challenge</h4>
+              <p>{{ selectedProject.challenge }}</p>
+            </div>
+            <div class="solution">
+              <h4>Solution</h4>
+              <p>{{ selectedProject.solution }}</p>
+            </div>
+          </div>
+
+          <div class="modal-metrics">
+            <h4>Results</h4>
+            <div class="metrics-grid">
+              <div
+                class="metric-item"
+                *ngFor="let metric of selectedProject.metrics"
+              >
+                <span class="metric-value">{{ metric.value }}</span>
+                <span class="metric-label">{{ metric.label }}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-technologies">
+            <h4>Technologies Used</h4>
+            <div class="tech-tags">
+              <span
+                class="tech-tag"
+                *ngFor="let tech of selectedProject.technologies"
+              >
+                {{ tech }}
+              </span>
+            </div>
+          </div>
+
+          <div class="modal-actions" *ngIf="selectedProject.liveUrl">
+            <a
+              [href]="selectedProject.liveUrl"
+              target="_blank"
+              class="btn btn-primary"
+            >
+              View Live Site
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA Section -->
+  <section class="portfolio-cta">
+    <div class="container">
+      <header class="section-header">
+        <span class="section-badge">Get Started</span>
+        <h2 class="section-title">Ready to Start Your Project?</h2>
+        <p class="section-description">
+          Let's discuss how we can bring your vision to life with cutting-edge
+          technology
+        </p>
+      </header>
+      <button class="btn btn-primary" (click)="goToContact()">
+        Get Started Today
+      </button>
+    </div>
+  </section>
+</div>

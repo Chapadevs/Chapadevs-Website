@@ -1,50 +1,9 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-support',
+  selector: "app-support",
   standalone: true,
-  template: `
-    <section class="support-section">
-      <!-- Floating Shapes -->
-      <div class="floating-shape-1"></div>
-      <div class="floating-shape-2"></div>
-      <div class="floating-shape-3"></div>
-      
-      <header class="section-header">
-        <span class="section-badge">
-          <span class="badge-icon">👥</span>
-          Post-Launch Support
-        </span>
-        <h2 class="section-title">WE DON'T JUST BUILD – WE MAINTAIN</h2>
-        <p class="section-description">
-          Your website launch is just the beginning. We provide comprehensive follow-up and ongoing maintenance to ensure your application stays secure, fast, and up-to-date.
-        </p>
-      </header>
-      
-      <div class="support-features">
-        <article class="support-feature">
-          <div class="feature-content">
-            <h3>24/7 MONITORING</h3>
-            <p>Proactive issue detection and instant alerts to keep your website running smoothly.</p>
-          </div>
-        </article>
-        
-        <article class="support-feature">
-          <div class="feature-content">
-            <h3>MONTHLY UPDATES</h3>
-            <p>Security patches and performance optimizations to keep your site fast and secure.</p>
-          </div>
-        </article>
-        
-        <article class="support-feature">
-          <div class="feature-content">
-            <h3>PRIORITY SUPPORT</h3>
-            <p>Direct access via Notion and email with response times under 2 hours.</p>
-          </div>
-        </article>
-      </div>
-    </section>
-  `,
-  styleUrls: ['./support.component.scss']
+  templateUrl: "./support.component.html",
+  styleUrls: ["./support.component.scss"],
 })
-export class SupportComponent {} 
+export class SupportComponent {}

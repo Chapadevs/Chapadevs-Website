@@ -1,0 +1,19 @@
+.footer {
+  background: #1f2937;
+  color: #d1d5db;
+  padding: 2rem 0 1rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
