@@ -8,21 +8,35 @@ import { Router } from '@angular/router';
     <section class="hero-section">
       <div class="container">
         <div class="hero-content">
+          <!-- Main Headline -->
           <h1 class="title title--hero">
-            Your Digital Vision, <span class="title--accent">&lt;/&gt;</span> OUR CODE
+            Your <span class="highlight">Digital Vision</span>, <span class="title--accent">&lt;/&gt;</span> <span class="highlight">OUR CODE</span>
           </h1>
+          
+          <!-- Subtitle -->
           <p class="text text--lead">
-            We turn your business ideas into powerful web applications with speed and the control you need.
+            We turn your <span class="highlight">business ideas</span> into <span class="highlight">powerful web applications</span> with <span class="highlight">speed</span> and the <span class="highlight">control</span> you need.
           </p>
+          
+          <!-- Enhanced CTA Buttons -->
           <div class="hero-buttons">
             <button class="btn btn--primary" (click)="scrollToInquiryForm()">
-              Start Your Project <span class="btn-arrow">→</span>
+              <span class="btn-text">Start Your Project</span>
+              <div class="btn-glow"></div>
             </button>
             <button class="btn btn--secondary" (click)="goToPortfolio()">
-              View Our Work
+              <span class="btn-text">View Our Work</span>
+              <span class="btn-icon">&lt;/&gt;</span>
             </button>
           </div>
         </div>
+      </div>
+      
+      <!-- Background Elements -->
+      <div class="hero-bg-elements">
+        <div class="bg-triangle bg-triangle--1"></div>
+        <div class="bg-triangle bg-triangle--2"></div>
+        <div class="bg-code">&lt;/&gt;</div>
       </div>
     </section>
   `,
