@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   template: `
     <section class="support-section">
-      <!-- FLOATING SHAPES FOR BACKGROUND -->
+      <!-- Floating Shapes -->
       <div class="floating-shape-1"></div>
       <div class="floating-shape-2"></div>
       <div class="floating-shape-3"></div>
@@ -23,35 +23,23 @@ import { Component } from '@angular/core';
       
       <div class="support-features">
         <article class="support-feature">
-          <div class="connector-dot"></div>
           <div class="feature-content">
             <h3>24/7 MONITORING</h3>
             <p>Proactive issue detection and instant alerts to keep your website running smoothly.</p>
           </div>
-          <div class="feature-connector">
-            <span class="connector-arrow">→</span>
-          </div>
         </article>
         
         <article class="support-feature">
-          <div class="connector-dot"></div>
           <div class="feature-content">
             <h3>MONTHLY UPDATES</h3>
             <p>Security patches and performance optimizations to keep your site fast and secure.</p>
           </div>
-          <div class="feature-connector">
-            <span class="connector-arrow">→</span>
-          </div>
         </article>
         
         <article class="support-feature">
-          <div class="connector-dot"></div>
           <div class="feature-content">
             <h3>PRIORITY SUPPORT</h3>
             <p>Direct access via Notion and email with response times under 2 hours.</p>
-          </div>
-          <div class="feature-connector">
-            <span class="connector-arrow">✓</span>
           </div>
         </article>
       </div>
