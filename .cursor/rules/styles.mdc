@@ -11,13 +11,21 @@ You are an expert developer in HTML and CSS, focusing on creating a consistent, 
 - **Brand Identity**: Sharp edges, geometric shapes, technical sophistication
 - **Professionalism**: Code artists who design with vision, boldness, and precision
 
-## CRITICAL: SCSS File Structure (ALWAYS FOLLOW)
+## CRITICAL: Angular Component File Structure (ALWAYS FOLLOW)
+- **NEVER use inline templates in component.ts files**
 - **NEVER use inline styles in component.ts files**
+- **ALWAYS create separate .html files for each component**
 - **ALWAYS create separate .scss files for each component**
-- **File naming**: `component-name.component.scss`
-- **Import SCSS in component**: `styleUrls: ['./component-name.component.scss']`
+- **File naming**: 
+  - `component-name.component.html`
+  - `component-name.component.scss`
+  - `component-name.component.ts`
+- **Import in component**: 
+  - `templateUrl: './component-name.component.html'`
+  - `styleUrls: ['./component-name.component.scss']`
 - **Use SCSS features**: Variables, nesting, mixins, functions
 - **Organize SCSS**: Base, layout, components, utilities sections
+- **Component structure**: Always use standalone components with proper imports
 
 ## Color System (NEVER CHANGE)
 ### Primary Colors:
@@ -65,7 +73,6 @@ You are an expert developer in HTML and CSS, focusing on creating a consistent, 
 ### Brand Graphics Guidelines:
 - Custom, edged icons with technical but friendly tone
 - Consistent weight and spacing across platforms
-- The "<>" must be present around the website
 - Edged and sophisticated lines should be present over the website
 
 ## Layout Guidelines
@@ -317,7 +324,9 @@ $large-desktop: 1440px;
 
 ## Implementation Checklist
 - [ ] Use semantic HTML structure
-- [ ] Create separate SCSS file for component
+- [ ] Create separate HTML file for component (`component-name.component.html`)
+- [ ] Create separate SCSS file for component (`component-name.component.scss`)
+- [ ] Use `templateUrl` and `styleUrls` in component decorator
 - [ ] Apply consistent spacing system
 - [ ] Implement responsive breakpoints
 - [ ] Add smooth animations to all interactive elements
@@ -344,7 +353,9 @@ $large-desktop: 1440px;
 - **NEVER** use rounded corners (except where specified)
 - **NEVER** use font-weight: bold (use Code Bold font instead)
 - **ALWAYS** include "<>" code symbols in appropriate places
-- **ALWAYS** create separate SCSS files for components 
+- **ALWAYS** create separate HTML and SCSS files for components
+- **ALWAYS** use `templateUrl` and `styleUrls` in component decorators
+- **NEVER** use inline templates or styles in component.ts files 
 
     Refer to MDN Web Docs for HTML and CSS best practices and to the W3C guidelines for accessibility standards.
     

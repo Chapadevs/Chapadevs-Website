@@ -1,6 +1,5 @@
 <section class="inquiry-section" id="inquiry-form">
   <header class="section-header">
-    <span class="section-badge">Inquire Now</span>
     <h2 class="section-title">Project Inquiry</h2>
     <p class="section-description">
       Let's get started! Fill out each step and review before submitting.
@@ -13,13 +12,10 @@
         [style.width.%]="(step / (steps.length - 1)) * 100"
       ></div>
     </div>
-    <div class="step-indicators">
-      <div class="progress-line">
-        <div
-          class="progress-fill"
-          [style.width.%]="(step / (steps.length - 1)) * 100"
-        ></div>
-      </div>
+    <div 
+      class="step-indicators"
+      [style.--progress]="(step / (steps.length - 1)) * 100"
+    >
       <div
         *ngFor="let s of steps; let i = index"
         class="step-indicator"

@@ -17,7 +17,5 @@ export class HeroComponent {
     }
   }
 
-  goToPortfolio() {
-    this.router.navigate(["/portfolio"]);
-  }
+
 }
