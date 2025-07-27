@@ -1,0 +1,447 @@
+// features.component.scss
+// ==========================================
+
+// Variables (ALWAYS USE BRAND COLORS)
+$primary-green: #10b981;
+$teal: #0d9488;
+$light-green: #a7f3d0;
+$white: #ffffff;
+$dark-charcoal: #111827;
+$muted-grey: #6b7280;
+
+// Typography Variables
+$font-primary: 'Code Bold', monospace;
+$font-secondary: 'Coolvetica', sans-serif;
+
+// Responsive Mixin
+@mixin responsive($breakpoint) {
+  @if $breakpoint == mobile {
+    @media (max-width: 767px) { @content; }
+  } @else if $breakpoint == tablet {
+    @media (min-width: 768px) and (max-width: 1023px) { @content; }
+  } @else if $breakpoint == desktop {
+    @media (min-width: 1024px) { @content; }
+  }
+}
+
+// Brand Element Mixins
+@mixin sharp-edge {
+  border-radius: 0.25rem; // Sharp edges, not rounded
+}
+
+@mixin triangle-accent($size: 8px, $color: $primary-green) {
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-left: $size solid transparent;
+    border-bottom: $size solid $color;
+  }
+}
+
+@mixin code-symbols {
+  &::before {
+    content: '<';
+    color: $primary-green;
+    margin-right: 0.5rem;
+  }
+  &::after {
+    content: '/>';
+    color: $primary-green;
+    margin-left: 0.5rem;
+  }
+}
+
+@mixin geometric-pattern {
+  background-image: 
+    linear-gradient(45deg, $light-green 25%, transparent 25%),
+    linear-gradient(-45deg, $light-green 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, $light-green 75%),
+    linear-gradient(-45deg, transparent 75%, $light-green 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+// Scroll animations
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Animation classes for JavaScript to toggle
+.animate-slide-left {
+  animation: slideInFromLeft 0.8s ease-out forwards;
+}
+
+.animate-slide-right {
+  animation: slideInFromRight 0.8s ease-out forwards;
+}
+
+.animate-fade-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.6s ease-out forwards;
+}
+
+// Initial state for animations
+.flow-step {
+  opacity: 0;
+  transform: translateX(-60px);
+  
+  &:nth-child(even) {
+    transform: translateX(60px);
+  }
+}
+
+// Component Styles
+.features-section {
+  background: #ffffff;
+  position: relative;
+  margin: 2rem 0; // SMALL margin for breathing room
+  overflow: hidden;
+  
+  // Geometric pattern background
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    @include geometric-pattern;
+    opacity: 0.03;
+    z-index: 1;
+  }
+}
+
+.section-header {
+  // REMOVED opacity: 0 and transform to make header visible immediately
+  // opacity: 0;
+  // transform: translateY(30px);
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  
+  @include responsive(tablet) {
+    margin-bottom: 2.5rem;
+  }
+  
+  @include responsive(desktop) {
+    margin-bottom: 3rem;
+  }
+}
+
+.section-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, $primary-green, $teal);
+  color: white;
+  padding: 0.5rem 1rem;
+  @include sharp-edge; // Sharp edges instead of rounded
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  text-align: center;
+  position: relative;
+  @include code-symbols; // Add < /> symbols
+  
+  @include responsive(mobile) {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+.section-title {
+  font-family: 'Code Bold', monospace;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: $dark-charcoal;
+  margin-bottom: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  position: relative;
+  @include triangle-accent(12px, $primary-green); // Add triangular accent
+  
+  @include responsive(tablet) {
+    font-size: 2.25rem;
+  }
+  
+  @include responsive(desktop) {
+    font-size: 2.75rem;
+  }
+}
+
+.section-description {
+  font-family: 'Coolvetica', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: $muted-grey;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  
+  @include responsive(mobile) {
+    font-size: 0.9rem;
+  }
+}
+
+.flow-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.flow-timeline {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: start;
+  
+  @include responsive(tablet) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  @include responsive(desktop) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+  
+  @include responsive(large-desktop) {
+    gap: 1.5rem;
+  }
+  
+  // Connecting lines with sharp edges
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      $primary-green 20%, 
+      $teal 50%, 
+      $primary-green 80%, 
+      transparent 100%
+    );
+    transform: translateY(-50%);
+    z-index: 1;
+    display: none;
+    
+    @include responsive(desktop) {
+      display: block;
+    }
+  }
+}
+
+.flow-step {
+  background: white;
+  padding: 1.5rem;
+  @include sharp-edge; // Sharp edges instead of rounded
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(16, 185, 129, 0.1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  @include code-symbols; // Add < /> symbols
+  transition: all 0.3s ease-in-out;
+  
+  // Sharp triangular accent
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-bottom: 12px solid $primary-green;
+    opacity: 0.3;
+  }
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border-color: $primary-green;
+  }
+  
+  @include responsive(mobile) {
+    padding: 1rem;
+  }
+}
+
+.step-number {
+  width: 3rem;
+  height: 3rem;
+  background: linear-gradient(135deg, $primary-green, $teal);
+  color: white;
+  @include sharp-edge; // Sharp edges instead of circular
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Code Bold', monospace;
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin: 0 auto 1rem;
+  text-align: center;
+  position: relative;
+  
+  // Small triangular accent
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid $teal;
+  }
+  
+  @include responsive(mobile) {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1rem;
+  }
+}
+
+.step-title {
+  font-family: 'Code Bold', monospace;
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: $dark-charcoal;
+  margin-bottom: 0.75rem;
+  text-align: center !important;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  display: block;
+  width: 100%;
+  position: relative;
+  @include triangle-accent(6px, $primary-green); // Add triangular accent
+  
+  @include responsive(mobile) {
+    font-size: 1rem;
+  }
+}
+
+.step-description {
+  font-family: 'Coolvetica', sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: $muted-grey;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+  text-align: center !important;
+  
+  @include responsive(mobile) {
+    font-size: 0.8rem;
+  }
+}
+
+.tools-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center !important;
+  align-items: center;
+  margin-top: auto;
+  text-align: center;
+}
+
+.tool-tag {
+  background: $light-green;
+  color: $primary-green;
+  padding: 0.25rem 0.5rem;
+  @include sharp-edge; // Sharp edges instead of rounded
+  font-family: 'Code Bold', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-align: center !important;
+  display: inline-block;
+  border: 1px solid rgba($primary-green, 0.2);
+  transition: all 0.3s ease-in-out;
+  
+  &:hover {
+    background: $primary-green;
+    color: white;
+    transform: scale(1.05);
+  }
+  
+  @include responsive(mobile) {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.4rem;
+  }
+}
+
+// Mobile responsive adjustments
+@include responsive(mobile) {
+  .flow-timeline {
+    gap: 1.5rem;
+  }
+  
+  .flow-step {
+    margin-bottom: 1.5rem;
+  }
+}

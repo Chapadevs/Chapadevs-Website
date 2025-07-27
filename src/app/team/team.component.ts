@@ -55,62 +55,6 @@ import { Component } from '@angular/core';
       </div>
     </section>
   `,
-  styles: [`
-    .team-section {
-      background: #f9fafb;
-      padding: 80px 0;
-    }
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .team-card {
-      background: white;
-      border-radius: 16px;
-      padding: 2rem;
-      text-align: center;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      border-top: 4px solid #10b981;
-    }
-    .team-avatar {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      margin: 0 auto 1.5rem;
-      object-fit: cover;
-      background: #10b981;
-    }
-    .team-name {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-    .team-role {
-      color: #10b981;
-      font-weight: 500;
-      margin-bottom: 1rem;
-    }
-    .team-bio {
-      color: #6b7280;
-      margin-bottom: 1.5rem;
-      line-height: 1.6;
-    }
-    .team-skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      justify-content: center;
-    }
-    .skill {
-      background: #ecfdf5;
-      color: #10b981;
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 500;
-    }
-  `]
+  styleUrls: ['./team.component.scss']
 })
 export class TeamComponent {} 

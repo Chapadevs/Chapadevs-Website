@@ -1,0 +1,551 @@
+// Support Component Styles - ChaPaDevs Brand
+// ==========================================
+
+// Variables
+$primary-green: #10b981;
+$primary-teal: #0d9488;
+$dark-charcoal: #111827;
+$muted-grey: #6b7280;
+$light-green: #a7f3d0;
+
+// Brand Shape Mixins
+@mixin sharp-edge {
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+}
+
+@mixin triangle-accent($size: 12px, $color: $primary-green) {
+  &::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-bottom: $size solid $color;
+  }
+}
+
+@mixin code-symbols($color: $primary-green, $opacity: 0.1) {
+  &::before {
+    content: '<';
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    color: $color;
+    opacity: $opacity;
+    font-family: 'Code Bold', monospace;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  
+  &::after {
+    content: '/>';
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    color: $color;
+    opacity: $opacity;
+    font-family: 'Code Bold', monospace;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+}
+
+// SHOWER GLASS EFFECT - Frosted, Opaque, Grey Tone (NO SHADOWS)
+@mixin shower-glass-effect {
+  background: rgba(128, 128, 128, 0.4); // Increased opacity for more visible effect
+  backdrop-filter: blur(25px) saturate(250%); // Increased blur and saturation for better glass effect
+  -webkit-backdrop-filter: blur(25px) saturate(250%);
+  border: 1px solid rgba(255, 255, 255, 0.5); // More visible border
+  position: relative; // Ensure proper stacking context
+  z-index: 5; // Higher than floating shapes
+  
+  // Additional frosted layer for more opacity
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(200, 200, 200, 0.2); // Increased opacity
+    backdrop-filter: blur(10px); // Increased blur
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: inherit;
+    z-index: -1;
+  }
+}
+
+// Responsive Mixin
+@mixin responsive($breakpoint) {
+  @if $breakpoint == mobile {
+    @media (min-width: 320px) { @content; }
+  } @else if $breakpoint == tablet {
+    @media (min-width: 768px) { @content; }
+  } @else if $breakpoint == desktop {
+    @media (min-width: 1024px) { @content; }
+  }
+}
+
+// Animations
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(90deg);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes morph {
+  0%, 100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  50% {
+    clip-path: polygon(10% 0, 90% 0, 100% 100%, 0 100%);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+// Component Styles
+.support-section {
+  // CHAPADEVS BRAND COLOR BACKGROUND ONLY
+  background: 
+    // Multiple gradient layers using ONLY brand colors
+    radial-gradient(circle at 25% 25%, rgba(16, 185, 129, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(13, 148, 136, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(167, 243, 208, 0.2) 0%, transparent 50%),
+    // Base gradient using brand colors
+    linear-gradient(45deg, $primary-green 0%, $primary-teal 25%, $light-green 50%, $primary-teal 75%, $primary-green 100%);
+  background-size: 300% 300%, 400% 400%, 200% 200%, 400% 400%;
+  background-position: 0% 0%, 100% 100%, 50% 50%, 0% 0%;
+  animation: gradientShift 20s ease infinite;
+  
+  padding: 2rem 1rem 1rem 1rem;
+  position: relative;
+  overflow: hidden;
+  min-height: auto;
+  
+  @include responsive(tablet) {
+    padding: 3rem 2rem 1.5rem 2rem;
+  }
+  
+  @include responsive(desktop) {
+    padding: 4rem 2rem 2rem 2rem;
+  }
+  
+  // CONSOLIDATED FLOATING SHAPES - FIXED CONFLICTING PSEUDO-ELEMENTS
+  &::before {
+    content: '';
+    position: absolute;
+    top: 15%;
+    left: 10%;
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(45deg, rgba(16, 185, 129, 0.6), rgba(13, 148, 136, 0.6)); // Increased opacity
+    animation: float 8s ease-in-out infinite, morph 12s ease-in-out infinite;
+    filter: blur(2px); // Increased blur for better glass effect
+    z-index: 2; // Behind cards but visible through glass
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 25%;
+    right: 15%;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(-45deg, rgba(167, 243, 208, 0.5), rgba(16, 185, 129, 0.5)); // Increased opacity
+    animation: float 10s ease-in-out infinite reverse, morph 15s ease-in-out infinite;
+    filter: blur(2px); // Increased blur for better glass effect
+    z-index: 2; // Behind cards but visible through glass
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+// ADDITIONAL FLOATING SHAPES USING DIFFERENT SELECTORS TO AVOID CONFLICTS
+.support-section .floating-shape-1 {
+  content: '';
+  position: absolute;
+  top: 60%;
+  left: 5%;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, rgba(13, 148, 136, 0.5), rgba(167, 243, 208, 0.5)); // Increased opacity
+  animation: float 12s ease-in-out infinite 2s, morph 18s ease-in-out infinite;
+  filter: blur(2px); // Increased blur for better glass effect
+  z-index: 2; // Behind cards but visible through glass
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.support-section .floating-shape-2 {
+  content: '';
+  position: absolute;
+  top: 20%;
+  right: 5%;
+  width: 90px;
+  height: 90px;
+  background: linear-gradient(-135deg, rgba(16, 185, 129, 0.5), rgba(13, 148, 136, 0.5)); // Increased opacity
+  animation: float 14s ease-in-out infinite 1s, morph 20s ease-in-out infinite;
+  filter: blur(2px); // Increased blur for better glass effect
+  z-index: 2; // Behind cards but visible through glass
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.support-section .floating-shape-3 {
+  content: '';
+  position: absolute;
+  top: 80%;
+  left: 60%;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, rgba(167, 243, 208, 0.5), rgba(16, 185, 129, 0.5)); // Increased opacity
+  animation: float 9s ease-in-out infinite 3s, morph 14s ease-in-out infinite;
+  filter: blur(2px); // Increased blur for better glass effect
+  z-index: 2; // Behind cards but visible through glass
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 10;
+  
+  @include responsive(tablet) {
+    margin-bottom: 2rem;
+  }
+}
+
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(16, 185, 129, 0.9);
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-family: 'Code Bold', monospace;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  @include sharp-edge;
+  @include shower-glass-effect;
+  
+  .badge-icon {
+    font-size: 1rem;
+  }
+}
+
+.section-title {
+  font-family: 'Code Bold', monospace;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  position: relative;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  @include triangle-accent(16px, $primary-green);
+  
+  @include responsive(tablet) {
+    font-size: 2.5rem;
+  }
+  
+  @include responsive(desktop) {
+    font-size: 3rem;
+  }
+}
+
+.section-description {
+  font-family: 'Coolvetica', sans-serif;
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  
+  @include responsive(tablet) {
+    font-size: 1.25rem;
+  }
+}
+
+// CONNECTED CARD SYSTEM - SHOWER GLASS EFFECT WITH SMOOTH SIZE HOVER
+.support-features {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+  
+  // CONNECTOR LINE BETWEEN CARDS
+  &::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, 
+      transparent 0%, 
+      rgba(16, 185, 129, 0.6) 20%, 
+      rgba(16, 185, 129, 0.8) 50%, 
+      rgba(16, 185, 129, 0.6) 80%, 
+      transparent 100%);
+    transform: translateX(-50%);
+    z-index: 1;
+    
+    @include responsive(mobile) {
+      display: none; // HIDE ON MOBILE
+    }
+  }
+}
+
+.support-feature {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto; // CONTENT | CONNECTOR
+  gap: 2rem;
+  padding: 2rem;
+  margin-bottom: 1rem;
+  @include shower-glass-effect; // SHOWER GLASS EFFECT
+  border-radius: 0.25rem;
+  // FASTER AND BIGGER TRANSFORM APPROACH
+  transform: scale(1) !important; // FORCE INITIAL STATE
+  transition: transform 0.5s ease-in-out !important; // FASTER TRANSITION (0.5s instead of 0.8s)
+  overflow: hidden;
+  @include code-symbols($primary-green, 0.15);
+  cursor: pointer; // INDICATE HOVERABLE
+  z-index: 5; // Ensure cards are above floating shapes
+  
+  @include responsive(tablet) {
+    gap: 2.5rem;
+    padding: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  // CONNECTOR DOT - USING DIFFERENT PSEUDO-ELEMENT TO AVOID CONFLICTS
+  .connector-dot {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    background: $primary-green;
+    border: 3px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(1) !important; // FORCE INITIAL STATE
+    z-index: 2;
+    transition: transform 0.5s ease-in-out !important; // FASTER TRANSITION
+    transition: background 0.5s ease-in-out !important; // ADD BACKGROUND TRANSITION
+    
+    @include responsive(mobile) {
+      display: none; // HIDE ON MOBILE
+    }
+  }
+  
+  // FASTER AND BIGGER HOVER EFFECT
+  &:hover {
+    transform: scale(1.06) !important; // BIGGER SCALE (1.06 instead of 1.03)
+    z-index: 10;
+    
+    .connector-dot {
+      background: $light-green;
+      transform: translate(-50%, -50%) scale(1.4) !important; // BIGGER CONNECTOR (1.4 instead of 1.3)
+    }
+    
+    .feature-content {
+      h3 {
+        color: #ffffff;
+        text-shadow: 
+          0 2px 4px rgba(0, 0, 0, 0.6),
+          0 0 30px rgba(16, 185, 129, 0.5);
+        
+        &::after {
+          width: 4rem;
+          background: linear-gradient(90deg, $light-green 0%, $primary-green 100%);
+        }
+      }
+      
+      p {
+        color: rgba(255, 255, 255, 1);
+        text-shadow: 
+          0 1px 3px rgba(0, 0, 0, 0.5),
+          0 0 15px rgba(255, 255, 255, 0.2);
+      }
+    }
+    
+    .feature-connector {
+      opacity: 1;
+      transform: scale(1.2) !important; // BIGGER ARROW (1.2 instead of 1.15)
+      
+      .connector-arrow {
+        transform: rotate(-45deg) scale(1.2) !important; // BIGGER ARROW (1.2 instead of 1.15)
+        color: $light-green;
+      }
+    }
+  }
+  
+  // REMOVED CONFLICTING ANIMATIONS - THEY WERE INTERFERING WITH HOVER
+  // &:nth-child(1) { animation: fadeInUp 0.8s ease-out 0.2s both; }
+  // &:nth-child(2) { animation: fadeInUp 0.8s ease-out 0.4s both; }
+  // &:nth-child(3) { animation: fadeInUp 0.8s ease-out 0.6s both; }
+}
+
+.feature-content {
+  grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  
+  h3 {
+    font-family: 'Code Bold', monospace;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    text-shadow: 
+      0 2px 4px rgba(0, 0, 0, 0.5),
+      0 0 20px rgba(16, 185, 129, 0.3);
+    line-height: 1.2;
+    position: relative;
+    transition: color 0.8s ease-in-out, text-shadow 0.8s ease-in-out;
+    
+    // ADD GREEN ACCENT UNDERLINE
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -0.5rem;
+      left: 0;
+      width: 3rem;
+      height: 2px;
+      background: linear-gradient(90deg, $primary-green 0%, $light-green 100%);
+      border-radius: 1px;
+      transition: width 0.8s ease-in-out, background 0.8s ease-in-out;
+    }
+    
+    @include responsive(tablet) {
+      font-size: 1.75rem;
+    }
+    
+    @include responsive(desktop) {
+      font-size: 2rem;
+    }
+  }
+  
+  p {
+    font-family: 'Coolvetica', sans-serif;
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.6;
+    text-shadow: 
+      0 1px 3px rgba(0, 0, 0, 0.4),
+      0 0 10px rgba(255, 255, 255, 0.1);
+    margin: 0;
+    font-weight: 500;
+    transition: color 0.8s ease-in-out, text-shadow 0.8s ease-in-out;
+    
+    @include responsive(tablet) {
+      font-size: 1.25rem;
+    }
+    
+    @include responsive(desktop) {
+      font-size: 1.375rem;
+    }
+  }
+}
+
+// CONNECTOR ARROW (RIGHT SIDE)
+.feature-connector {
+  grid-column: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: $primary-green;
+  opacity: 0.7;
+  transform: scale(1);
+  transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+  
+  @include responsive(mobile) {
+    display: none; // HIDE ON MOBILE
+  }
+  
+  .connector-arrow {
+    font-size: 1.75rem;
+    transform: rotate(-45deg) scale(1);
+    transition: transform 0.8s ease-in-out, color 0.8s ease-in-out;
+  }
+}
+
+// Responsive adjustments
+@include responsive(mobile) {
+  .support-feature {
+    grid-template-columns: 1fr; // SINGLE COLUMN ON MOBILE
+    text-align: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    
+    .feature-content {
+      gap: 0.75rem;
+      
+      h3 {
+        font-size: 1.25rem;
+        
+        &::after {
+          left: 50%;
+          transform: translateX(-50%);
+          width: 2rem;
+        }
+      }
+      
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+}

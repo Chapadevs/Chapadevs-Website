@@ -2,6 +2,15 @@
 
 You are an expert developer in HTML and CSS, focusing on creating a consistent, animated, and responsive design system for ChaPaDevs website.
 
+## Core Design Principles
+- **Simplicity First**: Clean, minimalist design with controlled whitespace
+- **Consistent Animation**: Standardized durations and easing curves
+- **Unified Design Language**: Sharp edges, geometric shapes, technical sophistication
+- **Responsive Excellence**: Mobile-first approach with clear CTA zones
+- **Semantic Structure**: Proper HTML hierarchy and accessibility
+- **Brand Identity**: Sharp edges, geometric shapes, technical sophistication
+- **Professionalism**: Code artists who design with vision, boldness, and precision
+
 ## CRITICAL: SCSS File Structure (ALWAYS FOLLOW)
 - **NEVER use inline styles in component.ts files**
 - **ALWAYS create separate .scss files for each component**
@@ -10,53 +19,73 @@ You are an expert developer in HTML and CSS, focusing on creating a consistent, 
 - **Use SCSS features**: Variables, nesting, mixins, functions
 - **Organize SCSS**: Base, layout, components, utilities sections
 
-## Core Design Principles
-- **Simplicity First**: Minimal text, key topics only, precision over quantity
-- **Consistent Animation**: All interactive elements must have smooth animations
-- **Unified Design Language**: Standardized patterns for buttons, titles, boxes, and layouts
-- **Responsive Excellence**: Mobile-first approach with real-world device breakpoints
-- **Semantic Structure**: Proper HTML semantics and consistent file organization
-
 ## Color System (NEVER CHANGE)
-### Primary Colors
-- **White**: `#FFFFFF` – Simplicity, trust, minimalism
-- **Green**: `#10b981` – Innovation, growth, personality
+### Primary Colors:
+- **White (#FFFFFF)** – Simplicity, trust, minimalism
+- **Green (#10b981)** – Innovation, growth, personality
 
-### Secondary Colors
-- **Light Green**: `#a7f3d0` – Energy, freshness
-- **Teal**: `#0d9488` – Balance, subtlety, modern feel
+### Secondary Colors:
+- **Light Green (#a7f3d0)** – Energy, freshness
+- **Teal (#0d9488)** – Balance, subtlety, modern feel
 
-### Optional Additions
-- **Dark Charcoal**: `#111827` – For footer backgrounds or dark mode
-- **Muted Grey**: `#6b7280` – For subtitles or muted interface elements
+### Optional Additions (for contrast/UI states):
+- **Dark Charcoal (#111827)** – For footer backgrounds or dark mode
+- **Muted Grey (#6b7280)** – For subtitles or muted interface elements
 
 ## Typography System (NEVER CHANGE)
 ### Primary Font: Code Bold
-- **Usage**: Hero headlines, key sections, logos
-- **Font Family**: `'Code Bold', monospace`
-- **Font Weights**: 700 (bold)
-- **Style**: Geometric, stylized letterforms
+- **Logo**: Semi-Bold | Clear and bold, not heavy
+- **Hero Headline**: Light/Medium | Large, stylized text
+- **Headings**: Bold | Emphasis and hierarchy
+- **Subheadings**: Medium | Structural clarity
+- **Navigation**: Medium | Crisp and legible
+- **Buttons/CTAs**: Medium/Semi-Bold | Action-driven clarity
 
 ### Secondary Font: Coolvetica
-- **Usage**: Body text, form labels, footers
-- **Font Family**: `'Coolvetica', sans-serif`
-- **Font Weights**: 400 (regular), 600 (medium/semi-bold)
-- **Style**: Clean, adaptable for digital contexts
-- **Text Case**: Lowercase for body text
+- **Body Text**: Regular | Clean readability
+- **Form Labels**: Regular | Clean and adaptable
+- **Footers**: Regular | Used with lowercase texts
 
-### Typography Scale
-- **Hero Titles**: 2.5rem (Code Bold, 700)
-- **Section Titles**: 2rem (Code Bold, 700)
-- **Subsection Titles**: 1.5rem (Code Bold, 700)
-- **Body Text**: 1rem (Coolvetica, 400)
-- **Small Text**: 0.875rem (Coolvetica, 400)
-- **Caption**: 0.75rem (Coolvetica, 400)
+### Typography Scale:
+- Hero: 3rem - 4rem (Code Bold, Light/Medium)
+- H1: 2.5rem - 3rem (Code Bold, Bold)
+- H2: 2rem - 2.5rem (Code Bold, Bold)
+- H3: 1.5rem - 2rem (Code Bold, Medium)
+- Body: 1rem - 1.125rem (Coolvetica, Regular)
+- Small: 0.875rem - 1rem (Coolvetica, Regular)
 
-## Layout System
-- **Grid**: CSS Grid for main layouts, Flexbox for component alignment
-- **Container**: Max-width 1200px, centered, padding 0 1rem
-- **Spacing**: 0.5rem, 1rem, 1.5rem, 2rem, 3rem, 4rem (consistent increments)
-- **Border Radius**: 0.5rem (standard), 1rem (large), 0.25rem (small)
+## Brand Visual Elements (ALWAYS INCORPORATE)
+### Core Brand Shapes:
+- **< / > Code Symbols** – Anchoring our dev identity
+- **Triangles and Sharp Angles** – Represent precision and control
+- **Squared fusion in p/d** – Symbol of unity and flow inside a structured system
+- **Sharp Edges** – Technical sophistication
+- **Geometric Patterns** – Structured, controlled design
+
+### Brand Graphics Guidelines:
+- Custom, edged icons with technical but friendly tone
+- Consistent weight and spacing across platforms
+- The "<>" must be present around the website
+- Edged and sophisticated lines should be present over the website
+
+## Layout Guidelines
+### Modular Design:
+- Clean, minimalist sections with sharp edges
+- Controlled whitespace between elements
+- Natural flow and organization between content
+- Connection between content elements
+
+### Hero Section:
+- Background with subtle geometric pattern
+- Large, stylized Code Bold typography
+- Sharp, edged elements
+- Clear CTA zones
+
+### Section Headers:
+- Badge with "<>" code symbols
+- Bold Code Bold titles
+- Clean Coolvetica descriptions
+- Sharp triangular accents
 
 ## SCSS Architecture & Best Practices
 ### File Structure
@@ -64,48 +93,92 @@ You are an expert developer in HTML and CSS, focusing on creating a consistent, 
 // component-name.component.scss
 // ==========================================
 
-// Variables
+// Variables (ALWAYS USE BRAND COLORS)
 $primary-green: #10b981;
-$primary-teal: #0d9488;
+$teal: #0d9488;
+$light-green: #a7f3d0;
+$white: #ffffff;
 $dark-charcoal: #111827;
 $muted-grey: #6b7280;
-$light-green: #a7f3d0;
 
-// Mixins
-@mixin button-base {
-  padding: 0.875rem 2rem;
-  border: 2px solid transparent;
-  border-radius: 0.5rem;
-  font-family: 'Code Bold', monospace;
-  font-weight: 700;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-}
+// Typography Variables
+$font-primary: 'Code Bold', monospace;
+$font-secondary: 'Coolvetica', sans-serif;
 
+// Responsive Mixin
 @mixin responsive($breakpoint) {
   @if $breakpoint == mobile {
-    @media (min-width: 320px) { @content; }
+    @media (max-width: 767px) { @content; }
   } @else if $breakpoint == tablet {
-    @media (min-width: 768px) { @content; }
+    @media (min-width: 768px) and (max-width: 1023px) { @content; }
   } @else if $breakpoint == desktop {
     @media (min-width: 1024px) { @content; }
   }
 }
 
-// Component Styles
-.component-name {
-  // Base styles
-  
-  // Responsive styles
-  @include responsive(mobile) {
-    // Mobile styles
+// Brand Element Mixins
+@mixin sharp-edge {
+  border-radius: 0.25rem; // Sharp edges, not rounded
+}
+
+@mixin triangle-accent($size: 8px, $color: $primary-green) {
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-left: $size solid transparent;
+    border-bottom: $size solid $color;
   }
+}
+
+@mixin code-symbols {
+  &::before {
+    content: '<';
+    color: $primary-green;
+    margin-right: 0.5rem;
+  }
+  &::after {
+    content: '/>';
+    color: $primary-green;
+    margin-left: 0.5rem;
+  }
+}
+
+@mixin geometric-pattern {
+  background-image: 
+    linear-gradient(45deg, $light-green 25%, transparent 25%),
+    linear-gradient(-45deg, $light-green 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, $light-green 75%),
+    linear-gradient(-45deg, transparent 75%, $light-green 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+// SHOWER GLASS EFFECT - Frosted, Opaque, Grey Tone (NO SHADOWS)
+@mixin shower-glass-effect {
+  background: rgba(128, 128, 128, 0.4); // Increased opacity for more visible effect
+  backdrop-filter: blur(25px) saturate(250%); // Increased blur and saturation for better glass effect
+  -webkit-backdrop-filter: blur(25px) saturate(250%);
+  border: 1px solid rgba(255, 255, 255, 0.5); // More visible border
+  position: relative; // Ensure proper stacking context
+  z-index: 5; // Higher than floating shapes
   
-  @include responsive(tablet) {
-    // Tablet styles
+  // Additional frosted layer for more opacity
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(200, 200, 200, 0.2); // Increased opacity
+    backdrop-filter: blur(10px); // Increased blur
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: inherit;
+    z-index: -1;
   }
 }
 ```
@@ -114,257 +187,131 @@ $light-green: #a7f3d0;
 
 ### Buttons
 ```scss
-.btn {
-  @include button-base;
+@mixin btn--primary {
+  background: $primary-green;
+  color: $white;
+  font-family: $font-primary;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  @include sharp-edge;
+  @include code-symbols;
+  transition: all 0.3s ease-in-out;
   
-  &--primary {
+  &:hover {
+    background: $teal;
+    transform: translateY(-2px);
+  }
+}
+
+@mixin btn--secondary {
+  background: transparent;
+  color: $primary-green;
+  font-family: $font-primary;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid $primary-green;
+  @include sharp-edge;
+  transition: all 0.3s ease-in-out;
+  
+  &:hover {
     background: $primary-green;
-    color: #FFFFFF;
-    border-color: $primary-green;
-    
-    &:hover {
-      background: $primary-teal;
-      border-color: $primary-teal;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
-    }
-  }
-  
-  &--secondary {
-    background: transparent;
-    color: $primary-green;
-    border-color: $primary-green;
-    
-    &:hover {
-      background: $primary-green;
-      color: #FFFFFF;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
-    }
-  }
-  
-  &:active {
-    transform: translateY(0);
+    color: $white;
   }
 }
 ```
 
 ### Titles
 ```scss
-.title {
-  font-family: 'Code Bold', monospace;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 1rem;
+@mixin title--hero {
+  font-family: $font-primary;
+  font-weight: 300; // Light/Medium for hero
+  font-size: 3rem;
   color: $dark-charcoal;
+  line-height: 1.2;
+  @include triangle-accent(12px, $primary-green);
   
-  &--hero {
-    font-size: 2.5rem;
-    color: $dark-charcoal;
-  }
-  
-  &--section {
+  @include responsive(mobile) {
     font-size: 2rem;
-    color: $dark-charcoal;
-  }
-  
-  &--subsection {
-    font-size: 1.5rem;
-    color: $dark-charcoal;
-  }
-  
-  &--accent {
-    color: $primary-green;
   }
 }
-```
 
-### Text Elements
-```scss
-.text {
-  font-family: 'Coolvetica', sans-serif;
-  font-weight: 400;
-  line-height: 1.6;
-  color: $muted-grey;
+@mixin title--section {
+  font-family: $font-primary;
+  font-weight: 700; // Bold for sections
+  font-size: 2.5rem;
+  color: $dark-charcoal;
+  line-height: 1.3;
+  @include triangle-accent(8px, $primary-green);
   
-  &--lead {
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: $dark-charcoal;
-  }
-  
-  &--body {
-    font-size: 1rem;
-    color: $muted-grey;
-  }
-  
-  &--small {
-    font-size: 0.875rem;
-    color: $muted-grey;
-  }
-  
-  &--accent {
-    color: $primary-green;
+  @include responsive(mobile) {
+    font-size: 2rem;
   }
 }
 ```
 
 ### Boxes/Cards
 ```scss
-.card {
-  background: #FFFFFF;
-  border: 1px solid #e5e7eb;
-  border-radius: 0.5rem;
+@mixin card--primary {
+  background: $white;
+  border: 1px solid rgba($primary-green, 0.1);
+  @include sharp-edge;
+  @include code-symbols;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   padding: 1.5rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
   
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(16, 185, 129, 0.15);
-    border-color: $light-green;
-  }
-  
-  &--accent {
-    background: linear-gradient(135deg, $primary-green 0%, $primary-teal 100%);
-    color: #FFFFFF;
-    border-color: $primary-green;
-    
-    .title,
-    .text {
-      color: #FFFFFF;
-    }
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
   }
 }
 ```
 
-## Animation System
-- **Duration**: 0.3s (standard), 0.5s (complex), 0.15s (quick)
-- **Easing**: `cubic-bezier(0.4, 0, 0.2, 1)` (standard)
-- **Hover Effects**: Transform + shadow + color changes
-- **Page Transitions**: Fade in/out with staggered children
-- **Loading States**: Skeleton screens with pulse animation
-
-## Responsive Breakpoints (Real-world Devices)
+## Responsive Breakpoints
 ```scss
-// Mobile First Approach
-// Base styles for mobile (320px+)
+// Mobile-first approach
+$mobile: 767px;
+$tablet: 768px;
+$desktop: 1024px;
+$large-desktop: 1440px;
 
-// Small phones (320px - 375px)
-@media (min-width: 320px) { }
-
-// Large phones (376px - 767px)
-@media (min-width: 376px) { }
-
-// Tablets (768px - 1023px)
-@media (min-width: 768px) { }
-
-// Small laptops (1024px - 1439px)
-@media (min-width: 1024px) { }
-
-// Large laptops (1440px - 1919px)
-@media (min-width: 1440px) { }
-
-// Desktop monitors (1920px+)
-@media (min-width: 1920px) { }
-
-// 4K displays (2560px+)
-@media (min-width: 2560px) { }
+// Usage with mixin
+@include responsive(mobile) { /* styles */ }
+@include responsive(tablet) { /* styles */ }
+@include responsive(desktop) { /* styles */ }
 ```
-
-## File Structure & Naming
-- **Components**: `component-name.component.ts`
-- **Styles**: `component-name.component.scss` (ALWAYS SEPARATE FILE)
-- **HTML**: Semantic structure with proper landmarks
-- **CSS Classes**: BEM methodology with component prefixes
-
-## HTML Semantic Structure
-```html
-<main class="main">
-  <section class="section section--hero">
-    <div class="container">
-      <div class="grid grid--hero">
-        <div class="content">
-          <h1 class="title title--hero">Main Title</h1>
-          <p class="text text--lead">Lead text</p>
-          <button class="btn btn--primary">Action</button>
-        </div>
-        <div class="media">
-          <img class="image" src="..." alt="...">
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-```
-
-## CSS Architecture
-- **Base**: Reset, typography, variables
-- **Layout**: Grid, containers, spacing
-- **Components**: Buttons, cards, forms, navigation
-- **Utilities**: Animations, helpers, responsive
-
-## Accessibility Standards
-- **Color Contrast**: Minimum 4.5:1 for normal text, 3:1 for large text
-- **Focus States**: Visible focus indicators on all interactive elements
-- **Keyboard Navigation**: All interactive elements accessible via keyboard
-- **Screen Readers**: Proper ARIA labels and semantic HTML
-- **Touch Targets**: Minimum 44px for mobile interactions
-
-## Performance Guidelines
-- **CSS**: Use CSS custom properties for theming
-- **Images**: Optimized formats (WebP with fallbacks)
-- **Animations**: Use transform and opacity for GPU acceleration
-- **Loading**: Lazy loading for images and non-critical content
-- **Minification**: Compressed CSS in production
-
-## Component Patterns
-
-### Hero Section
-- Full viewport height on mobile, 80vh on desktop
-- Centered content with clear hierarchy
-- Single call-to-action button
-- Background with subtle animation
-
-### Content Sections
-- Consistent padding (2rem mobile, 4rem desktop)
-- Grid layout for content/media
-- Cards for feature highlights
-- Smooth scroll animations
-
-### Navigation
-- Fixed header with backdrop blur
-- Hamburger menu for mobile
-- Smooth transitions for menu items
-- Active state indicators
 
 ## Animation Classes
 ```scss
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideUp {
-  from { transform: translateY(30px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes scaleIn {
-  from { transform: scale(0.9); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
-.fade-in {
-  animation: fadeIn 0.6s ease-out;
+.animate-fade-up {
+  animation: fadeInUp 0.6s ease-out forwards;
 }
 
-.slide-up {
-  animation: slideUp 0.5s ease-out;
-}
-
-.scale-in {
-  animation: scaleIn 0.4s ease-out;
+.animate-scale-in {
+  animation: scaleIn 0.4s ease-out forwards;
 }
 ```
 
@@ -383,13 +330,21 @@ $light-green: #a7f3d0;
 - [ ] Use correct font families (Code Bold for titles, Coolvetica for body)
 - [ ] Apply brand color palette consistently
 - [ ] Use SCSS variables and mixins
+- [ ] Incorporate brand shapes (triangles, sharp edges, code symbols)
+- [ ] Add geometric patterns where appropriate
+- [ ] Maintain harmony between sharp and smooth elements
+- [ ] Include "<>" code symbols in appropriate places
 
 ## Reference Standards
-- Follow MDN Web Docs for HTML and CSS best practices
-- Adhere to W3C accessibility guidelines
-- Use modern CSS features with appropriate fallbacks
-- Maintain consistent code formatting and organization
-- ALWAYS use separate SCSS files, NEVER inline styles 
+- **ALWAYS** use brand color palette exactly as specified
+- **ALWAYS** incorporate brand visual elements with harmony
+- **ALWAYS** maintain sharp, technical aesthetic
+- **ALWAYS** use Code Bold for headings and CTAs
+- **ALWAYS** use Coolvetica for body text
+- **NEVER** use rounded corners (except where specified)
+- **NEVER** use font-weight: bold (use Code Bold font instead)
+- **ALWAYS** include "<>" code symbols in appropriate places
+- **ALWAYS** create separate SCSS files for components 
 
     Refer to MDN Web Docs for HTML and CSS best practices and to the W3C guidelines for accessibility standards.
     

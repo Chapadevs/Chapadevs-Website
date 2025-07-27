@@ -8,6 +8,250 @@ import { environment } from '../../environments/environment';
   selector: 'app-inquiry-form',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
+  styles: [`
+    /* TEMPORARY INLINE STYLES - TESTING */
+    .inquiry-section {
+      background: #ffffff;
+      padding: 80px 0 40px 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      position: relative;
+      overflow: hidden;
+      border: 3px solid #10b981; /* TEST BORDER */
+    }
+    
+    .section-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #10b981, #0d9488);
+      color: #ffffff;
+      padding: 0.5rem 1rem;
+      border-radius: 0.25rem;
+      font-family: 'Code Bold', monospace;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+      text-align: center;
+      position: relative;
+    }
+    
+    .section-badge::before {
+      content: '<';
+      color: #10b981;
+      margin-right: 0.5rem;
+    }
+    
+    .section-badge::after {
+      content: '/>';
+      color: #10b981;
+      margin-left: 0.5rem;
+    }
+    
+    .section-title {
+      font-family: 'Code Bold', monospace;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 1rem;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      position: relative;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      border-left: 12px solid transparent;
+      border-bottom: 12px solid #10b981;
+    }
+    
+    .inquiry-form {
+      max-width: 520px;
+      width: 100%;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 2.5rem 2rem 2rem 2rem;
+      border-radius: 0.25rem;
+      box-shadow: 0 4px 32px rgba(16, 185, 129, 0.08), 0 1.5px 6px rgba(31, 41, 55, 0.04);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      position: relative;
+      z-index: 2;
+      border: 2px solid #10b981; /* TEST BORDER */
+    }
+    
+    .inquiry-form::before {
+      content: '<';
+      color: #10b981;
+      margin-right: 0.5rem;
+    }
+    
+    .inquiry-form::after {
+      content: '/>';
+      color: #10b981;
+      margin-left: 0.5rem;
+    }
+    
+    input, select, textarea {
+      padding: 13px 16px;
+      border: 2px solid #e5e7eb;
+      border-radius: 0.25rem;
+      font-size: 1rem;
+      background: #ffffff;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      font-family: 'Coolvetica', sans-serif;
+    }
+    
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #10b981;
+      box-shadow: 0 0 0 2px #a7f3d0;
+    }
+    
+    .btn {
+      background: #ffffff;
+      color: #10b981;
+      border: 2px solid #10b981;
+      border-radius: 0.25rem;
+      padding: 1rem 2.5rem;
+      font-family: 'Code Bold', monospace;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      position: relative;
+    }
+    
+    .btn:hover:not(:disabled) {
+      background: #10b981;
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+    
+    .btn-primary {
+      background: #10b981;
+      color: #ffffff;
+      border: none;
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.08);
+    }
+    
+    .btn-primary:hover:not(:disabled) {
+      background: #0d9488;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+    
+    /* PROGRESS INDICATOR - SHARP EDGED BALLS */
+    .wizard-progress {
+      margin-bottom: 1.5rem;
+      width: 100%;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .progress-bar {
+      width: 100%;
+      height: 7px;
+      background: #e5e7eb;
+      border-radius: 0.25rem; /* Sharp edges instead of rounded */
+      overflow: hidden;
+      margin-bottom: 1.2rem;
+      position: relative;
+    }
+    
+
+    
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #10b981 60%, #0d9488 100%);
+      transition: width 0.3s ease;
+    }
+    
+    .step-indicators {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 0 0.5rem;
+      position: relative;
+    }
+    
+    .progress-line {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #e5e7eb;
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+    
+
+    
+    .step-indicator {
+      width: 40px;
+      height: 40px;
+      border-radius: 0.25rem; /* Sharp edges instead of circular */
+      background: #e5e7eb;
+      color: #6b7280;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Code Bold', monospace;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 4px rgba(16, 185, 129, 0.08);
+      position: relative;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      flex-shrink: 0;
+      z-index: 3;
+    }
+    
+
+    
+    .step-indicator.active {
+      background: #10b981;
+      color: #ffffff;
+      box-shadow: 0 0 0 3px #a7f3d0;
+      transform: scale(1.05);
+    }
+    
+    .step-indicator.current {
+      background: #0d9488;
+      color: #ffffff;
+      transform: scale(1.12);
+      box-shadow: 0 0 0 4px #a7f3d0;
+    }
+    
+
+    
+    @media (max-width: 600px) {
+      .step-indicator {
+        width: 28px;
+        height: 28px;
+        font-size: 0.95rem;
+      }
+    }
+  `],
   template: `
     <section class="inquiry-section" id="inquiry-form">
       <header class="section-header">
@@ -20,6 +264,9 @@ import { environment } from '../../environments/environment';
           <div class="progress-fill" [style.width.%]="(step / (steps.length - 1)) * 100"></div>
         </div>
         <div class="step-indicators">
+          <div class="progress-line">
+            <div class="progress-fill" [style.width.%]="(step / (steps.length - 1)) * 100"></div>
+          </div>
           <div *ngFor="let s of steps; let i = index" class="step-indicator" [class.active]="i <= step" [class.current]="i === step">{{ i + 1 }}</div>
         </div>
       </div>
@@ -238,187 +485,7 @@ import { environment } from '../../environments/environment';
         </div>
       </form>
     </section>
-  `,
-  styles: [`
-    .inquiry-section {
-      background: #fff;
-      padding: 80px 0 40px 0;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-    }
-    .inquiry-form {
-      max-width: 520px;
-      width: 100%;
-      margin: 0 auto;
-      background: #f9fafb;
-      padding: 2.5rem 2rem 2rem 2rem;
-      border-radius: 18px;
-      box-shadow: 0 4px 32px rgba(16,185,129,0.08), 0 1.5px 6px rgba(31,41,55,0.04);
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-    .form-section { margin-bottom: 2.5rem; }
-    .form-row { display: flex; gap: 2rem; }
-    .form-group { margin-bottom: 1.25rem; display: flex; flex-direction: column; }
-    label { font-weight: 600; color: #1f2937; margin-bottom: 0.4rem; font-size: 1rem; }
-    input, select, textarea {
-      padding: 13px 16px;
-      border: 2px solid #e5e7eb;
-      border-radius: 8px;
-      font-size: 1rem;
-      background: #fff;
-      transition: border-color 0.3s, box-shadow 0.3s;
-      font-family: inherit;
-    }
-    input:focus, select:focus, textarea:focus {
-      outline: none;
-      border-color: #10b981;
-      box-shadow: 0 0 0 2px #a7f3d0;
-    }
-    .checkbox-group { display: flex; flex-wrap: wrap; gap: 1rem; }
-    .form-actions { text-align: center; margin-top: 2rem; }
-    .btn-primary {
-      background: #10b981;
-      color: #fff;
-      border: none;
-      border-radius: 50px;
-      padding: 1rem 2.5rem;
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.3s, box-shadow 0.3s;
-      box-shadow: 0 2px 8px rgba(16,185,129,0.08);
-    }
-    .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
-    .btn {
-      background: #fff;
-      color: #10b981;
-      border: 2px solid #10b981;
-      border-radius: 50px;
-      padding: 1rem 2.5rem;
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.3s, color 0.3s, border 0.3s;
-    }
-    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
-    .btn:hover:not(:disabled) {
-      background: #10b981;
-      color: #fff;
-    }
-    .wizard-progress {
-      margin-bottom: 2rem;
-      width: 100%;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .progress-bar {
-      width: 100%;
-      height: 7px;
-      background: #e5e7eb;
-      border-radius: 3.5px;
-      overflow: hidden;
-      margin-bottom: 1.2rem;
-    }
-    .progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, #10b981 60%, #34d399 100%);
-      transition: width 0.3s ease;
-    }
-    .step-indicators {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .step-indicator {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      background: #e5e7eb;
-      color: #6b7280;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 1.05rem;
-      transition: all 0.3s ease;
-      box-shadow: 0 1px 3px rgba(16,185,129,0.04);
-    }
-    .step-indicator.active {
-      background: #10b981;
-      color: white;
-      box-shadow: 0 0 0 3px #a7f3d0;
-    }
-    .step-indicator.current {
-      background: #059669;
-      color: white;
-      transform: scale(1.12);
-      box-shadow: 0 0 0 4px #d1fae5;
-    }
-    .form-step {
-      min-height: 420px;
-      animation: stepFadeIn 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .step-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: #1f2937;
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .wizard-navigation {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 2rem;
-      padding-top: 2rem;
-      border-top: 1px solid #e5e7eb;
-      gap: 1rem;
-    }
-    .wizard-navigation .btn { min-width: 120px; }
-    @keyframes stepFadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    .review-section {
-      background: #fff;
-      border-radius: 12px;
-      padding: 2rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    }
-    .review-label { font-weight: 600; color: #059669; margin-bottom: 0.25rem; }
-    .review-value { margin-bottom: 1rem; color: #1f2937; }
-    .submit-message {
-      margin-top: 1rem;
-      padding: 1rem;
-      border-radius: 8px;
-      text-align: center;
-      font-size: 1.1rem;
-    }
-    .submit-message.success { background: #ecfdf5; color: #059669; border: 1px solid #a7f3d0; }
-    .submit-message.error { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
-    @media (max-width: 900px) {
-      .form-row { flex-direction: column; gap: 1rem; }
-      .inquiry-form { padding: 1.5rem; }
-      .wizard-progress { max-width: 100vw; }
-    }
-    @media (max-width: 600px) {
-      .inquiry-section { padding: 40px 0 20px 0; }
-      .inquiry-form { padding: 1rem; border-radius: 12px; }
-      .form-step { min-height: 0; }
-      .step-title { font-size: 1.05rem; }
-      .step-indicator { width: 28px; height: 28px; font-size: 0.95rem; }
-      .wizard-navigation { flex-direction: column; gap: 0.5rem; padding-top: 1rem; }
-    }
-  `]
+  `
 })
 export class InquiryFormComponent implements OnInit {
   step = 0;
