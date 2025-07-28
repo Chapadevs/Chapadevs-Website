@@ -5,9 +5,9 @@ import { FooterComponent } from "../footer/footer.component";
 import { HeaderComponent } from "../header/header.component";
 import { HeroComponent } from "../hero/hero.component";
 import { InquiryFormComponent } from "../inquiry-form/inquiry-form.component";
-import { ServicesComponent } from "../services/services.component";
-import { SupportComponent } from "../support/support.component";
+import { MaintenanceComponent } from "../maintenance/maintenance.component";
 import { TeamComponent } from "../team/team.component";
+import { WorkComponent } from "../work/work.component";
 
 @Component({
   selector: "app-home",
@@ -16,10 +16,10 @@ import { TeamComponent } from "../team/team.component";
     CommonModule,
     HeaderComponent,
     HeroComponent,
+    WorkComponent,
     TeamComponent,
-    ServicesComponent,
+    MaintenanceComponent,
     FeaturesComponent,
-    SupportComponent,
     InquiryFormComponent,
     FooterComponent,
   ],
