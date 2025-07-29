@@ -1,3 +1,52 @@
 // Home Component Styles
 // This component serves as a container for all other components
-// No specific styles needed as it just composes other components
+// Standardized spacing system for consistent component separation
+
+// Responsive Mixin
+@mixin responsive($breakpoint) {
+  @if $breakpoint == mobile {
+    @media (max-width: 767px) { @content; }
+  } @else if $breakpoint == tablet {
+    @media (min-width: 768px) and (max-width: 1023px) { @content; }
+  } @else if $breakpoint == desktop {
+    @media (min-width: 1024px) { @content; }
+  } @else if $breakpoint == large-desktop {
+    @media (min-width: 1440px) { @content; }
+  }
+}
+
+// Component spacing - adds consistent margins between sections
+app-hero {
+  display: block;
+  margin-bottom: 0; // Hero has its own internal padding
+}
+
+app-work {
+  display: block;
+  margin-bottom: 0; // Work section has its own internal padding
+}
+
+app-team {
+  display: block;
+  margin-bottom: 0; // Team section has its own internal padding
+}
+
+app-maintenance {
+  display: block;
+  margin-bottom: 0; // Maintenance section has its own internal padding
+}
+
+app-features {
+  display: block;
+  margin-bottom: 0; // Features section has its own internal padding
+}
+
+app-inquiry-form {
+  display: block;
+  margin-bottom: 0; // Inquiry form has its own internal padding
+}
+
+app-footer {
+  display: block;
+  margin-bottom: 0; // Footer has its own internal padding
+}
