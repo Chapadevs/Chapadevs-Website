@@ -1,6 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
-import { FeaturesComponent } from "../features/features.component";
+import { AiComponent } from "../ai/ai.component";
 import { FooterComponent } from "../footer/footer.component";
 import { HeaderComponent } from "../header/header.component";
 import { HeroComponent } from "../hero/hero.component";
@@ -19,7 +19,7 @@ import { WorkComponent } from "../work/work.component";
     WorkComponent,
     TeamComponent,
     MaintenanceComponent,
-    FeaturesComponent,
+    AiComponent,
     InquiryFormComponent,
     FooterComponent,
   ],

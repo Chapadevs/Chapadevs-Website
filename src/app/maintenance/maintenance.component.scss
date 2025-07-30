@@ -1,4 +1,4 @@
-// services.component.scss - COMPACT TWO-COLUMN LAYOUT
+// maintenance.component.scss - FLOATING SPACE DESIGN
 // ==========================================
 
 // Variables
@@ -7,6 +7,11 @@ $primary-teal: #0d9488;
 $dark-charcoal: #111827;
 $muted-grey: #6b7280;
 $light-green: #a7f3d0;
+$white: #ffffff;
+
+// Typography Variables
+$font-primary: 'Code Bold', monospace;
+$font-secondary: 'Coolvetica', sans-serif;
 
 // Mixins
 @mixin responsive($breakpoint) {
@@ -33,7 +38,38 @@ $light-green: #a7f3d0;
   }
 }
 
-// Animations
+// Floating Space Animations
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: scale(0.3) translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes scaleFromCenter {
+  from {
+    opacity: 0;
+    transform: scale(0.1) translateY(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes lineDraw {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -45,318 +81,477 @@ $light-green: #a7f3d0;
   }
 }
 
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
 // Component Styles
 .services-section {
-  background: #f9fafb;
-  padding: 3rem 0;
-  margin: 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  min-height: auto; // Removed fixed height
+  padding: 2rem 0 0 0; // Removed bottom padding completely
   position: relative;
+  overflow: hidden;
+
+  // Floating geometric shapes background
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 20% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(167, 243, 208, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+  }
 
   @include responsive(tablet) {
-    padding: 4rem 0;
+    padding: 2.5rem 0 0 0; // Removed bottom padding
   }
 
   @include responsive(desktop) {
-    padding: 5rem 0;
-  }
-
-  @include responsive(large-desktop) {
-    padding: 6rem 0;
+    padding: 3rem 0 0 0; // Removed bottom padding
   }
 }
 
 .services-container {
-  max-width: 1200px;
+  max-width: 1200px; // Reduced from 1400px
   margin: 0 auto;
-  padding: 0 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-
-  @include responsive(tablet) {
-    flex-direction: row;
-    align-items: center;
-    gap: 2.5rem;
-  }
-
-  @include responsive(desktop) {
-    gap: 3rem;
-  }
-}
-
-.section-header {
-  text-align: left;
-  max-width: 350px;
-  flex-shrink: 0;
-
-  @include responsive(tablet) {
-    align-self: center;
-  }
-}
-
-.section-title {
-  font-family: "Code Bold", monospace;
-  font-weight: 700;
-  font-size: 1.75rem;
-  color: $dark-charcoal;
-  margin-bottom: 0.75rem;
-  line-height: 1.2;
-  text-align: left;
-
-  @include responsive(tablet) {
-    font-size: 2.25rem;
-    margin-bottom: 1rem;
-  }
-
-  @include responsive(desktop) {
-    font-size: 2.75rem;
-    margin-bottom: 1.25rem;
-  }
-}
-
-.section-description {
-  font-family: "Coolvetica", sans-serif;
-  font-weight: 400;
-  font-size: 0.875rem;
-  color: $muted-grey;
-  line-height: 1.5;
-  text-align: left;
-
-  @include responsive(tablet) {
-    font-size: 1rem;
-  }
-
-  @include responsive(desktop) {
-    font-size: 1.125rem;
-  }
-}
-
-.services-row {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  flex: 1;
-  max-width: 500px;
-  background: white;
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  overflow: hidden;
-  border: 2px solid $primary-green;
-
-  @include responsive(tablet) {
-    max-width: 600px;
-  }
-
-  @include responsive(desktop) {
-    max-width: 650px;
-  }
-}
-
-.service-card {
-  background: white;
-  border-radius: 0;
-  padding: 0.75rem;
-  border: none;
-  border-bottom: 1px solid rgba(16, 185, 129, 0.1);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  animation: scaleIn 0.6s ease-out;
+  padding: 0 1rem 0 1rem; // Removed bottom padding
   position: relative;
-  overflow: hidden;
+  z-index: 2;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-areas: 
+    "title"
+    "left"
+    "right"
+    "bottom";
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto auto;
+  gap: 1rem 1rem 0.25rem 1rem; // Significantly reduce bottom gap
+  align-items: center;
+  justify-items: center;
+  position: relative;
+
+  @include responsive(tablet) {
+    grid-template-areas: 
+      "left title right"
+      "left bottom right";
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-rows: auto auto;
+    gap: 1.5rem 1.5rem 0 1.5rem; // Remove row gap completely
+    align-items: start; // Align items to top to eliminate gap
+    justify-items: center;
+  }
+
+  @include responsive(desktop) {
+    gap: 2rem 2rem 0 2rem; // Remove row gap completely
+  }
+
+  // Connecting lines SVG
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='connecting-lines' patternUnits='userSpaceOnUse' width='100%25' height='100%25'%3E%3Cpath d='M50%25 20%25 Q60%25 30%25 30%25 40%25' stroke='%2310b981' stroke-width='2' fill='none' stroke-dasharray='5,5' opacity='0.3'/%3E%3Cpath d='M50%25 20%25 Q40%25 30%25 70%25 40%25' stroke='%2310b981' stroke-width='2' fill='none' stroke-dasharray='5,5' opacity='0.3'/%3E%3Cpath d='M30%25 40%25 Q40%25 60%25 50%25 70%25' stroke='%2310b981' stroke-width='2' fill='none' stroke-dasharray='5,5' opacity='0.3'/%3E%3Cpath d='M70%25 40%25 Q60%25 60%25 50%25 70%25' stroke='%2310b981' stroke-width='2' fill='none' stroke-dasharray='5,5' opacity='0.3'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23connecting-lines)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+    animation: lineDraw 2s ease-out forwards;
+  }
+}
+
+// Central Title - Floating in Space
+.section-header {
+  grid-area: title;
+  text-align: center;
+  max-width: 400px; // Reduced from 500px
+  justify-self: center;
+  align-self: center;
+  position: relative;
+  z-index: 10;
+  animation: floatIn 1.2s ease-out forwards;
+  margin-bottom: 0; // Removed bottom margin
+
+  // Glowing effect around title
+  &::before {
+    content: '';
+    position: absolute;
+    top: -15px; // Reduced from -20px
+    left: -15px; // Reduced from -20px
+    right: -15px; // Reduced from -20px
+    bottom: -15px; // Reduced from -20px
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: -1;
+    animation: pulse 3s ease-in-out infinite;
+  }
+
+  @include responsive(tablet) {
+    max-width: 500px; // Reduced from 600px
+  }
+
+  @include responsive(desktop) {
+    max-width: 600px; // Reduced from 700px
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+// TITLE DESIGN RULE: Brand split title styling with floating effect
+.title-brand-split {
+  font-family: $font-primary;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.1;
+  margin-bottom: 0; // Removed margin since no description
+  position: relative;
+  
+  .title-line-1 {
+    font-size: 2.5rem; // Increased font size
+    margin-bottom: 0.25rem; // Small gap between lines
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    .dark-text {
+      color: $dark-charcoal;
+      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      animation: fadeInUp 0.8s ease-out 0.2s both;
+    }
+  }
+
+  .title-line-2 {
+    font-size: 2.5rem; // Increased font size
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    .green-text {
+      color: $primary-green;
+      text-shadow: 
+        0 0 20px rgba(16, 185, 129, 0.4),
+        0 4px 8px rgba(0, 0, 0, 0.1);
+      animation: fadeInUp 0.8s ease-out 0.4s both;
+    }
+  }
+  
+  @include responsive(tablet) {
+    .title-line-1 {
+      font-size: 3.5rem; // Increased font size
+    }
+    
+    .title-line-2 {
+      font-size: 3.5rem; // Increased font size
+    }
+  }
+  
+  @include responsive(desktop) {
+    .title-line-1 {
+      font-size: 4.5rem; // Increased font size
+    }
+    
+    .title-line-2 {
+      font-size: 4.5rem; // Increased font size
+    }
+  }
+}
+
+// Service Cards - Floating from Center (COMPACT)
+.service-card {
+  background: transparent; // Remove white background
+  backdrop-filter: none; // Remove blur
+  -webkit-backdrop-filter: none; // Remove blur
+  border-radius: 0; // Remove rounded corners
+  padding: 1rem; // Reduce padding for compactness
+  border: none; // Remove borders
+  transition: none; // Remove transitions
   text-align: center;
   width: 100%;
+  max-width: 260px; // Reduce width for compactness
+  box-shadow: none; // Remove shadows
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 5;
+  overflow: visible;
+  margin-bottom: 0;
 
-  &:last-child {
-    border-bottom: none;
+  // Remove hover effects
+  &:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: transparent;
+    background: transparent;
   }
 
-  &:hover {
-    background: rgba(16, 185, 129, 0.02);
-    transform: translateX(4px);
-    border-left: 3px solid $primary-green;
-    padding-left: calc(0.75rem - 3px);
+  // Remove animations
+  &.service-card-left {
+    animation: none;
+  }
+
+  &.service-card-right {
+    animation: none;
+  }
+
+  &.service-card-bottom {
+    animation: none;
+  }
+
+  // Remove glowing border effect
+  &::before {
+    display: none;
+  }
+
+  &:hover::before {
+    display: none;
   }
 
   @include responsive(tablet) {
-    padding: 1rem;
-
-    &:hover {
-      padding-left: calc(1rem - 3px);
-    }
+    padding: 1.25rem; // Reduce padding
+    max-width: 280px; // Reduce width
   }
 
   @include responsive(desktop) {
-    padding: 1.25rem;
-
-    &:hover {
-      padding-left: calc(1.25rem - 3px);
-    }
+    padding: 1.5rem; // Reduce padding
+    max-width: 300px; // Reduce width
   }
 }
 
+.service-card-left {
+  grid-area: left;
+  justify-self: end;
+  align-self: start;
+}
+
+.service-card-right {
+  grid-area: right;
+  justify-self: start;
+  align-self: start;
+}
+
+.service-card-bottom {
+  grid-area: bottom;
+  justify-self: center;
+  align-self: start; // Align to top to eliminate gap
+  max-width: 350px; // Reduce width
+
+  @include responsive(tablet) {
+    max-width: 400px; // Reduce width
+  }
+
+  @include responsive(desktop) {
+    max-width: 450px; // Reduce width
+  }
+}
+
+// Service Icon with floating effect (COMPACT)
 .service-icon {
-  width: 35px;
-  height: 35px;
-  border-radius: 0.5rem;
-  margin: 0 auto 0.5rem;
+  width: 40px; // Reduce size
+  height: 40px; // Reduce size
+  border-radius: 0; // Remove rounded corners
+  margin: 0 auto 0.75rem; // Reduce margin
   display: flex;
   align-items: center;
   justify-content: center;
-  background: $light-green;
-  color: $primary-green;
-  transition: all 0.3s ease;
+  background: linear-gradient(135deg, $primary-green, $primary-teal);
+  border: none; // Remove border
+  position: relative;
+  transition: none; // Remove transition
+
+  // Remove floating animation
+  animation: none;
 
   i {
-    font-size: 0.875rem;
-    font-family: "Font Awesome 5 Free", "Font Awesome 6 Free";
-    font-weight: 900;
+    font-size: 1rem; // Reduce size
+    color: $white;
+    filter: none; // Remove filter
+  }
+
+  // Remove glow effect
+  &::after {
+    display: none;
   }
 
   @include responsive(tablet) {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 0.75rem;
+    width: 45px; // Reduce size
+    height: 45px; // Reduce size
+    margin-bottom: 1rem; // Reduce margin
 
     i {
-      font-size: 1rem;
+      font-size: 1.125rem; // Reduce size
     }
   }
 
   @include responsive(desktop) {
-    width: 45px;
-    height: 45px;
-    margin-bottom: 1rem;
+    width: 50px; // Reduce size
+    height: 50px; // Reduce size
+    margin-bottom: 1.25rem; // Reduce margin
 
     i {
-      font-size: 1.125rem;
+      font-size: 1.25rem; // Reduce size
     }
   }
 }
 
 .service-card:hover .service-icon {
-  transform: scale(1.05);
-  background: $primary-green;
-  color: white;
+  transform: none; // Remove transform
+  
+  &::after {
+    display: none;
+  }
 }
 
+// Service Card Title (COMPACT)
 .service-card h3 {
-  font-family: "Code Bold", monospace;
+  font-family: $font-primary;
   font-weight: 700;
-  font-size: 0.8125rem;
+  font-size: 0.875rem; // Reduce size
   color: $dark-charcoal;
-  margin-bottom: 0.375rem;
+  margin-bottom: 0.5rem; // Reduce margin
   line-height: 1.3;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: relative;
+
+  // Remove underline effect
+  &::after {
+    display: none;
+  }
 
   @include responsive(tablet) {
-    font-size: 0.875rem;
-    margin-bottom: 0.5rem;
+    font-size: 1rem; // Reduce size
+    margin-bottom: 0.75rem; // Reduce margin
   }
 
   @include responsive(desktop) {
-    font-size: 1rem;
-    margin-bottom: 0.75rem;
+    font-size: 1.125rem; // Reduce size
+    margin-bottom: 1rem; // Reduce margin
   }
 }
 
+.service-card:hover h3::after {
+  display: none;
+}
+
+// Service Card Description (COMPACT)
 .service-card p {
-  font-family: "Coolvetica", sans-serif;
+  font-family: $font-secondary;
   font-weight: 400;
-  font-size: 0.6875rem;
+  font-size: 0.75rem; // Reduce size
   color: $muted-grey;
-  line-height: 1.4;
-  margin-bottom: 0.5rem;
-  max-width: 400px;
-  margin-left: auto;
-  margin-right: auto;
+  line-height: 1.5; // Reduce line height
+  margin-bottom: 1rem; // Reduce margin
+  flex-grow: 1;
 
   @include responsive(tablet) {
-    font-size: 0.75rem;
-    margin-bottom: 0.75rem;
-    max-width: 450px;
+    font-size: 0.8125rem; // Reduce size
+    margin-bottom: 1.25rem; // Reduce margin
   }
 
   @include responsive(desktop) {
-    font-size: 0.8125rem;
-    margin-bottom: 1rem;
-    max-width: 500px;
+    font-size: 0.875rem; // Reduce size
+    margin-bottom: 1.5rem; // Reduce margin
   }
 }
 
-.service-list {
-  list-style: none;
+// Service Tags with floating effect (COMPACT)
+.service-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.1875rem;
+  gap: 0.375rem; // Reduce gap
   justify-content: center;
   align-items: center;
   padding: 0;
   margin: 0;
-
-  @include responsive(tablet) {
-    gap: 0.25rem;
-  }
+  margin-top: auto;
 }
 
-.service-list li {
-  background: $light-green;
-  color: $primary-green;
-  padding: 0.125rem 0.25rem;
-  border-radius: 0.375rem;
-  font-family: "Coolvetica", sans-serif;
-  font-size: 0.5rem;
-  font-weight: 500;
+.service-tag {
+  background: transparent; // Remove white background
+  color: $primary-green; // Keep green text
+  padding: 0; // Remove padding
+  border-radius: 0; // Remove rounded corners
+  font-family: $font-primary;
+  font-size: 0.625rem; // Reduce size
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.025em;
-  transition: all 0.3s ease;
-  border: 1px solid transparent;
+  letter-spacing: 0.03em;
+  transition: none; // Remove transition
+  border: none; // Remove border
+  display: inline-block;
+  position: relative;
+  overflow: visible;
 
+  // Remove hover effect
   &:hover {
-    background: $primary-green;
-    color: white;
-    transform: translateY(-1px);
+    background: transparent;
+    color: $primary-green;
+    transform: none;
+    box-shadow: none;
+  }
+
+  // Remove ripple effect
+  &::before {
+    display: none;
+  }
+
+  &:active::before {
+    display: none;
   }
 
   @include responsive(tablet) {
-    font-size: 0.5625rem;
-    padding: 0.1875rem 0.375rem;
+    font-size: 0.6875rem; // Reduce size
+    padding: 0; // Remove padding
   }
 
   @include responsive(desktop) {
-    font-size: 0.625rem;
-    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem; // Reduce size
+    padding: 0; // Remove padding
   }
 }
 
-// Staggered animation for cards
-.service-card:nth-child(1) {
-  animation-delay: 0.1s;
-}
-
-.service-card:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.service-card:nth-child(3) {
-  animation-delay: 0.3s;
-}
-
-// Focus states for accessibility
+// Accessibility focus states
 .service-card:focus-within {
+  outline: 3px solid $primary-green;
+  outline-offset: 4px;
+}
+
+.service-tag:focus {
   outline: 2px solid $primary-green;
   outline-offset: 2px;
 }
 
-.service-list li:focus {
-  outline: 2px solid $primary-green;
-  outline-offset: 2px;
+// Responsive adjustments for mobile
+@include responsive(mobile) {
+  .services-grid {
+    gap: 1.5rem 1.5rem 0 1.5rem; // Removed bottom gap
+  }
+  
+  .service-card {
+    max-width: 260px; // Reduced from 280px
+    padding: 1.25rem; // Reduced from 1.5rem
+  }
+  
+  .title-brand-split .title-line-1 {
+    font-size: 1.75rem; // Reduced from 2rem
+  }
+  
+  .section-description {
+    font-size: 0.8125rem; // Reduced from 0.9375rem
+  }
 }

@@ -188,23 +188,45 @@ $muted-grey: #6b7280;
   margin-bottom: 1rem;
 }
 
-.section-title {
+// TITLE DESIGN RULE: Brand split title styling
+.title-brand-split {
   font-family: "Code Bold", monospace;
-  font-size: 1.75rem;
   font-weight: 700;
-  color: $white;
-  margin-bottom: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-
-  @include responsive(tablet) {
-    font-size: 2.25rem;
-    margin-bottom: 1rem;
+  text-align: center;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  
+  .title-line-1 {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+    
+    .dark-text {
+      color: $white;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .green-text {
+      color: $light-green;
+      text-shadow: 0 0 10px rgba(167, 243, 208, 0.4), 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
   }
-
+  
+  @include responsive(mobile) {
+    .title-line-1 {
+      font-size: 2.5rem;
+    }
+  }
+  
+  @include responsive(tablet) {
+    .title-line-1 {
+      font-size: 3rem;
+    }
+  }
+  
   @include responsive(desktop) {
-    font-size: 2.5rem;
+    .title-line-1 {
+      font-size: 4rem;
+    }
   }
 }
 

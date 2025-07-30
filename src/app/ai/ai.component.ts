@@ -1,12 +1,12 @@
 import { AfterViewInit, Component } from "@angular/core";
 
 @Component({
-  selector: "app-features",
+  selector: "app-ai",
   standalone: true,
-  templateUrl: "./features.component.html",
-  styleUrls: ["./features.component.scss"],
+  templateUrl: "./ai.component.html",
+  styleUrls: ["./ai.component.scss"],
 })
-export class FeaturesComponent implements AfterViewInit {
+export class AiComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.initScrollAnimations();
   }
