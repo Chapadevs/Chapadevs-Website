@@ -287,8 +287,10 @@ $font-secondary: 'Coolvetica', sans-serif;
   }
   
   @include responsive(desktop) {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
+    max-width: 900px;
+    margin: 0 auto;
   }
   
   @include responsive(large-desktop) {
