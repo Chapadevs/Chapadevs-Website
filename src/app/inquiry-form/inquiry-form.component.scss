@@ -33,19 +33,52 @@ $muted-grey: #6b7280;
 // Background with clean white design
 .inquiry-section {
   background: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 3rem 0;
   position: relative;
 
   @include responsive(tablet) {
+    min-height: 80vh;
     padding: 4rem 0;
   }
 
   @include responsive(desktop) {
+    min-height: 90vh;
     padding: 5rem 0;
   }
 
   @include responsive(large-desktop) {
     padding: 6rem 0;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.inquiry-content {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -60,18 +93,119 @@ $muted-grey: #6b7280;
 
 .section-title {
   font-family: "Code Bold", monospace;
-  font-size: 2.5rem;
   font-weight: 700;
-  color: $dark-charcoal;
-  margin-bottom: 1rem;
   text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
   position: relative;
   display: inline-block;
 
-  @media (max-width: 767px) {
-    font-size: 2rem;
+  .title-line-1 {
+    font-size: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    .dark-text {
+      color: $dark-charcoal;
+      font-weight: 600;
+      position: relative;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(90deg, $primary-green, $teal);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        border-radius: 2px;
+      }
+    }
+
+    .green-text {
+      color: $primary-green;
+      font-weight: 700;
+      text-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+      position: relative;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      
+      &::before {
+        content: '';
+        position: absolute;
+        top: -4px;
+        left: -4px;
+        right: -4px;
+        bottom: -4px;
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(13, 148, 136, 0.05));
+        border-radius: 8px;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        z-index: -1;
+      }
+    }
+  }
+
+  // Enhanced hover effects
+  &:hover {
+    .dark-text {
+      transform: translateY(-2px);
+      
+      &::after {
+        transform: scaleX(1);
+        box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+      }
+    }
+    
+    .green-text {
+      transform: translateY(-2px) scale(1.02);
+      text-shadow: 0 0 30px rgba(16, 185, 129, 0.5);
+      
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+
+  // Smooth entrance animation
+  animation: titleEntrance 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+
+  @include responsive(mobile) {
+    .title-line-1 {
+      font-size: 2.5rem;
+      gap: 0.5rem;
+    }
+  }
+
+  @include responsive(tablet) {
+    .title-line-1 {
+      font-size: 3rem;
+      gap: 0.75rem;
+    }
+  }
+
+  @include responsive(desktop) {
+    .title-line-1 {
+      font-size: 4rem;
+      gap: 1rem;
+    }
+  }
+}
+
+@keyframes titleEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
 
@@ -221,16 +355,31 @@ $muted-grey: #6b7280;
 
 .step-title {
   font-family: "Code Bold", monospace;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 700;
   color: $dark-charcoal;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.02em;
   position: relative;
   display: inline-block;
   align-self: center;
+
+  @include responsive(mobile) {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  @include responsive(tablet) {
+    font-size: 2.25rem;
+    margin-bottom: 2rem;
+  }
+
+  @include responsive(desktop) {
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
 }
 
 .form-group {
@@ -244,11 +393,26 @@ label {
   font-family: "Code Bold", monospace;
   font-weight: 600;
   color: $primary-green;
-  margin-bottom: 0.5rem;
-  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
   text-transform: uppercase;
   letter-spacing: 0.02em;
   position: relative;
+
+  @include responsive(mobile) {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  @include responsive(tablet) {
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+  }
+
+  @include responsive(desktop) {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+  }
 }
 
 input,
@@ -545,17 +709,6 @@ textarea {
   letter-spacing: 0.02em;
   font-size: 0.85rem;
   position: relative;
-
-  &::before {
-    content: 'const ';
-    opacity: 0.6;
-    font-size: 0.8em;
-  }
-
-  &::after {
-    content: ' =';
-    opacity: 0.6;
-  }
 }
 
 .review-value {

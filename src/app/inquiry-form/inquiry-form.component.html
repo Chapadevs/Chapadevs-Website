@@ -1,353 +1,362 @@
 <section class="inquiry-section" id="inquiry-form">
-  <header class="section-header">
-    <h2 class="section-title">Project Inquiry</h2>
-    <p class="section-description">
-      Let's get started! Fill out each step and review before submitting.
-    </p>
-  </header>
-  <div class="wizard-progress">
-    <div class="progress-bar">
-      <div
-        class="progress-fill"
-        [style.width.%]="(step / (steps.length - 1)) * 100"
-      ></div>
-    </div>
-    <div 
-      class="step-indicators"
-      [style.--progress]="(step / (steps.length - 1)) * 100"
-    >
-      <div
-        *ngFor="let s of steps; let i = index"
-        class="step-indicator"
-        [class.active]="i <= step"
-        [class.current]="i === step"
-      >
-        {{ i + 1 }}
+  <div class="container">
+    <div class="inquiry-content">
+      <header class="section-header">
+        <h2 class="section-title">
+          <span class="title-line-1">
+            <span class="dark-text">PROJECT</span>
+            <span class="green-text">INQUIRY</span>
+          </span>
+        </h2>
+        <p class="section-description">
+          Let's get started! Fill out each step and review before submitting.
+        </p>
+      </header>
+      <div class="wizard-progress">
+        <div class="progress-bar">
+          <div
+            class="progress-fill"
+            [style.width.%]="(step / (steps.length - 1)) * 100"
+          ></div>
+        </div>
+        <div 
+          class="step-indicators"
+          [style.--progress]="(step / (steps.length - 1)) * 100"
+        >
+          <div
+            *ngFor="let s of steps; let i = index"
+            class="step-indicator"
+            [class.active]="i <= step"
+            [class.current]="i === step"
+          >
+            {{ i + 1 }}
+          </div>
+        </div>
       </div>
+      <form
+        [formGroup]="inquiryForm"
+        class="inquiry-form"
+        (ngSubmit)="onSubmit()"
+        autocomplete="off"
+        novalidate
+      >
+        <!-- Step 1: Contact Info -->
+        <div *ngIf="step === 0" class="form-step">
+          <h3 class="step-title">Contact Information</h3>
+          <div class="form-group">
+            <label for="from_name">Your Name *</label>
+            <input id="from_name" formControlName="from_name" required />
+          </div>
+          <div class="form-group">
+            <label for="from_email">Email *</label>
+            <input
+              id="from_email"
+              formControlName="from_email"
+              type="email"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="company_name">Company/Organization (optional)</label>
+            <input id="company_name" formControlName="company_name" />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number (optional)</label>
+            <input id="phone" formControlName="phone" />
+          </div>
+          <div class="form-group">
+            <label for="contact_method">Preferred Contact Method *</label>
+            <select id="contact_method" formControlName="contact_method" required>
+              <option value="">Select</option>
+              <option>Email</option>
+              <option>Phone</option>
+              <option>WhatsApp</option>
+            </select>
+          </div>
+        </div>
+        <!-- Step 2: Project Details -->
+        <div *ngIf="step === 1" class="form-step">
+          <h3 class="step-title">Project Details</h3>
+          <div class="form-group">
+            <label for="project_type">Project Type *</label>
+            <select id="project_type" formControlName="project_type" required>
+              <option value="">Select</option>
+              <option>New Website Design & Development</option>
+              <option>Website Redesign/Refresh</option>
+              <option>E-commerce Store</option>
+              <option>Landing Page</option>
+              <option>Web Application</option>
+              <option>Maintenance/Updates to Existing Site</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="project_description">Brief Project Description *</label>
+            <textarea
+              id="project_description"
+              formControlName="project_description"
+              rows="3"
+              required
+              placeholder="Describe your project in 2-3 sentences"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label>Primary Goals *</label>
+            <div class="checkbox-group">
+              <label *ngFor="let goal of goalsList">
+                <input
+                  type="checkbox"
+                  [value]="goal"
+                  (change)="onGoalChange($event)"
+                  [checked]="inquiryForm.value.goals.includes(goal)"
+                />
+                {{ goal }}
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  value="Other"
+                  (change)="onGoalChange($event)"
+                  [checked]="inquiryForm.value.goals.includes('Other')"
+                />
+                Other:
+                <input
+                  *ngIf="inquiryForm.value.goals.includes('Other')"
+                  formControlName="goals_other"
+                  placeholder="Please specify"
+                />
+              </label>
+            </div>
+          </div>
+        </div>
+        <!-- Step 3: Features & Design -->
+        <div *ngIf="step === 2" class="form-step">
+          <h3 class="step-title">Features & Design</h3>
+          <div class="form-group">
+            <label>Required Features *</label>
+            <div class="checkbox-group">
+              <label *ngFor="let feature of featuresList">
+                <input
+                  type="checkbox"
+                  [value]="feature"
+                  (change)="onFeatureChange($event)"
+                  [checked]="inquiryForm.value.features.includes(feature)"
+                />
+                {{ feature }}
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  value="Other"
+                  (change)="onFeatureChange($event)"
+                  [checked]="inquiryForm.value.features.includes('Other')"
+                />
+                Other:
+                <input
+                  *ngIf="inquiryForm.value.features.includes('Other')"
+                  formControlName="features_other"
+                  placeholder="Please specify"
+                />
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Design Style Preference</label>
+            <div class="checkbox-group">
+              <label *ngFor="let style of stylesList">
+                <input
+                  type="checkbox"
+                  [value]="style"
+                  (change)="onStyleChange($event)"
+                  [checked]="inquiryForm.value.styles.includes(style)"
+                />
+                {{ style }}
+              </label>
+            </div>
+          </div>
+        </div>
+        <!-- Step 4: Timeline & Budget -->
+        <div *ngIf="step === 3" class="form-step">
+          <h3 class="step-title">Timeline & Budget</h3>
+          <div class="form-group">
+            <label for="budget">Project Budget Range *</label>
+            <select id="budget" formControlName="budget" required>
+              <option value="">Select</option>
+              <option>$500 - $1,500</option>
+              <option>$1,500 - $3,000</option>
+              <option>$3,000 - $5,000</option>
+              <option>$5,000 - $10,000</option>
+              <option>$10,000+</option>
+              <option>Let's discuss</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="timeline">Desired Launch Date *</label>
+            <select id="timeline" formControlName="timeline" required>
+              <option value="">Select</option>
+              <option>Within 1-2 weeks</option>
+              <option>Within 2-4 weeks</option>
+              <option>Within 1-2 months</option>
+            </select>
+          </div>
+        </div>
+        <!-- Step 5: Current Website -->
+        <div *ngIf="step === 4" class="form-step">
+          <h3 class="step-title">Current Website</h3>
+          <div class="form-group">
+            <label>Do you have an existing website? *</label>
+            <div class="radio-group">
+              <label
+                ><input type="radio" formControlName="has_website" value="Yes" />
+                Yes</label
+              >
+              <label
+                ><input type="radio" formControlName="has_website" value="No" />
+                No</label
+              >
+            </div>
+          </div>
+          <div *ngIf="inquiryForm.value.has_website === 'Yes'">
+            <div class="form-group">
+              <label for="website_url">Website URL</label>
+              <input id="website_url" formControlName="website_url" />
+            </div>
+            <div class="form-group">
+              <label for="current_host">Which host do you use?</label>
+              <input id="current_host" formControlName="current_host" />
+            </div>
+          </div>
+        </div>
+        <!-- Step 6: Additional Details -->
+        <div *ngIf="step === 5" class="form-step">
+          <h3 class="step-title">Additional Details</h3>
+          <div class="form-group">
+            <label>Do you have existing branding? *</label>
+            <div class="radio-group">
+              <label
+                ><input type="radio" formControlName="branding" value="Yes" />
+                Yes</label
+              >
+              <label
+                ><input type="radio" formControlName="branding" value="No" />
+                No</label
+              >
+              <label
+                ><input type="radio" formControlName="branding" value="Partial" />
+                Partial</label
+              >
+            </div>
+          </div>
+          <div *ngIf="inquiryForm.value.branding === 'Yes'">
+            <div class="form-group">
+              <label for="branding_details"
+                >Logo, colors, fonts, credentials available?</label
+              >
+              <input id="branding_details" formControlName="branding_details" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="content_status">Content Status *</label>
+            <select id="content_status" formControlName="content_status" required>
+              <option value="">Select</option>
+              <option>I have all content ready</option>
+              <option>I have some content, need help with rest</option>
+              <option>I need help creating all content</option>
+              <option>I need copywriting services</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="reference_websites">Reference Websites (optional)</label>
+            <textarea
+              id="reference_websites"
+              formControlName="reference_websites"
+              rows="2"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="special_requirements"
+              >Special Requirements or Concerns</label
+            >
+            <textarea
+              id="special_requirements"
+              formControlName="special_requirements"
+              rows="2"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="hear_about_us">How did you hear about Chapadevs?</label>
+            <select id="hear_about_us" formControlName="hear_about_us">
+              <option value="">Select</option>
+              <option>Google search</option>
+              <option>Social media</option>
+              <option>Referral</option>
+              <option>Previous client</option>
+              <option>Other</option>
+            </select>
+            <input
+              *ngIf="inquiryForm.value.hear_about_us === 'Other'"
+              formControlName="hear_about_us_other"
+              placeholder="Please specify"
+            />
+          </div>
+          <div class="form-group">
+            <label for="additional_comments">Additional Comments</label>
+            <textarea
+              id="additional_comments"
+              formControlName="additional_comments"
+              rows="2"
+              placeholder="Anything else you'd like us to know about your project?"
+            ></textarea>
+          </div>
+        </div>
+        <!-- Step 7: Review & Submit -->
+        <div *ngIf="step === 6" class="form-step">
+          <h3 class="step-title">Review & Submit</h3>
+          <div class="review-section">
+            <div *ngFor="let field of reviewFields">
+              <div class="review-label">{{ field.label }}</div>
+              <div class="review-value">{{ inquiryForm.value[field.key] }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="wizard-navigation">
+          <button
+            class="btn"
+            type="button"
+            (click)="prevStep()"
+            [disabled]="step === 0"
+          >
+            Back
+          </button>
+          <button
+            class="btn btn-primary"
+            type="button"
+            (click)="nextStep()"
+            *ngIf="step < steps.length - 1"
+          >
+            Next
+          </button>
+          <button
+            class="btn btn-primary"
+            type="submit"
+            *ngIf="step === steps.length - 1"
+            [disabled]="inquiryForm.invalid || isSubmitting"
+          >
+            <span *ngIf="!isSubmitting">Submit Inquiry</span>
+            <span *ngIf="isSubmitting">Sending...</span>
+          </button>
+        </div>
+
+        <!-- Success/Error Messages -->
+        <div
+          *ngIf="submitMessage"
+          class="submit-message"
+          [class.success]="submitSuccess"
+          [class.error]="!submitSuccess"
+        >
+          {{ submitMessage }}
+        </div>
+      </form>
     </div>
   </div>
-  <form
-    [formGroup]="inquiryForm"
-    class="inquiry-form"
-    (ngSubmit)="onSubmit()"
-    autocomplete="off"
-    novalidate
-  >
-    <!-- Step 1: Contact Info -->
-    <div *ngIf="step === 0" class="form-step">
-      <h3 class="step-title">Contact Information</h3>
-      <div class="form-group">
-        <label for="from_name">Your Name *</label>
-        <input id="from_name" formControlName="from_name" required />
-      </div>
-      <div class="form-group">
-        <label for="from_email">Email *</label>
-        <input
-          id="from_email"
-          formControlName="from_email"
-          type="email"
-          required
-        />
-      </div>
-      <div class="form-group">
-        <label for="company_name">Company/Organization (optional)</label>
-        <input id="company_name" formControlName="company_name" />
-      </div>
-      <div class="form-group">
-        <label for="phone">Phone Number (optional)</label>
-        <input id="phone" formControlName="phone" />
-      </div>
-      <div class="form-group">
-        <label for="contact_method">Preferred Contact Method *</label>
-        <select id="contact_method" formControlName="contact_method" required>
-          <option value="">Select</option>
-          <option>Email</option>
-          <option>Phone</option>
-          <option>WhatsApp</option>
-        </select>
-      </div>
-    </div>
-    <!-- Step 2: Project Details -->
-    <div *ngIf="step === 1" class="form-step">
-      <h3 class="step-title">Project Details</h3>
-      <div class="form-group">
-        <label for="project_type">Project Type *</label>
-        <select id="project_type" formControlName="project_type" required>
-          <option value="">Select</option>
-          <option>New Website Design & Development</option>
-          <option>Website Redesign/Refresh</option>
-          <option>E-commerce Store</option>
-          <option>Landing Page</option>
-          <option>Web Application</option>
-          <option>Maintenance/Updates to Existing Site</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="project_description">Brief Project Description *</label>
-        <textarea
-          id="project_description"
-          formControlName="project_description"
-          rows="3"
-          required
-          placeholder="Describe your project in 2-3 sentences"
-        ></textarea>
-      </div>
-      <div class="form-group">
-        <label>Primary Goals *</label>
-        <div class="checkbox-group">
-          <label *ngFor="let goal of goalsList">
-            <input
-              type="checkbox"
-              [value]="goal"
-              (change)="onGoalChange($event)"
-              [checked]="inquiryForm.value.goals.includes(goal)"
-            />
-            {{ goal }}
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              value="Other"
-              (change)="onGoalChange($event)"
-              [checked]="inquiryForm.value.goals.includes('Other')"
-            />
-            Other:
-            <input
-              *ngIf="inquiryForm.value.goals.includes('Other')"
-              formControlName="goals_other"
-              placeholder="Please specify"
-            />
-          </label>
-        </div>
-      </div>
-    </div>
-    <!-- Step 3: Features & Design -->
-    <div *ngIf="step === 2" class="form-step">
-      <h3 class="step-title">Features & Design</h3>
-      <div class="form-group">
-        <label>Required Features *</label>
-        <div class="checkbox-group">
-          <label *ngFor="let feature of featuresList">
-            <input
-              type="checkbox"
-              [value]="feature"
-              (change)="onFeatureChange($event)"
-              [checked]="inquiryForm.value.features.includes(feature)"
-            />
-            {{ feature }}
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              value="Other"
-              (change)="onFeatureChange($event)"
-              [checked]="inquiryForm.value.features.includes('Other')"
-            />
-            Other:
-            <input
-              *ngIf="inquiryForm.value.features.includes('Other')"
-              formControlName="features_other"
-              placeholder="Please specify"
-            />
-          </label>
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Design Style Preference</label>
-        <div class="checkbox-group">
-          <label *ngFor="let style of stylesList">
-            <input
-              type="checkbox"
-              [value]="style"
-              (change)="onStyleChange($event)"
-              [checked]="inquiryForm.value.styles.includes(style)"
-            />
-            {{ style }}
-          </label>
-        </div>
-      </div>
-    </div>
-    <!-- Step 4: Timeline & Budget -->
-    <div *ngIf="step === 3" class="form-step">
-      <h3 class="step-title">Timeline & Budget</h3>
-      <div class="form-group">
-        <label for="budget">Project Budget Range *</label>
-        <select id="budget" formControlName="budget" required>
-          <option value="">Select</option>
-          <option>$500 - $1,500</option>
-          <option>$1,500 - $3,000</option>
-          <option>$3,000 - $5,000</option>
-          <option>$5,000 - $10,000</option>
-          <option>$10,000+</option>
-          <option>Let's discuss</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="timeline">Desired Launch Date *</label>
-        <select id="timeline" formControlName="timeline" required>
-          <option value="">Select</option>
-          <option>Within 1-2 weeks</option>
-          <option>Within 2-4 weeks</option>
-          <option>Within 1-2 months</option>
-        </select>
-      </div>
-    </div>
-    <!-- Step 5: Current Website -->
-    <div *ngIf="step === 4" class="form-step">
-      <h3 class="step-title">Current Website</h3>
-      <div class="form-group">
-        <label>Do you have an existing website? *</label>
-        <div class="radio-group">
-          <label
-            ><input type="radio" formControlName="has_website" value="Yes" />
-            Yes</label
-          >
-          <label
-            ><input type="radio" formControlName="has_website" value="No" />
-            No</label
-          >
-        </div>
-      </div>
-      <div *ngIf="inquiryForm.value.has_website === 'Yes'">
-        <div class="form-group">
-          <label for="website_url">Website URL</label>
-          <input id="website_url" formControlName="website_url" />
-        </div>
-        <div class="form-group">
-          <label for="current_host">Which host do you use?</label>
-          <input id="current_host" formControlName="current_host" />
-        </div>
-      </div>
-    </div>
-    <!-- Step 6: Additional Details -->
-    <div *ngIf="step === 5" class="form-step">
-      <h3 class="step-title">Additional Details</h3>
-      <div class="form-group">
-        <label>Do you have existing branding? *</label>
-        <div class="radio-group">
-          <label
-            ><input type="radio" formControlName="branding" value="Yes" />
-            Yes</label
-          >
-          <label
-            ><input type="radio" formControlName="branding" value="No" />
-            No</label
-          >
-          <label
-            ><input type="radio" formControlName="branding" value="Partial" />
-            Partial</label
-          >
-        </div>
-      </div>
-      <div *ngIf="inquiryForm.value.branding === 'Yes'">
-        <div class="form-group">
-          <label for="branding_details"
-            >Logo, colors, fonts, credentials available?</label
-          >
-          <input id="branding_details" formControlName="branding_details" />
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="content_status">Content Status *</label>
-        <select id="content_status" formControlName="content_status" required>
-          <option value="">Select</option>
-          <option>I have all content ready</option>
-          <option>I have some content, need help with rest</option>
-          <option>I need help creating all content</option>
-          <option>I need copywriting services</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="reference_websites">Reference Websites (optional)</label>
-        <textarea
-          id="reference_websites"
-          formControlName="reference_websites"
-          rows="2"
-        ></textarea>
-      </div>
-      <div class="form-group">
-        <label for="special_requirements"
-          >Special Requirements or Concerns</label
-        >
-        <textarea
-          id="special_requirements"
-          formControlName="special_requirements"
-          rows="2"
-        ></textarea>
-      </div>
-      <div class="form-group">
-        <label for="hear_about_us">How did you hear about Chapadevs?</label>
-        <select id="hear_about_us" formControlName="hear_about_us">
-          <option value="">Select</option>
-          <option>Google search</option>
-          <option>Social media</option>
-          <option>Referral</option>
-          <option>Previous client</option>
-          <option>Other</option>
-        </select>
-        <input
-          *ngIf="inquiryForm.value.hear_about_us === 'Other'"
-          formControlName="hear_about_us_other"
-          placeholder="Please specify"
-        />
-      </div>
-      <div class="form-group">
-        <label for="additional_comments">Additional Comments</label>
-        <textarea
-          id="additional_comments"
-          formControlName="additional_comments"
-          rows="2"
-          placeholder="Anything else you'd like us to know about your project?"
-        ></textarea>
-      </div>
-    </div>
-    <!-- Step 7: Review & Submit -->
-    <div *ngIf="step === 6" class="form-step">
-      <h3 class="step-title">Review & Submit</h3>
-      <div class="review-section">
-        <div *ngFor="let field of reviewFields">
-          <div class="review-label">{{ field.label }}</div>
-          <div class="review-value">{{ inquiryForm.value[field.key] }}</div>
-        </div>
-      </div>
-    </div>
-    <div class="wizard-navigation">
-      <button
-        class="btn"
-        type="button"
-        (click)="prevStep()"
-        [disabled]="step === 0"
-      >
-        Back
-      </button>
-      <button
-        class="btn btn-primary"
-        type="button"
-        (click)="nextStep()"
-        *ngIf="step < steps.length - 1"
-      >
-        Next
-      </button>
-      <button
-        class="btn btn-primary"
-        type="submit"
-        *ngIf="step === steps.length - 1"
-        [disabled]="inquiryForm.invalid || isSubmitting"
-      >
-        <span *ngIf="!isSubmitting">Submit Inquiry</span>
-        <span *ngIf="isSubmitting">Sending...</span>
-      </button>
-    </div>
-
-    <!-- Success/Error Messages -->
-    <div
-      *ngIf="submitMessage"
-      class="submit-message"
-      [class.success]="submitSuccess"
-      [class.error]="!submitSuccess"
-    >
-      {{ submitMessage }}
-    </div>
-  </form>
 </section>
