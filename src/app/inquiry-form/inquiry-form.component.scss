@@ -22,7 +22,7 @@ $muted-grey: #6b7280;
 }
 
 .inquiry-section {
-  background: #ffffff;
+  background: $white;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -93,9 +93,7 @@ $muted-grey: #6b7280;
   }
 
   &:hover {
-    .dark-text {
-      transform: translateY(-2px);
-    }
+    .dark-text { transform: translateY(-2px); }
     .green-text {
       transform: translateY(-2px) scale(1.02);
       text-shadow: 0 0 30px rgba(16, 185, 129, 0.5);
@@ -500,8 +498,6 @@ input, select, textarea {
   padding: 2.5rem;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
   position: relative;
-
-
 }
 
 .review-label {
