@@ -99,10 +99,6 @@ $muted-grey: #6b7280;
   @include responsive(desktop) {
     padding: 5rem 2rem;
   }
-
-  @include responsive(large-desktop) {
-    padding: 6rem 2rem;
-  }
 }
 
 // Compact Floating Shapes
