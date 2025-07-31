@@ -46,21 +46,6 @@ $light-green: #a7f3d0;
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
-
-@keyframes glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.3); }
-  50% { box-shadow: 0 0 30px rgba(16, 185, 129, 0.6); }
-}
-
 @keyframes highlightGlow {
   0%, 100% { text-shadow: 0 0 10px rgba(16, 185, 129, 0.3); }
   50% { text-shadow: 0 0 20px rgba(16, 185, 129, 0.6); }
@@ -75,15 +60,6 @@ $light-green: #a7f3d0;
   padding: 3rem 0;
   position: relative;
   overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23a7f3d0" stroke-width="0.5" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-    opacity: 0.5;
-    z-index: 1;
-  }
 
   @include responsive(tablet) { min-height: 80vh; padding: 4rem 0; }
   @include responsive(desktop) { min-height: 90vh; padding: 5rem 0; }
@@ -122,13 +98,6 @@ $light-green: #a7f3d0;
     @include responsive(tablet) { font-size: 4rem; }
     @include responsive(desktop) { font-size: 4.5rem; }
     @include responsive(large-desktop) { font-size: 5rem; }
-  }
-
-  &--accent {
-    color: $primary-green;
-    position: relative;
-    display: inline-block;
-    animation: pulse 2s infinite;
   }
 }
 
@@ -204,43 +173,13 @@ $light-green: #a7f3d0;
     background: linear-gradient(135deg, $primary-green 0%, $primary-teal 50%, $primary-green 100%);
     color: #FFFFFF;
     border-color: $primary-green;
-    box-shadow: 0 8px 32px rgba(16, 185, 129, 0.3), 0 4px 16px rgba(16, 185, 129, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    animation: glow 2s infinite;
+    box-shadow: 0 8px 32px rgba(16, 185, 129, 0.3), 0 4px 16px rgba(16, 185, 129, 0.2);
     position: relative;
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%, rgba(255, 255, 255, 0.1) 100%);
-      border-radius: 0.75rem;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
 
     &:hover {
       background: linear-gradient(135deg, $primary-teal 0%, $primary-green 50%, $primary-teal 100%);
       transform: translateY(-4px) scale(1.02);
-      box-shadow: 0 16px 48px rgba(16, 185, 129, 0.4), 0 8px 24px rgba(16, 185, 129, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-      
-      &::before { opacity: 1; }
-      
-      .btn-glow {
-        opacity: 1;
-        transform: scale(1.3);
-      }
-      
-      .btn-arrow { transform: translateX(8px); }
-    }
-    
-    .btn-glow {
-      position: absolute;
-      top: -2px; left: -2px; right: -2px; bottom: -2px;
-      background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
-      opacity: 0;
-      transition: all 0.4s ease;
-      border-radius: 0.75rem;
-      filter: blur(4px);
+      box-shadow: 0 16px 48px rgba(16, 185, 129, 0.4), 0 8px 24px rgba(16, 185, 129, 0.3);
     }
   }
 
@@ -249,15 +188,13 @@ $light-green: #a7f3d0;
     color: $primary-green;
     border-color: $primary-green;
     backdrop-filter: blur(20px);
-    box-shadow: 0 8px 32px rgba(16, 185, 129, 0.15), 0 4px 16px rgba(16, 185, 129, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    box-shadow: 0 8px 32px rgba(16, 185, 129, 0.15), 0 4px 16px rgba(16, 185, 129, 0.1);
 
     &:hover {
       background: $primary-green;
       color: #FFFFFF;
       transform: translateY(-4px) scale(1.02);
-      box-shadow: 0 16px 48px rgba(16, 185, 129, 0.3), 0 8px 24px rgba(16, 185, 129, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-      
-      .btn-icon { transform: rotate(15deg) scale(1.2); }
+      box-shadow: 0 16px 48px rgba(16, 185, 129, 0.3), 0 8px 24px rgba(16, 185, 129, 0.2);
     }
   }
 
@@ -283,66 +220,6 @@ $light-green: #a7f3d0;
   font-weight: 700;
   position: relative;
   z-index: 2;
-}
-
-.btn-arrow {
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  font-weight: 700;
-  font-size: 1.75rem;
-  position: relative;
-  z-index: 2;
-}
-
-.btn-icon {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  font-size: 1.75rem;
-  font-weight: 700;
-  position: relative;
-  z-index: 2;
-}
-
-.hero-bg-elements {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  pointer-events: none;
-  z-index: 1;
-  overflow: hidden;
-}
-
-.bg-triangle {
-  position: absolute;
-  width: 0; height: 0;
-  border-style: solid;
-  opacity: 0.1;
-  
-  &--1 {
-    top: 10%; right: 10%;
-    border-width: 0 50px 86.6px 50px;
-    border-color: transparent transparent $primary-green transparent;
-    animation: float 6s ease-in-out infinite;
-  }
-  
-  &--2 {
-    bottom: 20%; left: 5%;
-    border-width: 86.6px 50px 0 50px;
-    border-color: $primary-teal transparent transparent transparent;
-    animation: float 8s ease-in-out infinite reverse;
-  }
-}
-
-.bg-code {
-  position: absolute;
-  top: 50%; right: 5%;
-  font-family: 'Code Bold', monospace;
-  font-size: 8rem;
-  color: rgba(16, 185, 129, 0.05);
-  transform: translateY(-50%);
-  animation: float 10s ease-in-out infinite;
-  
-  @include responsive(mobile) {
-    font-size: 4rem;
-    right: 2%;
-  }
 }
 
 .btn:focus {
