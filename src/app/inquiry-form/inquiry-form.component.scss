@@ -16,11 +16,6 @@ $muted-grey: #6b7280;
   }
 }
 
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
 .inquiry-section {
   background: $white;
   min-height: 100vh;
@@ -47,7 +42,6 @@ $muted-grey: #6b7280;
   text-align: center;
   max-width: 900px;
   margin: 0 auto;
-  animation: fadeInUp 0.8s ease-out;
 }
 
 .section-header {
@@ -79,24 +73,11 @@ $muted-grey: #6b7280;
     .dark-text {
       color: $dark-charcoal;
       font-weight: 600;
-      position: relative;
-      transition: all 0.4s ease;
     }
 
     .green-text {
       color: $primary-green;
       font-weight: 700;
-      text-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
-      position: relative;
-      transition: all 0.4s ease;
-    }
-  }
-
-  &:hover {
-    .dark-text { transform: translateY(-2px); }
-    .green-text {
-      transform: translateY(-2px) scale(1.02);
-      text-shadow: 0 0 30px rgba(16, 185, 129, 0.5);
     }
   }
 
@@ -271,7 +252,6 @@ input, select, textarea {
     outline: none;
     border-color: $primary-green;
     box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
-    transform: translateY(-2px);
   }
 
   &::placeholder {
@@ -307,7 +287,6 @@ input, select, textarea {
     &:hover {
       background: rgba(16, 185, 129, 0.05);
       border-color: $primary-green;
-      transform: translateY(-3px);
     }
 
     input[type="checkbox"] {
@@ -323,7 +302,6 @@ input, select, textarea {
       &:checked {
         background-color: $primary-green;
         border-color: $primary-green;
-        transform: scale(1.15);
       }
 
       &:focus {
@@ -345,7 +323,6 @@ input, select, textarea {
         outline: none;
         border-color: $primary-green;
         box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.1);
-        transform: none;
       }
     }
   }
@@ -390,7 +367,6 @@ input, select, textarea {
     &:hover {
       background: rgba(16, 185, 129, 0.05);
       border-color: $primary-green;
-      transform: translateY(-3px);
     }
 
     input[type="radio"] {
@@ -405,7 +381,6 @@ input, select, textarea {
       &:checked {
         background-color: $primary-green;
         border-color: $primary-green;
-        transform: scale(1.15);
       }
 
       &:focus {
@@ -464,13 +439,11 @@ input, select, textarea {
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
-    transform: none !important;
   }
 
   &:hover:not(:disabled) {
     background: $primary-green;
     color: $white;
-    transform: translateY(-2px);
   }
 }
 
@@ -487,7 +460,6 @@ input, select, textarea {
   &:hover:not(:disabled) {
     background: $teal;
     border-color: $teal;
-    transform: translateY(-2px);
   }
 }
 
