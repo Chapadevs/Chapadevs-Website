@@ -82,12 +82,7 @@ $muted-grey: #6b7280;
 
 // Component Styles
 .support-section {
-  background: linear-gradient(
-    135deg,
-    $primary-green 0%,
-    $teal 50%,
-    $light-green 100%
-  );
+  background: $primary-green;
   padding: 3rem 1rem;
   position: relative;
   overflow: hidden;
@@ -108,11 +103,7 @@ $muted-grey: #6b7280;
   left: 5%;
   width: 60px;
   height: 60px;
-  background: linear-gradient(
-    45deg,
-    rgba(255, 255, 255, 0.12),
-    rgba(255, 255, 255, 0.04)
-  );
+  background: rgba(255, 255, 255, 0.12);
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   animation: float 15s ease-in-out infinite, glow 5s ease-in-out infinite;
   z-index: 1;
@@ -126,11 +117,7 @@ $muted-grey: #6b7280;
   right: 8%;
   width: 45px;
   height: 45px;
-  background: linear-gradient(
-    -45deg,
-    rgba(255, 255, 255, 0.1),
-    rgba(255, 255, 255, 0.02)
-  );
+  background: rgba(255, 255, 255, 0.1);
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
   animation: floatReverse 18s ease-in-out infinite,
     glow 6s ease-in-out infinite 1s;
@@ -145,11 +132,7 @@ $muted-grey: #6b7280;
   left: 10%;
   width: 35px;
   height: 35px;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.14),
-    rgba(255, 255, 255, 0.04)
-  );
+  background: rgba(255, 255, 255, 0.14);
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   animation: float 20s ease-in-out infinite 3s, glow 7s ease-in-out infinite 2s;
   z-index: 1;
@@ -198,9 +181,9 @@ $muted-grey: #6b7280;
     
     .dark-text {
       color: $white;
-      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 255, 255, 0.1); // Enhanced shadow
+      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
       position: relative;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.4s ease;
       
       &::after {
         content: '';
@@ -209,51 +192,31 @@ $muted-grey: #6b7280;
         left: 0;
         width: 100%;
         height: 3px;
-        background: linear-gradient(90deg, $light-green, $white);
+        background: $light-green;
         transform: scaleX(0);
         transform-origin: left;
-        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        border-radius: 2px;
+        transition: transform 0.6s ease;
       }
     }
     
     .green-text {
       color: $light-green;
-      text-shadow: 0 0 25px rgba(167, 243, 208, 0.6), 0 4px 8px rgba(0, 0, 0, 0.4), 0 0 40px rgba(167, 243, 208, 0.3); // Enhanced glow
+      text-shadow: 0 0 25px rgba(167, 243, 208, 0.6);
       position: relative;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      
-      &::before {
-        content: '';
-        position: absolute;
-        top: -6px;
-        left: -6px;
-        right: -6px;
-        bottom: -6px;
-        background: linear-gradient(135deg, rgba(167, 243, 208, 0.15), rgba(255, 255, 255, 0.1));
-        border-radius: 12px;
-        opacity: 0;
-        transition: opacity 0.4s ease;
-        z-index: -1;
-      }
+      transition: all 0.4s ease;
     }
   }
   
   &:hover {
     .dark-text {
       transform: translateY(-3px);
-      text-shadow: 0 6px 12px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 255, 255, 0.2);
       &::after {
         transform: scaleX(1);
-        box-shadow: 0 2px 8px rgba(167, 243, 208, 0.4);
       }
     }
     .green-text {
       transform: translateY(-3px) scale(1.02);
-      text-shadow: 0 0 35px rgba(167, 243, 208, 0.8), 0 6px 12px rgba(0, 0, 0, 0.5), 0 0 50px rgba(167, 243, 208, 0.4);
-      &::before {
-        opacity: 1;
-      }
+      text-shadow: 0 0 35px rgba(167, 243, 208, 0.8);
     }
   }
   
@@ -323,13 +286,12 @@ $muted-grey: #6b7280;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 0.5rem;
   padding: 1.5rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease;
   cursor: pointer;
 
   &:hover {
     transform: translateY(-4px) scale(1.01);
     background: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
     border-color: rgba(255, 255, 255, 0.3);
   }
 
@@ -351,7 +313,7 @@ $muted-grey: #6b7280;
     margin: 0 0 1rem 0; // Increased margin
     text-transform: uppercase;
     letter-spacing: 0.03em; // Increased letter spacing
-    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 255, 255, 0.1); // Enhanced shadow
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4); // Enhanced shadow
     transition: all 0.3s ease;
     position: relative;
     
@@ -362,7 +324,7 @@ $muted-grey: #6b7280;
       left: 0;
       width: 60px;
       height: 2px;
-      background: linear-gradient(90deg, $light-green, transparent);
+      background: $light-green;
       transition: width 0.3s ease;
     }
 
@@ -429,7 +391,6 @@ $muted-grey: #6b7280;
   &:hover {
     background: rgba(255, 255, 255, 0.3);
     transform: translateY(-1px);
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
   }
 
   @include responsive(tablet) {
@@ -446,18 +407,18 @@ $muted-grey: #6b7280;
 // Enhanced hover effects
 .support-feature:hover .feature-content {
   h3 {
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 255, 255, 0.2), 0 0 30px rgba(167, 243, 208, 0.3);
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     transform: translateY(-2px);
     
     &::after {
       width: 100px; // Expand underline on hover
-      background: linear-gradient(90deg, $light-green, $white, transparent);
+      background: $light-green;
     }
   }
 
   p {
     color: rgba(255, 255, 255, 1);
-    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 255, 255, 0.1);
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
     transform: translateY(-1px);
   }
 }
@@ -465,7 +426,6 @@ $muted-grey: #6b7280;
 .support-feature:hover {
   transform: translateY(-6px) scale(1.02); // Enhanced lift and scale
   background: rgba(255, 255, 255, 0.18); // Slightly more opaque
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15), 0 0 20px rgba(167, 243, 208, 0.2); // Enhanced shadow with glow
   border-color: rgba(255, 255, 255, 0.4); // Brighter border
 }
 
