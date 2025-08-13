@@ -23,7 +23,7 @@ ChaPaDevs is building a **simple, reliable deployment pipeline** that combines:
 
 ### **The Flow:**
 ```
-Code Push → GitHub Actions → Build Angular → GCP Deployment → Live Website
+Code Push → GitHub Actions → Build Angular → GCP Deployment → Live Website.
 ```
 
 ### **Why This Approach:**
