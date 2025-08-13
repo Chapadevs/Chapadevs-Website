@@ -1,14 +1,34 @@
-# Exclude unnecessary files from Cloud Build
+# Dependencies
 node_modules/
-.git/
-.cursor/
-.vscode/
-.angular/
-*.log
-*.tmp
-*.cache
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build outputs (we'll build on the server)
 dist/
+.angular/
+
+# Development files
+.git/
+.github/
+.vscode/
+*.md
 .env
 .env.local
-.env.production
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Testing
+coverage/
+.nyc_output/
+
+# IDE
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
 

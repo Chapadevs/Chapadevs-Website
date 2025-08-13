@@ -33,7 +33,7 @@ jobs:
       run: npm ci
 
     - name: Build Angular application
-      run: npm run build
+      run: npm run build:prod
 
     - name: Google Auth
       id: auth
@@ -42,20 +42,14 @@ jobs:
         workload_identity_provider: 'projects/647906054947/locations/global/workloadIdentityPools/github-workflow-identity/providers/github-provider'
         service_account: 'github-actions-sa@chapadevs-468722.iam.gserviceaccount.com'
 
-    - name: Build and push Docker image
-      uses: 'google-github-actions/build-push@v2'
-      with:
-        image: gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE_NAME }}:${{ github.sha }}
-        push: true
-
     - name: Deploy to Cloud Run
       id: deploy
       uses: 'google-github-actions/deploy-cloudrun@v2'
       with:
         service: ${{ env.SERVICE_NAME }}
         region: ${{ env.REGION }}
-        image: gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE_NAME }}:${{ github.sha }}
-        flags: '--allow-unauthenticated --port=8080 --memory=512Mi --cpu=1 --max-instances=10'
+        source: .
+        flags: '--allow-unauthenticated --port=4200 --memory=512Mi --cpu=1 --max-instances=10'
 
     - name: Show service URL
       run: echo "Service URL: ${{ steps.deploy.outputs.url }}"

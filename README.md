@@ -12,7 +12,7 @@ ChaPaDevs is building a **simple, reliable deployment pipeline** that combines:
 ### **What's Working:**
 - ✅ **GCP Integration**: Project configured (`chapadevs-468722`)
 - ✅ **GitHub MCP**: AI-powered automation access
-- ✅ **Local Deployment**: Direct Cloud Run deployment scripts
+- ✅ **Simplified Deployment**: Direct Cloud Run deployment without Docker complexity
 - ✅ **GitHub Actions**: Automated CI/CD workflow created
 
 ### **What's Next:**
@@ -23,11 +23,11 @@ ChaPaDevs is building a **simple, reliable deployment pipeline** that combines:
 
 ### **The Flow:**
 ```
-Code Push → GitHub Actions → Build Angular → GCP Deployment → Live Website.
+Code Push → GitHub Actions → Build Angular → Deploy to Cloud Run → Live Website
 ```
 
 ### **Why This Approach:**
-- **Simple and reliable** - no over-engineering
+- **Simple and reliable** - no Docker complexity
 - **Google handles the hard parts** - build, test, deploy
 - **Easy to debug** - each step is clear and manageable
 - **Scalable later** - can add complexity when you actually need it
@@ -38,7 +38,9 @@ Code Push → GitHub Actions → Build Angular → GCP Deployment → Live Websi
 Chapadevs-Website/
 ├── .github/workflows/          # GitHub Actions workflows
 ├── src/                        # Angular application source
-├── deploy-simple.py           # Simple deployment script (backup)
+├── server.js                   # Simple Express server for Cloud Run
+├── app.yaml                    # Cloud Run configuration
+├── .gcloudignore              # Files to exclude from deployment
 ├── PHASE1_FOUNDATION.md       # Foundation setup guide
 ├── SPACING_STANDARDS.md       # Design standards
 └── README.md                  # This file
@@ -48,18 +50,19 @@ Chapadevs-Website/
 
 ### **1. Deploy to GCP (Manual):**
 ```bash
-python deploy-simple.py
+npm run build:prod
+npm run start:prod
 ```
 
 ### **2. Set Up Automatic Deployment:**
-1. Connect your GitHub repository to GCP Cloud Build
-2. Push code to trigger automatic deployment
-3. Your website goes live automatically
+1. Push code to main branch
+2. GitHub Actions automatically builds and deploys
+3. Your website goes live on Cloud Run automatically
 
 ## 🎯 **Next Steps**
 
-1. **Connect GitHub to GCP** using the Cloud Build integration
-2. **Test the pipeline** with a simple code push
+1. **Push this updated code** to trigger the first deployment
+2. **Verify the deployment** works correctly
 3. **Get your website live** automatically
 4. **Focus on content** instead of deployment complexity
 
