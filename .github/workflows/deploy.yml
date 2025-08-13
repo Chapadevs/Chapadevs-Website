@@ -1,55 +1,12 @@
-name: Deploy to Google Cloud Platform
+name: Test Deploy
 
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
-env:
-  PROJECT_ID: chapadevs-468722
-  REGION: us-central1
-  SERVICE_NAME: chapadevs-website
-
-permissions:
-  contents: 'read'
-  id-token: 'write'
 
 jobs:
-  build-and-deploy:
+  test:
     runs-on: ubuntu-latest
-    
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '18'
-        cache: 'npm'
-
-    - name: Install dependencies
-      run: npm ci
-
-    - name: Build Angular application
-      run: npm run build:prod
-
-    - name: Google Auth
-      id: auth
-      uses: 'google-github-actions/auth@v2'
-      with:
-        workload_identity_provider: 'projects/647906054947/locations/global/workloadIdentityPools/github-workflow-identity/providers/github-provider'
-        service_account: 'github-actions-sa@chapadevs-468722.iam.gserviceaccount.com'
-
-    - name: Deploy to Cloud Run
-      id: deploy
-      uses: 'google-github-actions/deploy-cloudrun@v2'
-      with:
-        service: ${{ env.SERVICE_NAME }}
-        region: ${{ env.REGION }}
-        source: .
-        flags: '--allow-unauthenticated --port=4200 --memory=512Mi --cpu=1 --max-instances=10'
-
-    - name: Show service URL
-      run: echo "Service URL: ${{ steps.deploy.outputs.url }}"
+    - name: Test step
+      run: echo "Hello World"
