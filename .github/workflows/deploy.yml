@@ -58,4 +58,4 @@ jobs:
         flags: '--allow-unauthenticated --port=8080 --memory=512Mi --cpu=1 --max-instances=10'
 
     - name: Show service URL
-      run: echo "Service URL: ${{ steps.deploy.outputs.url }}" 
+      run: echo "Service URL: ${{ steps.deploy.outputs.url }}"
