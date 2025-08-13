@@ -1,21 +1,24 @@
-name: Deploy to GitHub Pages
+name: Deploy to Google Cloud Platform
 
 on:
   push:
     branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  PROJECT_ID: chapadevs-468722
+  REGION: us-central1
+  SERVICE_NAME: chapadevs-website
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: 'read'
+  id-token: 'write'
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
+    
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
@@ -29,17 +32,29 @@ jobs:
     - name: Install dependencies
       run: npm ci
 
-    - name: Build Angular app
-      run: npm run build:prod
+    - name: Build Angular application
+      run: npm run build
 
-    - name: Setup Pages
-      uses: actions/configure-pages@v4
-
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v3
+    - name: Google Auth
+      id: auth
+      uses: 'google-github-actions/auth@v2'
       with:
-        path: './dist/chapadevs-website'
+        workload_identity_provider: 'projects/647906054947/locations/global/workloadIdentityPools/github-workflow-identity/providers/github-provider'
+        service_account: 'github-actions-sa@chapadevs-468722.iam.gserviceaccount.com'
 
-    - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v4 
+    - name: Build and push Docker image
+      uses: 'google-github-actions/build-push@v2'
+      with:
+        image: gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE_NAME }}:${{ github.sha }}
+        push: true
+
+    - name: Deploy to Cloud Run
+      uses: 'google-github-actions/deploy-cloudrun@v2'
+      with:
+        service: ${{ env.SERVICE_NAME }}
+        region: ${{ env.REGION }}
+        image: gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE_NAME }}:${{ github.sha }}
+        flags: '--allow-unauthenticated --port=8080 --memory=512Mi --cpu=1 --max-instances=10'
+
+    - name: Show service URL
+      run: echo "Service URL: ${{ steps.deploy.outputs.url }}" 

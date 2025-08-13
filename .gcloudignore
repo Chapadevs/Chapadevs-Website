@@ -1,0 +1,14 @@
+# Exclude unnecessary files from Cloud Build
+node_modules/
+.git/
+.cursor/
+.vscode/
+.angular/
+*.log
+*.tmp
+*.cache
+dist/
+.env
+.env.local
+.env.production
+

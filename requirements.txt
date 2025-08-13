@@ -1,0 +1,16 @@
+# ChaPaDevs Website - ADK Dependencies
+# Install with: pip install -r requirements.txt
+
+# Google ADK for deployment automation
+google-adk>=1.0.0
+
+# Google Cloud client libraries
+google-cloud-run>=0.10.0
+google-cloud-build>=3.0.0
+google-cloud-storage>=2.0.0
+
+# Additional utilities
+pyyaml>=6.0
+requests>=2.28.0
+
+
