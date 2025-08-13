@@ -1,12 +1,33 @@
-name: Test Deploy
+name: Deploy to Google Cloud Platform
 
 on:
   push:
     branches: [ main ]
 
+env:
+  PROJECT_ID: chapadevs-468722
+  REGION: us-central1
+  SERVICE_NAME: chapadevs-website
+
 jobs:
-  test:
+  build-and-deploy:
     runs-on: ubuntu-latest
+    
     steps:
-    - name: Test step
-      run: echo "Hello World"
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Build Angular application
+      run: npm run build:prod
+
+    - name: Test deployment
+      run: echo "Build completed successfully!"
