@@ -1,13 +1,13 @@
 import { CommonModule } from "@angular/common";
 import { Component, OnInit } from "@angular/core";
 import {
-  FormBuilder,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
+    FormBuilder,
+    FormGroup,
+    ReactiveFormsModule,
+    Validators,
 } from "@angular/forms";
 import emailjs from "@emailjs/browser";
-import { environment } from "../../environments/environment";
+import { environment } from "../../../environments/environment";
 
 @Component({
   selector: "app-inquiry-form",

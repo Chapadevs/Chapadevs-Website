@@ -1,10 +1,10 @@
 import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
+import { HeroComponent } from "../../components/hero/hero.component";
+import { InquiryFormComponent } from "../../components/inquiry-form/inquiry-form.component";
+import { FooterComponent } from "../../layout/footer/footer.component";
+import { HeaderComponent } from "../../layout/header/header.component";
 import { AiComponent } from "../ai/ai.component";
-import { FooterComponent } from "../footer/footer.component";
-import { HeaderComponent } from "../header/header.component";
-import { HeroComponent } from "../hero/hero.component";
-import { InquiryFormComponent } from "../inquiry-form/inquiry-form.component";
 import { ServicesComponent } from "../our-services/our-services.component";
 import { WorkComponent } from "../our-work/our-work.component";
 import { TeamComponent } from "../team/team.component";
