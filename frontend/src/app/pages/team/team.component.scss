@@ -108,8 +108,8 @@ $light-green: #a7f3d0;
     }
     
     .green-text {
-      color: $primary-green;
-      text-shadow: 0 0 10px rgba(16, 185, 129, 0.3), 0 2px 4px rgba(0, 0, 0, 0.1);
+      color: #047857; /* Darker green for better contrast */
+      text-shadow: 0 0 10px rgba(4, 120, 87, 0.3), 0 2px 4px rgba(0, 0, 0, 0.1);
     }
   }
   
@@ -264,7 +264,7 @@ $light-green: #a7f3d0;
   font-family: 'Coolvetica', sans-serif;
   font-weight: 600;
   font-size: 0.875rem;
-  color: $primary-green;
+  color: #047857; /* Darker green for better contrast */
   margin-bottom: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;

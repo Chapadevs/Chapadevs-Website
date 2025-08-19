@@ -1,17 +1,33 @@
 /* Font Awesome */
-/* Custom Fonts */
+
+/* Critical CSS - Above the fold styles */
+:root {
+  --primary-green: #059669;
+  --primary-green-dark: #047857;
+  --primary-green-light: #10b981;
+  --text-primary: #111827;
+  --text-secondary: #374151;
+  --text-light: #6b7280;
+  --background: #ffffff;
+  --background-gray: #f9fafb;
+  --background-light-green: #ecfdf5;
+  --border: #e5e7eb;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* Critical typography for above-the-fold content */
 @font-face {
-  font-family: "Coolvetica";
-  src: url("assets/fonts/Coolvetica\ Rg.otf") format("opentype");
-  font-weight: 300;
+  font-family: "Code Bold";
+  src: url("assets/fonts/Code-Bold.otf") format("opentype");
+  font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Code Bold";
-  src: url("assets/fonts/Code-Bold.otf") format("opentype");
-  font-weight: bold;
+  font-family: "Coolvetica";
+  src: url("assets/fonts/Coolvetica\ Rg.otf") format("opentype");
+  font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
@@ -40,20 +56,7 @@ body {
   background-color: #ffffff;
 }
 
-/* Colors */
-:root {
-  --primary-green: #10b981;
-  --primary-green-dark: #059669;
-  --primary-green-light: #34d399;
-  --text-primary: #1f2937;
-  --text-secondary: #6b7280;
-  --text-light: #9ca3af;
-  --background: #ffffff;
-  --background-gray: #f9fafb;
-  --background-light-green: #ecfdf5;
-  --border: #e5e7eb;
-  --shadow: rgba(0, 0, 0, 0.1);
-}
+
 
 /* Typography */
 h1,
@@ -560,7 +563,7 @@ section {
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
-  color: var(--text-primary);
+  color: #065f46; /* Even darker green for better contrast */
 }
 
 .form-group input,

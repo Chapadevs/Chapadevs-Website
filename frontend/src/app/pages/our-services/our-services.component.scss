@@ -59,8 +59,8 @@ $muted-grey: #6b7280;
     }
     
     .green-text {
-      color: $light-green;
-      text-shadow: 0 0 25px rgba(167, 243, 208, 0.6);
+      color: #f0fdf4; /* Very light green for better contrast */
+      text-shadow: 0 0 25px rgba(240, 253, 244, 0.9);
       position: relative;
       transition: all 0.4s ease;
     }
@@ -82,11 +82,11 @@ $muted-grey: #6b7280;
 .section-description {
   font-family: "Coolvetica", sans-serif;
   font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.95);
+  color: #ffffff; /* Full white for better contrast */
   line-height: 1.6;
   max-width: 600px;
   margin: 0 auto;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Stronger shadow for better contrast */
   font-weight: 500;
 
   @include responsive(tablet) { font-size: 1.5rem; max-width: 700px; }
@@ -126,7 +126,7 @@ $muted-grey: #6b7280;
 }
 
 .feature-content {
-  h3 {
+  h2 {
     font-family: "Code Bold", monospace;
     font-size: 1.5rem;
     font-weight: 700;
@@ -200,7 +200,7 @@ $muted-grey: #6b7280;
   @include responsive(desktop) { font-size: 0.875rem; padding: 0.625rem 1.25rem; }
 }
 
-.support-feature:hover .feature-content h3::after {
+.support-feature:hover .feature-content h2::after {
   width: 100px;
   background: $light-green;
 }
@@ -213,7 +213,7 @@ $muted-grey: #6b7280;
   .support-features { gap: 0.75rem; }
   .support-feature { padding: 1.25rem; text-align: center; }
   .feature-content {
-    h3 { font-size: 1.125rem; margin-bottom: 0.5rem; }
+    h2 { font-size: 1.125rem; margin-bottom: 0.5rem; }
     p { font-size: 0.9375rem; margin-bottom: 0.75rem; }
   }
   .feature-list { gap: 0.25rem; justify-content: center; }
