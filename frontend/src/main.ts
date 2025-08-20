@@ -7,7 +7,7 @@ const routes = [
   { path: '', component: HomeComponent },
   { 
     path: 'our-services', 
-    loadComponent: () => import('./app/pages/our-services/our-services.component').then(m => m.ServicesComponent)
+    loadComponent: () => import('./app/pages/our-services/our-services.component').then(m => m.OurServicesComponent)
   },
   { 
     path: 'our-work', 

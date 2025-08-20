@@ -5,7 +5,7 @@ import { InquiryFormComponent } from "../../components/inquiry-form/inquiry-form
 import { FooterComponent } from "../../layout/footer/footer.component";
 import { HeaderComponent } from "../../layout/header/header.component";
 import { AiComponent } from "../ai/ai.component";
-import { ServicesComponent } from "../our-services/our-services.component";
+import { OurServicesComponent } from "../our-services/our-services.component";
 import { WorkComponent } from "../our-work/our-work.component";
 import { TeamComponent } from "../team/team.component";
 
@@ -16,7 +16,7 @@ import { TeamComponent } from "../team/team.component";
     CommonModule,
     HeaderComponent,
     HeroComponent,
-    ServicesComponent,
+    OurServicesComponent,
     TeamComponent,
     WorkComponent,
     AiComponent,
