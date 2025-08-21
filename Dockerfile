@@ -13,8 +13,8 @@ RUN npm ci --only=production=false
 # Copy source code from frontend directory
 COPY frontend/ .
 
-# Build the application
-RUN npm run build:prod
+# Build the application with production configuration
+RUN npm run build -- --configuration=production
 
 # Production stage with nginx
 FROM nginx:alpine
