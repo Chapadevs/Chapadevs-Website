@@ -19,10 +19,10 @@
   <div class="services-container">
     <!-- 2-Column, 3-Row Grid Layout -->
     <div class="services-grid-2x3">
-      <!-- Row 1: Laptop | Modern Web Applications -->
-      <div class="image-column laptop-column">
-        <div class="image-container laptop-container">
-          <img src="assets/images/leptop.png" alt="Laptop showing minimalist web page with circular graphics" class="laptop-image">
+      <!-- Row 1: Mobile | Modern Web Applications -->
+      <div class="image-column mobile-column" [style.transform]="'translateX(' + (-300 + (scrollProgress * 300)) + 'px)'" [style.opacity]="scrollProgress" [attr.data-progress]="scrollProgress">
+        <div class="image-container mobile-container">
+          <img src="assets/images/mobile.png" alt="Smartphone showing mobile app interface" class="mobile-image">
         </div>
       </div>
       
@@ -43,7 +43,7 @@
         </article>
       </div>
 
-      <!-- Row 2: Business Solutions | Phone Image -->
+      <!-- Row 2: Business Solutions | Monitor Image -->
       <div class="service-column">
         <article class="service-card">
           <div class="card-content">
@@ -61,16 +61,16 @@
         </article>
       </div>
 
-      <div class="image-column phone-column">
-        <div class="image-container phone-container">
-          <img src="assets/images/mobile.png" alt="Smartphone showing mobile app interface" class="phone-image">
+      <div class="image-column monitor-column" [style.transform]="'scale(' + (0.5 + (monitorScrollProgress * 0.5)) + ')'" [style.opacity]="monitorScrollProgress" [attr.data-progress]="monitorScrollProgress">
+        <div class="image-container monitor-container">
+          <img src="assets/images/monitor.png" alt="Monitor showing inventory management system" class="monitor-image">
         </div>
       </div>
 
-      <!-- Row 3: Monitor | Digital Transformation -->
-      <div class="image-column monitor-column">
-        <div class="image-container monitor-container">
-          <img src="assets/images/monitor.png" alt="Monitor showing inventory management system" class="monitor-image">
+      <!-- Row 3: Laptop | Digital Transformation -->
+      <div class="image-column laptop-column" [style.opacity]="laptopScrollProgress" [attr.data-progress]="laptopScrollProgress">
+        <div class="image-container laptop-container">
+          <img src="assets/images/leptop.png" alt="Laptop showing minimalist web page with circular graphics" class="laptop-image">
         </div>
       </div>
       
