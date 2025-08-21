@@ -6,18 +6,18 @@ $muted-grey: #6b7280;
 $light-green: #a7f3d0;
 
 @mixin button-base {
-  padding: 1.5rem 3rem;
+  padding: 2rem 4rem;
   border: 2px solid $primary-green;
-  border-radius: 0.25rem; // Sharp edges as per brand
+  border-radius: 0; // No rounded edges
   font-family: 'Code Bold', monospace;
   font-weight: 600;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   text-decoration: none;
   display: inline-block;
   text-align: center;
-  min-width: 250px;
+  min-width: 300px;
 }
 
 @mixin responsive($breakpoint) {
@@ -191,14 +191,14 @@ $light-green: #a7f3d0;
 
   @include responsive(mobile) {
     width: 100%;
-    padding: 1.75rem 2rem;
+    padding: 2rem 2.5rem;
     font-size: 1.5rem;
   }
 
   @include responsive(tablet) {
     width: auto;
-    padding: 1.5rem 3rem;
-    font-size: 1.25rem;
+    padding: 2rem 4rem;
+    font-size: 1.5rem;
   }
 }
 

@@ -1,0 +1,4 @@
+---
+alwaysApply: true
+---
+On every style or frontend or design request on components of the website, you need to use the getSelectElement method from the Browser-Tools MCP installed  
