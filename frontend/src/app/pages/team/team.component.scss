@@ -108,8 +108,8 @@ $light-green: #a7f3d0;
     }
     
     .green-text {
-      color: #047857; /* Darker green for better contrast */
-      text-shadow: 0 0 10px rgba(4, 120, 87, 0.3), 0 2px 4px rgba(0, 0, 0, 0.1);
+      color: #059669; /* Standard green color */
+      text-shadow: 0 0 10px rgba(5, 150, 105, 0.3), 0 2px 4px rgba(0, 0, 0, 0.1);
     }
   }
   
@@ -264,7 +264,7 @@ $light-green: #a7f3d0;
   font-family: 'Coolvetica', sans-serif;
   font-weight: 600;
   font-size: 0.875rem;
-  color: #047857; /* Darker green for better contrast */
+  color: #059669; /* Standard green color */
   margin-bottom: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -356,7 +356,7 @@ $light-green: #a7f3d0;
   }
 
   @include responsive(desktop) {
-    font-size: 0.75rem;
+    font-size: 1rem;
     padding: 0.5rem 1rem;
   }
 }

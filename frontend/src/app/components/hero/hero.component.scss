@@ -163,11 +163,11 @@ $light-green: #a7f3d0;
 
   &--primary {
     background: #FFFFFF;
-    color: #047857; /* Darker green for better contrast */
-    border-color: #047857;
+    color: #059669; /* Standard green color */
+    border-color: #059669;
 
     &:hover {
-      background: #047857;
+      background: #059669;
       color: #FFFFFF;
       transform: translateY(-2px);
     }

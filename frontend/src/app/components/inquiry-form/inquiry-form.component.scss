@@ -71,7 +71,7 @@ $muted-grey: #6b7280;
     }
 
     .green-text {
-      color: #047857; /* Darker green for better contrast */
+      color: #059669; /* Standard green color */
       font-weight: 700;
     }
   }
@@ -385,9 +385,9 @@ input, select, textarea {
 }
 
 .btn-primary {
-  background: #047857; /* Darker green for better contrast */
+  background: #059669; /* Standard green color */
   color: $white;
-  border: 2px solid #047857;
+  border: 2px solid #059669;
 
   &:disabled {
     opacity: 0.6;
