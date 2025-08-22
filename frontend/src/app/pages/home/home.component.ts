@@ -1,5 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
+import { FaqComponent } from "../../components/faq/faq.component";
 import { HeroComponent } from "../../components/hero/hero.component";
 import { InquiryFormComponent } from "../../components/inquiry-form/inquiry-form.component";
 import { FooterComponent } from "../../layout/footer/footer.component";
@@ -21,6 +22,7 @@ import { TeamComponent } from "../team/team.component";
     WorkComponent,
     AiComponent,
     InquiryFormComponent,
+    FaqComponent,
     FooterComponent,
   ],
   templateUrl: "./home.component.html",

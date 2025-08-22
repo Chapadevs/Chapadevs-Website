@@ -1,0 +1,146 @@
+// FAQ Component - Modern Minimalist Design
+// ==========================================
+
+// Variables
+$primary-green: #10b981;
+$white: #ffffff;
+$dark-charcoal: #111827;
+$muted-grey: #6b7280;
+$border-color: #e5e7eb;
+
+.faq-section {
+  background: $white;
+  padding: 6rem 0;
+  border-top: 1px solid $border-color;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.faq-title {
+  font-family: "Code Bold", monospace;
+  font-size: 4rem;
+  font-weight: 700;
+  color: $dark-charcoal;
+  text-align: center;
+  margin-bottom: 4rem;
+  letter-spacing: -0.02em;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.faq-item {
+  background: $white;
+  border-bottom: 1px solid $border-color;
+  
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 2.5rem 0;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Code Bold", monospace;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: $dark-charcoal;
+  transition: color 0.2s ease;
+  
+  &:hover {
+    color: $primary-green;
+  }
+  
+  span {
+    flex: 1;
+    line-height: 1.4;
+  }
+}
+
+.icon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  margin-left: 2rem;
+}
+
+.line {
+  position: absolute;
+  background: $muted-grey;
+  transition: all 0.3s ease;
+  
+  &.horizontal {
+    width: 24px;
+    height: 3px;
+    top: 10.5px;
+    left: 0;
+  }
+  
+  &.vertical {
+    width: 3px;
+    height: 24px;
+    top: 0;
+    left: 10.5px;
+    
+    &.rotate {
+      transform: rotate(90deg);
+      opacity: 0;
+    }
+  }
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  
+  &.show {
+    max-height: 250px;
+  }
+  
+  p {
+    font-family: "Coolvetica", sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: $muted-grey;
+    margin: 0 0 2.5rem 0;
+    padding-right: 3rem;
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .faq-section {
+    padding: 4rem 0;
+  }
+  
+  .faq-title {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+  }
+  
+  .faq-question {
+    padding: 2rem 0;
+    font-size: 1.2rem;
+  }
+  
+  .faq-answer p {
+    padding-right: 1rem;
+    font-size: 1.1rem;
+  }
+}
