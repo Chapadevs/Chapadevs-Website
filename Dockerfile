@@ -20,7 +20,8 @@ RUN npm run build -- --configuration=production
 FROM nginx:alpine
 
 # Copy built application from builder stage
-COPY --from=builder /app/dist/chapadevs-website /usr/share/nginx/html
+COPY --from=builder /app/dist/ch
+apadevs-website /usr/share/nginx/html
 
 # Copy nginx configuration
 COPY nginx.conf /etc/nginx/nginx.conf

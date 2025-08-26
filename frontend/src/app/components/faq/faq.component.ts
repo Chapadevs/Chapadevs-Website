@@ -11,7 +11,7 @@ import { Component } from '@angular/core';
 export class FaqComponent {
   faqs = [
     {
-      question: 'What services does ChaPaDevs offer?',
+      question: 'What services does Chapadevs offer?',
       answer: 'We specialize in creating high-quality websites, IT consulting, and full-stack development services. Our team handles everything from frontend design to backend development and deployment.',
       isOpen: false
     },
@@ -38,6 +38,26 @@ export class FaqComponent {
     {
       question: 'How do you handle project communication and updates?',
       answer: 'We maintain clear communication throughout the project with regular updates, milestone reviews, and direct access to our development team. We use modern collaboration tools to keep you informed.',
+      isOpen: false
+    },
+    {
+      question: 'Are 50/50 payment plans available?',
+      answer: 'Yes, we offer flexible 50/50 payment plans. You pay 50% upfront to start the project, and the remaining 50% upon completion and delivery. This helps manage your budget while ensuring project commitment.',
+      isOpen: false
+    },
+    {
+      question: 'What happens if you don\'t deliver the project?',
+      answer: 'We have a 100% delivery guarantee. If for any reason we cannot deliver your project, you will receive a full refund of all payments made. However, this has never happened - we pride ourselves on our track record of successful deliveries.',
+      isOpen: false
+    },
+    {
+      question: 'What are the hosting and domain subscription costs?',
+      answer: 'We deploy exclusively on Oracle infrastructure. Hosting costs typically range from $20-50/month depending on your needs. Domain registration is $12-15/year. We can handle all hosting setup and management for you.',
+      isOpen: false
+    },
+    {
+      question: 'Can you integrate with our existing services and systems?',
+      answer: 'Absolutely! We specialize in connecting websites to existing services including CRM systems, payment gateways, databases, APIs, and third-party platforms. We ensure seamless integration with your current business infrastructure.',
       isOpen: false
     }
   ];

@@ -1,3 +1,12 @@
+// Font imports
+@font-face {
+  font-family: 'CreatoDisplay-Medium';
+  src: url('/assets/fonts/CreatoDisplay-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 // Variables
 $primary-green: #10b981;
 $teal: #0d9488;
@@ -6,7 +15,7 @@ $white: #ffffff;
 $dark-charcoal: #111827;
 $muted-grey: #6b7280;
 $font-primary: 'Code Bold', monospace;
-$font-secondary: 'Coolvetica', sans-serif;
+$font-secondary: 'CreatoDisplay-Medium', sans-serif;
 
 @mixin responsive($breakpoint) {
   @if $breakpoint == mobile {

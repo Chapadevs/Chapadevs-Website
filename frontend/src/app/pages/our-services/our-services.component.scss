@@ -6,9 +6,18 @@ $white: #ffffff;
 $dark-charcoal: #111827;
 $muted-grey: #6b7280;
 
+// Font imports
+@font-face {
+  font-family: 'CreatoDisplay-Medium';
+  src: url('/assets/fonts/CreatoDisplay-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 // Typography Variables - BRAND FONTS ONLY
 $font-primary: 'Code Bold', monospace;
-$font-secondary: 'Coolvetica', sans-serif;
+$font-secondary: 'CreatoDisplay-Medium', sans-serif;
 
 @mixin responsive($breakpoint) {
   @if $breakpoint == mobile {
@@ -75,7 +84,7 @@ $font-secondary: 'Coolvetica', sans-serif;
 
 .support-section {
   background: $white; // BRAND WHITE BACKGROUND
-  padding: 3rem 0 0 0; // Top padding only, no bottom padding
+  padding: 3rem 0 0 0; // Remove bottom padding
   position: relative;
   overflow: hidden;
   min-height: auto;
@@ -100,9 +109,13 @@ $font-secondary: 'Coolvetica', sans-serif;
 
 .section-header {
   text-align: center;
-  margin-bottom: 0;
+  margin-bottom: 3rem; // Add bottom margin to create space between title and services
   position: relative;
   z-index: 2;
+  
+  @include responsive(tablet) { margin-bottom: 4rem; }
+  @include responsive(desktop) { margin-bottom: 5rem; }
+  @include responsive(large-desktop) { margin-bottom: 6rem; }
 }
 
 .title-brand-split {
@@ -366,6 +379,7 @@ $font-secondary: 'Coolvetica', sans-serif;
   flex-direction: column;
   align-items: center;
   height: auto; // Let content determine height
+  padding: 1rem; // Add padding around the content
   
   h2 {
     font-family: $font-primary; // CODE BOLD FONT
@@ -413,19 +427,28 @@ $font-secondary: 'Coolvetica', sans-serif;
   }
 
   p {
-    font-family: $font-secondary; // COOLVETICA FONT
+    font-family: $font-secondary; // CREATODISPLAY-MEDIUM FONT
     font-size: 0.875rem; // Further reduced from 1rem
     color: $muted-grey; // BRAND MUTED GREY
     line-height: 1.4; // Further reduced from 1.5
     margin: 0; // Remove all margins to eliminate spacing
-    font-weight: 400; // REGULAR WEIGHT
+    padding: 0.75rem 0; // Add top and bottom padding
+    font-weight: 500; // MEDIUM WEIGHT
     transition: all 0.3s ease;
     text-align: center;
     max-height: 80px; // Further reduced from 100px
     overflow: hidden; // Hide overflow text if needed
 
-    @include responsive(tablet) { font-size: 1rem; margin-bottom: 0; } // Remove bottom margin
-    @include responsive(desktop) { font-size: 1.125rem; margin-bottom: 0; } // Remove bottom margin
+    @include responsive(tablet) { 
+      font-size: 1rem; 
+      margin-bottom: 0;
+      padding: 1rem 0; // Increase padding for tablet
+    } // Remove bottom margin
+    @include responsive(desktop) { 
+      font-size: 1.125rem; 
+      margin-bottom: 0;
+      padding: 1.25rem 0; // Increase padding for desktop
+    } // Remove bottom margin
   }
 }
 
@@ -446,7 +469,7 @@ $font-secondary: 'Coolvetica', sans-serif;
   border-radius: 0;
   font-family: $font-secondary;
   font-size: 0.5rem;
-  font-weight: 400;
+  font-weight: 500;
   text-transform: none;
   letter-spacing: 0.02em;
   transition: all 0.2s ease;
@@ -476,7 +499,7 @@ $font-secondary: 'Coolvetica', sans-serif;
 // Responsive Design - KEEPING EXISTING STRUCTURE
 @include responsive(mobile) {
   .support-section { 
-    padding: 3rem 1.5rem 0 1.5rem; 
+    padding: 3rem 1.5rem 3rem 1.5rem; 
     min-height: auto;
   }
   

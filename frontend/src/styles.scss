@@ -32,6 +32,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Creato Display Medium";
+  src: url("assets/fonts/CreatoDisplay-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Global Styles - Chapadevs Website */
 * {
   margin: 0;
@@ -86,6 +94,9 @@ h3 {
 }
 .font-code-bold {
   font-family: "Code Bold", sans-serif;
+}
+.font-creato-display-medium {
+  font-family: "Creato Display Medium", serif;
 }
 
 /* Layout */

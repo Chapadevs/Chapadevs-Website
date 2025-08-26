@@ -138,6 +138,14 @@ $light-green: #a7f3d0;
   }
 }
 
+// Special styling for the hero subtitle with Creato Display Medium font
+.hero-subtitle-creato {
+  font-family: 'Creato Display Medium', serif !important;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+}
+
 .hero-buttons {
   display: flex;
   gap: 2.5rem;
