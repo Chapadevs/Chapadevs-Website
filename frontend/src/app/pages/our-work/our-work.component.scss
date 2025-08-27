@@ -27,115 +27,30 @@ $font-secondary: 'CreatoDisplay-Medium', sans-serif;
   }
 }
 
+// Simplified animations
 @keyframes floatIn {
-  from { opacity: 0; transform: scale(0.3) translateY(50px); }
-  to { opacity: 1; transform: scale(1) translateY(0); }
-}
-
-@keyframes scaleFromCenter {
-  from { opacity: 0; transform: scale(0.1) translateY(0); }
-  to { opacity: 1; transform: scale(1) translateY(0); }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes cardFloat {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-6px) rotate(0.5deg); }
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-3px); }
 }
 
 @keyframes iconFloat {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-8px) rotate(2deg); }
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); opacity: 0.5; }
-  50% { transform: scale(1.1); opacity: 0.8; }
-}
-
-@keyframes float {
-  0%, 100% { 
-    transform: translateY(0px) translateX(0px) rotate(0deg); 
-    opacity: 0.6;
-  }
-  25% { 
-    transform: translateY(-15px) translateX(5px) rotate(2deg); 
-    opacity: 0.8;
-  }
-  50% { 
-    transform: translateY(-25px) translateX(-3px) rotate(5deg); 
-    opacity: 0.7;
-  }
-  75% { 
-    transform: translateY(-10px) translateX(8px) rotate(3deg); 
-    opacity: 0.9;
-  }
-}
-
-@keyframes rotate {
-  0% { 
-    transform: translate(-50%, -50%) rotate(0deg) scale(1); 
-    opacity: 0.6;
-  }
-  50% { 
-    transform: translate(-50%, -50%) rotate(180deg) scale(1.1); 
-    opacity: 0.8;
-  }
-  100% { 
-    transform: translate(-50%, -50%) rotate(360deg) scale(1); 
-    opacity: 0.6;
-  }
-}
-
-@keyframes slideIn {
-  from { transform: translateX(-100px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
-}
-
-@keyframes slideInRight {
-  from { transform: translateX(100px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
-}
-
-@keyframes fadeInUp {
-  from { transform: translateY(30px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes morphGradient {
-  0%, 100% {
-    background-position: 0% 50%, 100% 50%, 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%, 0% 50%, 100% 50%;
-  }
-}
-
-@keyframes subtleFloat {
-  0%, 100% { transform: translateY(0px) translateX(0px); }
-  50% { transform: translateY(-20px) translateX(10px); }
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
 }
 
 .services-section {
-  background: 
-    // Brand color gradient base with white, light green, and teal - softer tones
-    linear-gradient(135deg, 
-      $white 0%, 
-      rgba(167, 243, 208, 0.3) 15%, 
-      rgba(167, 243, 208, 0.2) 30%, 
-      rgba(16, 185, 129, 0.15) 50%, 
-      rgba(13, 148, 136, 0.1) 70%, 
-      rgba(16, 185, 129, 0.05) 85%, 
-      $white 100%
-    ),
-    // Very subtle radial overlays using brand colors
-    radial-gradient(circle at 20% 80%, rgba(16, 185, 129, 0.02) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(13, 148, 136, 0.015) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(167, 243, 208, 0.01) 0%, transparent 50%),
-    // Modern noise texture overlay
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.015'/%3E%3C/svg%3E");
-  background-size: 200% 200%, 100% 100%, 100% 100%, 100% 100%, 200px 200px;
-  background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
-  animation: morphGradient 20s ease-in-out infinite;
+  background: linear-gradient(135deg, 
+    $white 0%, 
+    rgba(167, 243, 208, 0.2) 25%, 
+    rgba(16, 185, 129, 0.1) 50%, 
+    rgba(13, 148, 136, 0.05) 75%, 
+    $white 100%
+  );
   min-height: auto;
   padding: 4rem 0;
   position: relative;
@@ -143,69 +58,14 @@ $font-secondary: 'CreatoDisplay-Medium', sans-serif;
 
   @include responsive(tablet) { padding: 5rem 0; }
   @include responsive(desktop) { padding: 6rem 0; }
-
-  // Modern glassmorphism overlay
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-      // Subtle geometric pattern
-      linear-gradient(45deg, transparent 48%, rgba(255, 255, 255, 0.03) 50%, transparent 52%),
-      linear-gradient(225deg, transparent 48%, rgba(255, 255, 255, 0.02) 50%, transparent 52%),
-      // Modern mesh gradient overlay using brand colors
-      radial-gradient(circle at 30% 70%, rgba(16, 185, 129, 0.02) 0%, transparent 40%),
-      radial-gradient(circle at 70% 30%, rgba(13, 148, 136, 0.02) 0%, transparent 40%);
-    background-size: 120px 120px, 120px 120px, 100% 100%, 100% 100%;
-    opacity: 0.8;
-    z-index: 1;
-    backdrop-filter: blur(0.5px);
-  }
-
-  // Additional modern texture layer
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-      // Very subtle dot pattern using brand colors
-      radial-gradient(circle at 1px 1px, rgba(167, 243, 208, 0.08) 1px, transparent 0),
-      // Soft glow effects using brand colors - reduced intensity
-      radial-gradient(circle at 10% 90%, rgba(16, 185, 129, 0.03) 0%, transparent 40%),
-      radial-gradient(circle at 90% 10%, rgba(13, 148, 136, 0.02) 0%, transparent 40%),
-      radial-gradient(circle at 50% 50%, rgba(167, 243, 208, 0.015) 0%, transparent 40%);
-    background-size: 20px 20px, 100% 100%, 100% 100%, 100% 100%;
-    z-index: 1;
-  }
 }
 
-// Modern floating background elements with glassmorphism
+// Simplified floating background elements
 .bg-float {
   position: absolute;
   z-index: 1;
-  opacity: 0.4;
-  filter: blur(0.5px);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  backdrop-filter: blur(2px);
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    filter: blur(4px);
-    z-index: -1;
-  }
+  opacity: 0.3;
+  filter: blur(1px);
 }
 
 .bg-float-1 {
@@ -213,11 +73,9 @@ $font-secondary: 'CreatoDisplay-Medium', sans-serif;
   height: 0;
   border-left: 60px solid transparent;
   border-right: 60px solid transparent;
-  border-bottom: 104px solid rgba(16, 185, 129, 0.12);
+  border-bottom: 104px solid rgba(16, 185, 129, 0.1);
   top: 10%;
   left: 5%;
-  animation: float 15s ease-in-out infinite, subtleFloat 20s ease-in-out infinite;
-  filter: drop-shadow(0 8px 16px rgba(16, 185, 129, 0.1));
 }
 
 .bg-float-2 {
@@ -225,11 +83,9 @@ $font-secondary: 'CreatoDisplay-Medium', sans-serif;
   height: 0;
   border-left: 40px solid transparent;
   border-right: 40px solid transparent;
-  border-bottom: 69px solid rgba(167, 243, 208, 0.15);
+  border-bottom: 69px solid rgba(167, 243, 208, 0.12);
   top: 70%;
   right: 10%;
-  animation: float 18s ease-in-out infinite reverse, subtleFloat 25s ease-in-out infinite reverse;
-  filter: drop-shadow(0 6px 12px rgba(167, 243, 208, 0.1));
 }
 
 .bg-float-3 {
@@ -237,11 +93,9 @@ $font-secondary: 'CreatoDisplay-Medium', sans-serif;
   height: 0;
   border-left: 30px solid transparent;
   border-right: 30px solid transparent;
-  border-bottom: 52px solid rgba(13, 148, 136, 0.12);
+  border-bottom: 52px solid rgba(13, 148, 136, 0.1);
   top: 30%;
   right: 20%;
-  animation: float 20s ease-in-out infinite, subtleFloat 22s ease-in-out infinite;
-  filter: drop-shadow(0 4px 8px rgba(13, 148, 136, 0.1));
 }
 
 .bg-float-4 {
@@ -249,25 +103,20 @@ $font-secondary: 'CreatoDisplay-Medium', sans-serif;
   height: 0;
   border-left: 50px solid transparent;
   border-right: 50px solid transparent;
-  border-bottom: 87px solid rgba(16, 185, 129, 0.08);
+  border-bottom: 87px solid rgba(16, 185, 129, 0.06);
   bottom: 20%;
   left: 15%;
-  animation: float 16s ease-in-out infinite reverse, subtleFloat 18s ease-in-out infinite reverse;
-  filter: drop-shadow(0 5px 10px rgba(16, 185, 129, 0.08));
 }
 
-// Additional modern triangular shapes
 .bg-float-5 {
   width: 0;
   height: 0;
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
-  border-bottom: 35px solid rgba(16, 185, 129, 0.15);
+  border-bottom: 35px solid rgba(16, 185, 129, 0.12);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  animation: rotate 30s ease-in-out infinite, subtleFloat 28s ease-in-out infinite;
-  filter: drop-shadow(0 3px 6px rgba(16, 185, 129, 0.1));
 }
 
 .bg-float-6 {
@@ -275,11 +124,9 @@ $font-secondary: 'CreatoDisplay-Medium', sans-serif;
   height: 0;
   border-left: 15px solid transparent;
   border-right: 15px solid transparent;
-  border-bottom: 26px solid rgba(13, 148, 136, 0.12);
+  border-bottom: 26px solid rgba(13, 148, 136, 0.1);
   top: 25%;
   left: 80%;
-  animation: rotate 35s ease-in-out infinite reverse, subtleFloat 32s ease-in-out infinite reverse;
-  filter: drop-shadow(0 2px 4px rgba(13, 148, 136, 0.08));
 }
 
 .bg-float-7 {
@@ -287,11 +134,9 @@ $font-secondary: 'CreatoDisplay-Medium', sans-serif;
   height: 0;
   border-left: 25px solid transparent;
   border-right: 25px solid transparent;
-  border-bottom: 43px solid rgba(167, 243, 208, 0.15);
+  border-bottom: 43px solid rgba(167, 243, 208, 0.12);
   bottom: 30%;
   right: 30%;
-  animation: rotate 28s ease-in-out infinite, subtleFloat 30s ease-in-out infinite;
-  filter: drop-shadow(0 4px 8px rgba(167, 243, 208, 0.1));
 }
 
 .services-container {
@@ -342,7 +187,7 @@ $font-secondary: 'CreatoDisplay-Medium', sans-serif;
   align-self: center;
   position: relative;
   z-index: 10;
-  animation: floatIn 1.2s ease-out forwards, cardFloat 6s ease-in-out infinite 1s;
+  animation: floatIn 1s ease-out forwards;
   margin-bottom: 0;
 
   @include responsive(tablet) { max-width: 500px; }
@@ -366,23 +211,11 @@ $font-secondary: 'CreatoDisplay-Medium', sans-serif;
     
     .dark-text {
       color: $dark-charcoal;
-      text-shadow: 
-        0 2px 4px rgba(0, 0, 0, 0.3), 
-        0 1px 2px rgba(0, 0, 0, 0.2),
-        0 4px 8px rgba(16, 185, 129, 0.1);
-      animation: floatIn 0.8s ease-out 0.2s both, iconFloat 4s ease-in-out infinite 1s;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      animation: floatIn 0.8s ease-out 0.2s both;
       position: relative;
       font-weight: 700;
       letter-spacing: 0.1em;
-      background: linear-gradient(135deg, 
-        $dark-charcoal 0%, 
-        #374151 50%, 
-        $dark-charcoal 100%
-      );
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      filter: drop-shadow(0 2px 4px rgba(16, 185, 129, 0.2));
     }
   }
 
@@ -395,40 +228,11 @@ $font-secondary: 'CreatoDisplay-Medium', sans-serif;
     
     .green-text {
       color: $primary-green;
-      text-shadow: 
-        0 2px 8px rgba(16, 185, 129, 0.4),
-        0 1px 4px rgba(16, 185, 129, 0.3),
-        0 4px 16px rgba(16, 185, 129, 0.2);
-      animation: floatIn 0.8s ease-out 0.4s both, iconFloat 4s ease-in-out infinite 1.5s;
+      text-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+      animation: floatIn 0.8s ease-out 0.4s both;
       position: relative;
       font-weight: 900;
       letter-spacing: 0.15em;
-      background: linear-gradient(135deg, 
-        $primary-green 0%, 
-        #0d9488 50%, 
-        $primary-green 100%
-      );
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      filter: drop-shadow(0 4px 8px rgba(16, 185, 129, 0.4));
-      position: relative;
-      
-      &::before {
-        content: '';
-        position: absolute;
-        top: -4px;
-        left: -4px;
-        right: -4px;
-        bottom: -4px;
-        background: linear-gradient(135deg, 
-          rgba(16, 185, 129, 0.15) 0%, 
-          rgba(13, 148, 136, 0.1) 100%
-        );
-        filter: blur(12px);
-        z-index: -1;
-        opacity: 0.9;
-      }
     }
   }
   
@@ -459,7 +263,7 @@ $font-secondary: 'CreatoDisplay-Medium', sans-serif;
   background: transparent;
   border-radius: 0;
   border: none;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease;
   text-align: center;
   width: 100%;
   max-width: 320px;
@@ -471,172 +275,35 @@ $font-secondary: 'CreatoDisplay-Medium', sans-serif;
   overflow: visible;
   margin-bottom: 0;
 
-  // TOP BORDER - LAMP CURTAIN WITH FLARE EFFECT
+  // Simplified top border
   &::before {
     content: '';
     position: absolute;
-    top: -8px; // Moved much higher with negative top
+    top: -2px;
     left: 0;
     right: 0;
-    height: 2px; // Much thinner for lamp curtain effect
+    height: 2px;
     background: linear-gradient(90deg, 
       transparent 0%,
-      rgba(16, 185, 129, 0.2) 10%, 
-      rgba(16, 185, 129, 0.5) 20%,
-      rgba(16, 185, 129, 0.7) 35%,
+      rgba(16, 185, 129, 0.3) 25%,
       $primary-green 50%,
-      rgba(16, 185, 129, 0.7) 65%,
-      rgba(16, 185, 129, 0.5) 80%,
-      rgba(16, 185, 129, 0.2) 90%,
+      rgba(16, 185, 129, 0.3) 75%,
       transparent 100%
     );
-    transition: all 0.4s ease;
+    transition: all 0.3s ease;
     z-index: 10;
-    box-shadow: 
-      0 0 8px rgba(16, 185, 129, 0.4),
-      0 0 16px rgba(16, 185, 129, 0.2),
-      0 0 24px rgba(16, 185, 129, 0.1);
-  }
-  
-  // LAMP CURTAIN LIGHT RAYS - SMOOTH FLARE EFFECT
-  &::after {
-    content: '';
-    position: absolute;
-    top: -10px; // Moved much higher with the border
-    left: 0;
-    right: 0;
-    height: 60px;
-    background: 
-      // Enhanced central flare with multiple light layers for depth
-      radial-gradient(ellipse 90% 60px at 50% 0%, 
-        rgba(16, 185, 129, 0.25) 0%, 
-        rgba(16, 185, 129, 0.18) 15%, 
-        rgba(16, 185, 129, 0.12) 30%, 
-        rgba(16, 185, 129, 0.08) 45%, 
-        rgba(16, 185, 129, 0.04) 60%, 
-        transparent 80%);
-    z-index: 9;
-    opacity: 0;
-    transition: all 0.4s ease;
-    filter: blur(2px); // Enhanced blur for smoother flare
-  }
-  
-  // SMOOTH SIDE FLARES - NO MORE HARD LINES
-  .light-rays {
-    position: absolute;
-    top: -10px; // Moved much higher with the border
-    left: 0;
-    right: 0;
-    height: 70px;
-    z-index: 8;
-    pointer-events: none;
-    
-    &::before,
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      width: 40px;
-      height: 100%;
-      background: 
-        // Refined side flares with multiple light layers for better edge blending
-        radial-gradient(ellipse 25px 70px at center top, 
-          rgba(16, 185, 129, 0.2) 0%, 
-          rgba(16, 185, 129, 0.15) 20%, 
-          rgba(16, 185, 129, 0.1) 40%, 
-          rgba(16, 185, 129, 0.06) 60%, 
-          rgba(16, 185, 129, 0.03) 75%, 
-          transparent 90%);
-      transition: all 0.4s ease;
-      opacity: 0;
-      filter: blur(1.5px); // Enhanced blur for natural light
-    }
-    
-    &::before {
-      left: 15%;
-      animation: lightRay1 4s ease-in-out infinite;
-    }
-    
-    &::after {
-      right: 15%;
-      animation: lightRay2 4s ease-in-out infinite 2s;
-    }
-  }
-  
-  // CENTRAL LIGHT BEAM - SMOOTH FLARE
-  .central-light {
-    position: absolute;
-    top: -10px; // Moved much higher with the border
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 90px;
-    background: 
-      // Enhanced central light with multiple layers for depth and refinement
-      radial-gradient(ellipse 35px 90px at center top, 
-        rgba(16, 185, 129, 0.35) 0%, 
-        rgba(16, 185, 129, 0.28) 15%, 
-        rgba(16, 185, 129, 0.2) 30%, 
-        rgba(16, 185, 129, 0.15) 45%, 
-        rgba(16, 185, 129, 0.1) 60%, 
-        rgba(16, 185, 129, 0.05) 75%, 
-        transparent 90%);
-    z-index: 7;
-    opacity: 0;
-    transition: all 0.4s ease;
-    filter: blur(1.8px); // Enhanced blur for natural light
-  }
-
-  // Additional refined light layers for edge softening
-  .edge-softener {
-    position: absolute;
-    top: -12px;
-    left: 0;
-    right: 0;
-    height: 40px;
-    z-index: 6;
-    pointer-events: none;
-    
-    &::before,
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      width: 60px;
-      height: 100%;
-      background: 
-        // Soft edge light for refined blending
-        radial-gradient(ellipse 30px 40px at center top, 
-          rgba(16, 185, 129, 0.08) 0%, 
-          rgba(16, 185, 129, 0.05) 30%, 
-          rgba(16, 185, 129, 0.03) 60%, 
-          transparent 80%);
-      transition: all 0.4s ease;
-      opacity: 0;
-      filter: blur(2.5px); // Very soft blur for edge refinement
-    }
-    
-    &::before {
-      left: 5%;
-      animation: edgeSoftener1 5s ease-in-out infinite;
-    }
-    
-    &::after {
-      right: 5%;
-      animation: edgeSoftener2 5s ease-in-out infinite 2.5s;
-    }
   }
 
   &.service-card-left {
-    animation: scaleFromCenter 1s ease-out 0.8s both, cardFloat 6s ease-in-out infinite 2s;
+    animation: floatIn 1s ease-out 0.8s both, cardFloat 4s ease-in-out infinite 2s;
   }
 
   &.service-card-right {
-    animation: scaleFromCenter 1s ease-out 1s both, cardFloat 6s ease-in-out infinite 2.5s;
+    animation: floatIn 1s ease-out 1s both, cardFloat 4s ease-in-out infinite 2.5s;
   }
 
   &.service-card-bottom {
-    animation: scaleFromCenter 1s ease-out 1.2s both, cardFloat 6s ease-in-out infinite 3s;
+    animation: floatIn 1s ease-out 1.2s both, cardFloat 4s ease-in-out infinite 3s;
   }
 
   @include responsive(tablet) {
@@ -650,84 +317,30 @@ $font-secondary: 'CreatoDisplay-Medium', sans-serif;
   }
 }
 
-// Blurred background for service cards
+// Simplified background blur
 .card-bg-blur {
   position: absolute;
-  top: -20px;
-  left: -20px;
-  right: -20px;
-  bottom: -20px;
-  background: linear-gradient(135deg, 
-    rgba(16, 185, 129, 0.08) 0%, 
-    rgba(13, 148, 136, 0.06) 50%, 
-    rgba(167, 243, 208, 0.04) 100%
-  );
+  top: -15px;
+  left: -15px;
+  right: -15px;
+  bottom: -15px;
+  background: rgba(16, 185, 129, 0.05);
   border-radius: 50%;
-  filter: blur(20px);
+  filter: blur(15px);
   z-index: -1;
-  opacity: 0.6;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 
-    0 4px 16px rgba(16, 185, 129, 0.08),
-    0 8px 32px rgba(16, 185, 129, 0.05);
+  opacity: 0.4;
+  transition: all 0.3s ease;
 }
 
 .service-card:hover .card-bg-blur {
-  background: linear-gradient(135deg, 
-    rgba(16, 185, 129, 0.12) 0%, 
-    rgba(13, 148, 136, 0.09) 50%, 
-    rgba(167, 243, 208, 0.06) 100%
-  );
-  opacity: 0.8;
-  filter: blur(25px);
-  transform: scale(1.05);
-  border-radius: 50%;
-  box-shadow: 
-    0 6px 24px rgba(16, 185, 129, 0.12),
-    0 12px 48px rgba(16, 185, 129, 0.08);
+  background: rgba(16, 185, 129, 0.08);
+  opacity: 0.6;
+  transform: scale(1.02);
 }
 
 .service-card:hover::before {
-  height: 3px; // Slightly thicker on hover but still thin
-  box-shadow: 
-    0 0 12px rgba(16, 185, 129, 0.6),
-    0 0 20px rgba(16, 185, 129, 0.4),
-    0 0 28px rgba(16, 185, 129, 0.2);
-}
-
-.service-card:hover::after {
-  height: 50px;
-  opacity: 1;
-  filter: blur(0.3px);
-}
-
-.service-card:hover .light-rays {
-  &::before,
-  &::after {
-    opacity: 1;
-    height: 80px;
-    // Enhanced smooth flare on hover
-    width: 50px;
-    filter: blur(0.8px);
-  }
-}
-
-.service-card:hover .central-light {
-  height: 110px;
-  width: 70px;
-  opacity: 1;
-  filter: blur(0.8px);
-  // Enhanced smooth flare on hover
-}
-
-.service-card:hover .edge-softener {
-  &::before,
-  &::after {
-    opacity: 1;
-    height: 50px;
-    width: 70px;
-    filter: blur(2px);
-  }
+  height: 3px;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
 }
 
 .service-card-left {
@@ -763,18 +376,12 @@ $font-secondary: 'CreatoDisplay-Medium', sans-serif;
   border: none;
   position: relative;
   transition: all 0.3s ease;
-  animation: iconFloat 4s ease-in-out infinite;
-  box-shadow: 
-    0 4px 12px rgba(16, 185, 129, 0.3),
-    0 8px 24px rgba(16, 185, 129, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  animation: iconFloat 3s ease-in-out infinite;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
 
   i {
     font-size: 1rem;
     color: $white;
-    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   }
 
   @include responsive(tablet) {
@@ -799,11 +406,7 @@ $font-secondary: 'CreatoDisplay-Medium', sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   position: relative;
-  text-shadow: 
-    0 2px 4px rgba(0, 0, 0, 0.2),
-    0 4px 8px rgba(0, 0, 0, 0.1);
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
-  position: relative;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   font-size: 1.25rem;
 
   @include responsive(tablet) {
@@ -825,14 +428,6 @@ $font-secondary: 'CreatoDisplay-Medium', sans-serif;
   line-height: 1.6;
   margin-bottom: 1.25rem;
   flex-grow: 1;
-  text-shadow: 
-    0 1px 2px rgba(0, 0, 0, 0.08),
-    0 2px 4px rgba(16, 185, 129, 0.05);
-  background: linear-gradient(135deg, #374151 0%, #4b5563 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  filter: drop-shadow(0 1px 2px rgba(16, 185, 129, 0.1));
 
   @include responsive(tablet) {
     font-size: 1.125rem;
@@ -870,47 +465,19 @@ $font-secondary: 'CreatoDisplay-Medium', sans-serif;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease;
   border: 1px solid rgba($primary-green, 0.4);
   display: inline-block;
   position: relative;
   overflow: hidden;
-  box-shadow: 
-    0 2px 8px rgba(16, 185, 129, 0.2),
-    0 4px 16px rgba(16, 185, 129, 0.1);
-  text-shadow: 
-    0 1px 2px rgba(167, 243, 208, 0.8),
-    0 2px 4px rgba(167, 243, 208, 0.6),
-    0 0 8px rgba(167, 243, 208, 0.4);
-
-  // Subtle background effect
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
-    transition: left 0.5s ease;
-  }
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);
 
   &:hover {
     background: $primary-green;
     color: white;
-    transform: translateY(-2px) scale(1.05);
-    box-shadow: 
-      0 6px 20px rgba(16, 185, 129, 0.4),
-      0 8px 24px rgba(16, 185, 129, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
     border-color: $primary-green;
-    text-shadow: 
-      0 1px 2px rgba(0, 0, 0, 0.5),
-      0 2px 4px rgba(0, 0, 0, 0.3),
-      0 0 8px rgba(167, 243, 208, 0.4);
-    
-    &::before {
-      left: 100%;
-    }
   }
 
   @include responsive(tablet) {
@@ -927,52 +494,6 @@ $font-secondary: 'CreatoDisplay-Medium', sans-serif;
 .service-card:focus-within {
   outline: 3px solid $primary-green;
   outline-offset: 4px;
-}
-
-// LAMP CURTAIN LIGHT RAY ANIMATIONS
-@keyframes lightRay1 {
-  0%, 100% {
-    opacity: 0.2;
-    transform: translateY(0) scaleY(1);
-  }
-  50% {
-    opacity: 0.6;
-    transform: translateY(-3px) scaleY(1.1);
-  }
-}
-
-@keyframes lightRay2 {
-  0%, 100% {
-    opacity: 0.2;
-    transform: translateY(0) scaleY(1);
-  }
-  50% {
-    opacity: 0.6;
-    transform: translateY(-3px) scaleY(1.1);
-  }
-}
-
-// Edge softener animations for refined flare effect
-@keyframes edgeSoftener1 {
-  0%, 100% {
-    opacity: 0.2;
-    transform: translateY(0) scaleY(1);
-  }
-  50% {
-    opacity: 0.6;
-    transform: translateY(-3px) scaleY(1.1);
-  }
-}
-
-@keyframes edgeSoftener2 {
-  0%, 100% {
-    opacity: 0.2;
-    transform: translateY(0) scaleY(1);
-  }
-  50% {
-    opacity: 0.6;
-    transform: translateY(-3px) scaleY(1.1);
-  }
 }
 
 .service-tag:focus {
