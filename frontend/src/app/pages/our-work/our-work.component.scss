@@ -471,6 +471,162 @@ $font-secondary: 'CreatoDisplay-Medium', sans-serif;
   overflow: visible;
   margin-bottom: 0;
 
+  // TOP BORDER - LAMP CURTAIN WITH FLARE EFFECT
+  &::before {
+    content: '';
+    position: absolute;
+    top: -8px; // Moved much higher with negative top
+    left: 0;
+    right: 0;
+    height: 2px; // Much thinner for lamp curtain effect
+    background: linear-gradient(90deg, 
+      transparent 0%,
+      rgba(16, 185, 129, 0.2) 10%, 
+      rgba(16, 185, 129, 0.5) 20%,
+      rgba(16, 185, 129, 0.7) 35%,
+      $primary-green 50%,
+      rgba(16, 185, 129, 0.7) 65%,
+      rgba(16, 185, 129, 0.5) 80%,
+      rgba(16, 185, 129, 0.2) 90%,
+      transparent 100%
+    );
+    transition: all 0.4s ease;
+    z-index: 10;
+    box-shadow: 
+      0 0 8px rgba(16, 185, 129, 0.4),
+      0 0 16px rgba(16, 185, 129, 0.2),
+      0 0 24px rgba(16, 185, 129, 0.1);
+  }
+  
+  // LAMP CURTAIN LIGHT RAYS - SMOOTH FLARE EFFECT
+  &::after {
+    content: '';
+    position: absolute;
+    top: -10px; // Moved much higher with the border
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: 
+      // Enhanced central flare with multiple light layers for depth
+      radial-gradient(ellipse 90% 60px at 50% 0%, 
+        rgba(16, 185, 129, 0.25) 0%, 
+        rgba(16, 185, 129, 0.18) 15%, 
+        rgba(16, 185, 129, 0.12) 30%, 
+        rgba(16, 185, 129, 0.08) 45%, 
+        rgba(16, 185, 129, 0.04) 60%, 
+        transparent 80%);
+    z-index: 9;
+    opacity: 0;
+    transition: all 0.4s ease;
+    filter: blur(2px); // Enhanced blur for smoother flare
+  }
+  
+  // SMOOTH SIDE FLARES - NO MORE HARD LINES
+  .light-rays {
+    position: absolute;
+    top: -10px; // Moved much higher with the border
+    left: 0;
+    right: 0;
+    height: 70px;
+    z-index: 8;
+    pointer-events: none;
+    
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 40px;
+      height: 100%;
+      background: 
+        // Refined side flares with multiple light layers for better edge blending
+        radial-gradient(ellipse 25px 70px at center top, 
+          rgba(16, 185, 129, 0.2) 0%, 
+          rgba(16, 185, 129, 0.15) 20%, 
+          rgba(16, 185, 129, 0.1) 40%, 
+          rgba(16, 185, 129, 0.06) 60%, 
+          rgba(16, 185, 129, 0.03) 75%, 
+          transparent 90%);
+      transition: all 0.4s ease;
+      opacity: 0;
+      filter: blur(1.5px); // Enhanced blur for natural light
+    }
+    
+    &::before {
+      left: 15%;
+      animation: lightRay1 4s ease-in-out infinite;
+    }
+    
+    &::after {
+      right: 15%;
+      animation: lightRay2 4s ease-in-out infinite 2s;
+    }
+  }
+  
+  // CENTRAL LIGHT BEAM - SMOOTH FLARE
+  .central-light {
+    position: absolute;
+    top: -10px; // Moved much higher with the border
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 90px;
+    background: 
+      // Enhanced central light with multiple layers for depth and refinement
+      radial-gradient(ellipse 35px 90px at center top, 
+        rgba(16, 185, 129, 0.35) 0%, 
+        rgba(16, 185, 129, 0.28) 15%, 
+        rgba(16, 185, 129, 0.2) 30%, 
+        rgba(16, 185, 129, 0.15) 45%, 
+        rgba(16, 185, 129, 0.1) 60%, 
+        rgba(16, 185, 129, 0.05) 75%, 
+        transparent 90%);
+    z-index: 7;
+    opacity: 0;
+    transition: all 0.4s ease;
+    filter: blur(1.8px); // Enhanced blur for natural light
+  }
+
+  // Additional refined light layers for edge softening
+  .edge-softener {
+    position: absolute;
+    top: -12px;
+    left: 0;
+    right: 0;
+    height: 40px;
+    z-index: 6;
+    pointer-events: none;
+    
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 60px;
+      height: 100%;
+      background: 
+        // Soft edge light for refined blending
+        radial-gradient(ellipse 30px 40px at center top, 
+          rgba(16, 185, 129, 0.08) 0%, 
+          rgba(16, 185, 129, 0.05) 30%, 
+          rgba(16, 185, 129, 0.03) 60%, 
+          transparent 80%);
+      transition: all 0.4s ease;
+      opacity: 0;
+      filter: blur(2.5px); // Very soft blur for edge refinement
+    }
+    
+    &::before {
+      left: 5%;
+      animation: edgeSoftener1 5s ease-in-out infinite;
+    }
+    
+    &::after {
+      right: 5%;
+      animation: edgeSoftener2 5s ease-in-out infinite 2.5s;
+    }
+  }
+
   &.service-card-left {
     animation: scaleFromCenter 1s ease-out 0.8s both, cardFloat 6s ease-in-out infinite 2s;
   }
@@ -529,6 +685,49 @@ $font-secondary: 'CreatoDisplay-Medium', sans-serif;
   box-shadow: 
     0 6px 24px rgba(16, 185, 129, 0.12),
     0 12px 48px rgba(16, 185, 129, 0.08);
+}
+
+.service-card:hover::before {
+  height: 3px; // Slightly thicker on hover but still thin
+  box-shadow: 
+    0 0 12px rgba(16, 185, 129, 0.6),
+    0 0 20px rgba(16, 185, 129, 0.4),
+    0 0 28px rgba(16, 185, 129, 0.2);
+}
+
+.service-card:hover::after {
+  height: 50px;
+  opacity: 1;
+  filter: blur(0.3px);
+}
+
+.service-card:hover .light-rays {
+  &::before,
+  &::after {
+    opacity: 1;
+    height: 80px;
+    // Enhanced smooth flare on hover
+    width: 50px;
+    filter: blur(0.8px);
+  }
+}
+
+.service-card:hover .central-light {
+  height: 110px;
+  width: 70px;
+  opacity: 1;
+  filter: blur(0.8px);
+  // Enhanced smooth flare on hover
+}
+
+.service-card:hover .edge-softener {
+  &::before,
+  &::after {
+    opacity: 1;
+    height: 50px;
+    width: 70px;
+    filter: blur(2px);
+  }
 }
 
 .service-card-left {
@@ -728,6 +927,52 @@ $font-secondary: 'CreatoDisplay-Medium', sans-serif;
 .service-card:focus-within {
   outline: 3px solid $primary-green;
   outline-offset: 4px;
+}
+
+// LAMP CURTAIN LIGHT RAY ANIMATIONS
+@keyframes lightRay1 {
+  0%, 100% {
+    opacity: 0.2;
+    transform: translateY(0) scaleY(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateY(-3px) scaleY(1.1);
+  }
+}
+
+@keyframes lightRay2 {
+  0%, 100% {
+    opacity: 0.2;
+    transform: translateY(0) scaleY(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateY(-3px) scaleY(1.1);
+  }
+}
+
+// Edge softener animations for refined flare effect
+@keyframes edgeSoftener1 {
+  0%, 100% {
+    opacity: 0.2;
+    transform: translateY(0) scaleY(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateY(-3px) scaleY(1.1);
+  }
+}
+
+@keyframes edgeSoftener2 {
+  0%, 100% {
+    opacity: 0.2;
+    transform: translateY(0) scaleY(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateY(-3px) scaleY(1.1);
+  }
 }
 
 .service-tag:focus {

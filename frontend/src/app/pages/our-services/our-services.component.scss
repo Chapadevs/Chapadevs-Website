@@ -320,7 +320,7 @@ $font-secondary: 'CreatoDisplay-Medium', sans-serif;
   -webkit-backdrop-filter: none; // Removed webkit backdrop filter
   border: 1px solid rgba(255, 255, 255, 0.5); // WHITE TRANSPARENT BORDER LIKE HEADER
   border-radius: 0; // SHARP EDGES - NO ROUNDED CORNERS
-  padding: 0.3125rem 0.3125rem 0.1875rem 0.3125rem; // Increased padding slightly
+  padding: 1rem 1rem 0.75rem 1rem; // Increased padding significantly for better spacing
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
@@ -359,11 +359,11 @@ $font-secondary: 'CreatoDisplay-Medium', sans-serif;
   }
 
   @include responsive(tablet) { 
-    padding: 0.4375rem 0.4375rem 0.3125rem 0.4375rem; // Increased tablet padding slightly
+    padding: 1.25rem 1.25rem 1rem 1.25rem; // Increased tablet padding significantly
     max-width: 480px; // Increased tablet max-width for more width
   }
   @include responsive(desktop) { 
-    padding: 0.5625rem 0.5625rem 0.4375rem 0.5625rem; // Increased desktop padding slightly
+    padding: 1.5rem 1.5rem 1.25rem 1.5rem; // Increased desktop padding significantly
     max-width: 500px; // Increased desktop max-width for more width
   }
 }
@@ -373,7 +373,7 @@ $font-secondary: 'CreatoDisplay-Medium', sans-serif;
   flex-direction: column;
   align-items: center;
   height: auto;
-  padding: 0.5625rem; // Increased padding slightly
+  padding: 1.5rem; // Increased padding significantly for better spacing
   border: none;
   border-radius: 0;
   position: relative;
@@ -460,7 +460,7 @@ $font-secondary: 'CreatoDisplay-Medium', sans-serif;
   
   h2 {
     font-family: $font-primary;
-    font-size: 1.0625rem; // Increased font size slightly
+    font-size: 1.5rem; // Increased font size for title
     font-weight: 700;
     color: $dark-charcoal;
     margin: 0 0 0.5625rem 0; // Increased margin slightly
@@ -503,18 +503,18 @@ $font-secondary: 'CreatoDisplay-Medium', sans-serif;
     }
 
     @include responsive(tablet) { 
-      font-size: 1.3125rem; // Increased font size slightly
+      font-size: 1.75rem; // Increased font size for title on tablet
       margin-bottom: 0.8125rem; // Increased margin slightly
     }
     @include responsive(desktop) { 
-      font-size: 1.5625rem; // Increased font size slightly
+      font-size: 2rem; // Increased font size for title on desktop
       margin-bottom: 0.9375rem; // Increased margin slightly
     }
   }
 
   p {
     font-family: $font-secondary;
-    font-size: 0.9375rem; // Increased font size slightly
+    font-size: 0.875rem; // Reduced font size for main text
     color: $muted-grey;
     line-height: 1.5; // Kept reduced line height
     margin: 0;
@@ -525,12 +525,12 @@ $font-secondary: 'CreatoDisplay-Medium', sans-serif;
     max-width: 280px; // Increased max-width for wider cards
 
     @include responsive(tablet) { 
-      font-size: 1.0625rem; // Increased font size slightly
+      font-size: 1rem; // Reduced font size for main text on tablet
       margin-bottom: 0;
       max-width: 320px; // Increased max-width for wider cards
     }
     @include responsive(desktop) { 
-      font-size: 1.1875rem; // Increased font size slightly
+      font-size: 1.125rem; // Reduced font size for main text on desktop
       margin-bottom: 0;
       max-width: 360px; // Increased max-width for wider cards
     }
