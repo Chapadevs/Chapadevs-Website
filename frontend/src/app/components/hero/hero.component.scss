@@ -6,18 +6,18 @@ $muted-grey: #6b7280;
 $light-green: #a7f3d0;
 
 @mixin button-base {
-  padding: 2rem 4rem;
+  padding: 1.5rem 3rem; // Reduced from 2rem 4rem
   border: 2px solid $primary-green;
   border-radius: 0; // No rounded edges
   font-family: 'Creato Display Medium', serif;
   font-weight: 800;
-  font-size: 1.75rem;
+  font-size: 1.5rem; // Reduced from 1.75rem
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   text-decoration: none;
   display: inline-block;
   text-align: center;
-  min-width: 300px;
+  min-width: 250px; // Reduced from 300px
 }
 
 @mixin responsive($breakpoint) {
@@ -46,17 +46,17 @@ $light-green: #a7f3d0;
 
 .hero-section {
   background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
-  min-height: 100vh;
+  min-height: 90vh; // Reduced from 100vh
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 3rem 0;
+  padding: 2.5rem 0; // Reduced from 3rem
   position: relative;
   overflow: hidden;
 
-  @include responsive(tablet) { min-height: 80vh; padding: 4rem 0; }
-  @include responsive(desktop) { min-height: 90vh; padding: 5rem 0; }
-  @include responsive(large-desktop) { padding: 6rem 0; }
+  @include responsive(tablet) { min-height: 75vh; padding: 3rem 0; } // Reduced from 80vh and 4rem
+  @include responsive(desktop) { min-height: 85vh; padding: 4rem 0; } // Reduced from 90vh and 5rem
+  @include responsive(large-desktop) { padding: 5rem 0; } // Reduced from 6rem
 }
 
 .container {
@@ -69,7 +69,7 @@ $light-green: #a7f3d0;
 
 .hero-content {
   text-align: center;
-  max-width: 900px;
+  max-width: 800px; // Reduced from 900px
   margin: 0 auto;
   animation: fadeInUp 0.8s ease-out;
 }
@@ -78,19 +78,19 @@ $light-green: #a7f3d0;
   font-family: 'Code Bold', monospace;
   font-weight: 700;
   line-height: 1.2;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem; // Reduced from 1rem
   color: $dark-charcoal;
 
   &--hero {
-    font-size: 3rem;
+    font-size: 2.5rem; // Reduced from 3rem
     line-height: 1.1;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem; // Reduced from 2rem
     letter-spacing: -0.02em;
 
-    @include responsive(large-mobile) { font-size: 3.5rem; }
-    @include responsive(tablet) { font-size: 4rem; }
-    @include responsive(desktop) { font-size: 4.5rem; }
-    @include responsive(large-desktop) { font-size: 5rem; }
+    @include responsive(large-mobile) { font-size: 3rem; } // Reduced from 3.5rem
+    @include responsive(tablet) { font-size: 3.5rem; } // Reduced from 4rem
+    @include responsive(desktop) { font-size: 4rem; } // Reduced from 4.5rem
+    @include responsive(large-desktop) { font-size: 4.5rem; } // Reduced from 5rem
   }
 }
 
@@ -111,27 +111,27 @@ $light-green: #a7f3d0;
 .text {
   font-family: 'Coolvetica', sans-serif;
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.5; // Reduced from 1.6
   color: $muted-grey;
 
   &--lead {
-    font-size: 1.75rem;
+    font-size: 1.5rem; // Reduced from 1.75rem
     font-weight: 600;
     color: $muted-grey;
-    margin-bottom: 4rem;
-    max-width: 700px;
+    margin-bottom: 3rem; // Reduced from 4rem
+    max-width: 650px; // Reduced from 700px
     margin-left: auto;
     margin-right: auto;
 
-    @include responsive(desktop) { font-size: 2rem; }
+    @include responsive(desktop) { font-size: 1.75rem; } // Reduced from 2rem
     
     .highlight {
       color: $primary-green;
       font-weight: 700;
-      text-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+      text-shadow: 0 0 8px rgba(16, 185, 129, 0.2); // Reduced from 10px
       
       &:hover {
-        transform: scale(1.05);
+        transform: scale(1.03); // Reduced from 1.05
         transition: transform 0.3s ease;
       }
     }
@@ -148,16 +148,16 @@ $light-green: #a7f3d0;
 
 .hero-buttons {
   display: flex;
-  gap: 2.5rem;
+  gap: 2rem; // Reduced from 2.5rem
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem; // Reduced from 2rem
 
   @include responsive(mobile) {
     flex-direction: column;
     width: 100%;
-    gap: 2rem;
+    gap: 1.5rem; // Reduced from 2rem
   }
 
   @include responsive(tablet) {
@@ -199,14 +199,14 @@ $light-green: #a7f3d0;
 
   @include responsive(mobile) {
     width: 100%;
-    padding: 2rem 2.5rem;
-    font-size: 1.75rem;
+    padding: 1.5rem 2rem; // Reduced from 2rem 2.5rem
+    font-size: 1.5rem; // Reduced from 1.75rem
   }
 
   @include responsive(tablet) {
     width: auto;
-    padding: 2rem 4rem;
-    font-size: 1.75rem;
+    padding: 1.5rem 3rem; // Reduced from 2rem 4rem
+    font-size: 1.5rem; // Reduced from 1.75rem
   }
 }
 

@@ -161,8 +161,14 @@ $light-green: #a7f3d0;
 .team-description-creato {
   font-family: 'Creato Display Medium', serif !important;
   font-weight: 500;
-  line-height: 1.5;
+  line-height: 1.8;
   letter-spacing: 0.01em;
+  
+  span {
+    font-family: 'Creato Display Medium', serif !important;
+    font-weight: 500;
+    line-height: 1.8;
+  }
 }
 
 .team-grid {
