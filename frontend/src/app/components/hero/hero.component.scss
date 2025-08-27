@@ -9,9 +9,9 @@ $light-green: #a7f3d0;
   padding: 2rem 4rem;
   border: 2px solid $primary-green;
   border-radius: 0; // No rounded edges
-  font-family: 'Code Bold', monospace;
-  font-weight: 600;
-  font-size: 1.5rem;
+  font-family: 'Creato Display Medium', serif;
+  font-weight: 800;
+  font-size: 1.75rem;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   text-decoration: none;
@@ -200,13 +200,13 @@ $light-green: #a7f3d0;
   @include responsive(mobile) {
     width: 100%;
     padding: 2rem 2.5rem;
-    font-size: 1.5rem;
+    font-size: 1.75rem;
   }
 
   @include responsive(tablet) {
     width: auto;
     padding: 2rem 4rem;
-    font-size: 1.5rem;
+    font-size: 1.75rem;
   }
 }
 
