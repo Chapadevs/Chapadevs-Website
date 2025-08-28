@@ -1,0 +1,100 @@
+<section class="support-section support">
+  <!-- Floating Shapes -->
+  <div class="floating-shape-1"></div>
+  <div class="floating-shape-2"></div>
+  <div class="floating-shape-3"></div>
+
+  <header class="section-header">
+    <h1 class="title-brand-split">
+      <div class="title-line-1">
+        <span class="dark-text">OUR</span>
+        <span class="green-text">BUSINESS</span>
+      </div>
+    </h1>
+    <p class="section-description">
+      We deliver custom web solutions to help your business grow with transparency and the best technology.
+    </p>
+  </header>
+
+  <div class="services-container">
+    <!-- 2-Column, 3-Row Grid Layout -->
+    <div class="services-grid-2x3">
+      <!-- Row 1: Mobile | Modern Web Applications -->
+      <div class="image-column mobile-column" [style.transform]="'translateX(' + (-300 + (scrollProgress * 300)) + 'px)'" [style.opacity]="scrollProgress" [attr.data-progress]="scrollProgress">
+        <div class="image-container mobile-container">
+          <img src="assets/images/mobile.png" alt="Smartphone showing mobile app interface" class="mobile-image">
+        </div>
+      </div>
+      
+      <div class="service-column">
+        <article class="service-card">
+          <div class="card-content">
+            <div class="corner-accent-top-right"></div>
+            <div class="corner-accent-bottom-left"></div>
+            <h2><span class="green-text">MODERN</span> <span class="dark-text">WEB</span> <span class="dark-text">APPLICATIONS</span></h2>
+            <p>
+              We build fast and responsive web applications using modern frameworks and mobile design while ensuring excellent SEO.
+            </p>
+            <div class="service-tags">
+              <span class="tag">ANGULAR & REACT</span>
+              <span class="tag">MOBILE-FIRST DESIGN</span>
+              <span class="tag">PROGRESSIVE WEB APPS</span>
+              <span class="tag">CUSTOM UX/UI</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Row 2: Business Solutions | Monitor Image -->
+      <div class="service-column">
+        <article class="service-card">
+          <div class="card-content">
+            <h2><span class="green-text">BUSINESS</span> <span class="dark-text">SOLUTIONS</span></h2>
+            <p>
+              We deliver business solutions with integrations, automation, and connectivity to boost your company's efficiency and growth.
+            </p>
+            <div class="service-tags">
+              <span class="tag">E-COMMERCE PLATFORMS</span>
+              <span class="tag">CRM INTEGRATION</span>
+              <span class="tag">PAYMENT PROCESSING</span>
+              <span class="tag">DATA ANALYTICS</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="image-column monitor-column" [style.transform]="'scale(' + (0.5 + (monitorScrollProgress * 0.5)) + ')'" [style.opacity]="monitorScrollProgress" [attr.data-progress]="monitorScrollProgress">
+        <div class="image-container monitor-container">
+          <img src="assets/images/monitor.png" alt="Monitor showing inventory management system" class="monitor-image">
+        </div>
+      </div>
+
+      <!-- Row 3: Laptop | Digital Transformation -->
+      <div class="image-column laptop-column" [style.opacity]="laptopScrollProgress" [attr.data-progress]="laptopScrollProgress">
+        <div class="image-container laptop-container">
+          <img src="assets/images/leptop.png" alt="Laptop showing minimalist web page with circular graphics" class="laptop-image">
+        </div>
+      </div>
+      
+      <div class="service-column">
+        <article class="service-card">
+          <div class="card-content">
+            <h2><span class="green-text">DIGITAL</span> <span class="dark-text">TRANSFORMATION</span></h2>
+            <p>
+              We help businesses modernize their digital infrastructure with cutting-edge technologies and strategic implementation.
+            </p>
+            <div class="service-tags">
+              <span class="tag">LEGACY MIGRATION</span>
+              <span class="tag">CLOUD STRATEGY</span>
+              <span class="tag">DEVOPS IMPLEMENTATION</span>
+              <span class="tag">SECURITY AUDITING</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Our Services Section -->
+<app-our-services></app-our-services>

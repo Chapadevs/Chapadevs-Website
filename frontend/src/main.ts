@@ -6,12 +6,8 @@ import { HomeComponent } from './app/pages/home/home.component';
 const routes = [
   { path: '', component: HomeComponent },
   { 
-    path: 'our-services', 
-    loadComponent: () => import('./app/pages/our-services/our-services.component').then(m => m.OurServicesComponent)
-  },
-  { 
-    path: 'our-work', 
-    loadComponent: () => import('./app/pages/our-work/our-work.component').then(m => m.WorkComponent)
+    path: 'our-business', 
+    loadComponent: () => import('./app/pages/our-business/our-business.component').then(m => m.OurBusinessComponent)
   },
   { 
     path: 'team', 

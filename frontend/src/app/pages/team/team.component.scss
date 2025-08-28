@@ -60,29 +60,33 @@ $light-green: #a7f3d0;
   background: #ffffff;
   padding: 0;
   padding-top: 1rem; // Reduced top padding
+  margin-top: 3rem; // Added top margin for spacing
   position: relative;
 
   @include responsive(tablet) {
     padding: 1rem 0 4rem 0; // Reduced top padding
+    margin-top: 4rem; // Increased top margin for tablet
   }
 
   @include responsive(desktop) {
     padding: 1rem 0 5rem 0; // Reduced top padding
+    margin-top: 5rem; // Increased top margin for desktop
   }
 
   @include responsive(large-desktop) {
     padding: 1rem 0 6rem 0; // Reduced top padding
+    margin-top: 6rem; // Increased top margin for large desktop
   }
 }
 
 .section-header {
   text-align: center;
   max-width: 800px;
-  margin: 0 auto 2rem;
+  margin: 0 auto 3rem;
   padding: 0 1rem;
 
   @include responsive(tablet) {
-    margin-bottom: 2.5rem;
+    margin: 0 auto 4rem;
   }
 }
 

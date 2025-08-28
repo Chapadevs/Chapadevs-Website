@@ -11,21 +11,6 @@ import { Component } from '@angular/core';
 export class FaqComponent {
   faqs = [
     {
-      question: 'What services does Chapadevs offer?',
-      answer: 'We specialize in creating high-quality websites, IT consulting, and full-stack development services. Our team handles everything from frontend design to backend development and deployment.',
-      isOpen: false
-    },
-    {
-      question: 'How long does it take to complete a website project?',
-      answer: 'Project timelines vary depending on complexity, but we typically deliver websites within 2-4 weeks. We prioritize quick delivery while maintaining high quality standards.',
-      isOpen: false
-    },
-    {
-      question: 'Do you provide ongoing support after website delivery?',
-      answer: 'Yes, we offer post-launch support and maintenance services. We ensure your website continues to perform optimally and can help with updates and improvements.',
-      isOpen: false
-    },
-    {
       question: 'What technologies do you use for development?',
       answer: 'We use modern technologies including Angular for frontend, Java Spring Boot for backend, and deploy exclusively on Oracle infrastructure for reliable performance.',
       isOpen: false
@@ -41,8 +26,8 @@ export class FaqComponent {
       isOpen: false
     },
     {
-      question: 'Are 50/50 payment plans available?',
-      answer: 'Yes, we offer flexible 50/50 payment plans. You pay 50% upfront to start the project, and the remaining 50% upon completion and delivery. This helps manage your budget while ensuring project commitment.',
+      question: 'Are 50% payment plans available?',
+      answer: 'Yes, we offer flexible 50% payment plans. You pay 50% upfront to start the project, and the remaining 50% upon completion and delivery. This helps manage your budget while ensuring project commitment.',
       isOpen: false
     },
     {

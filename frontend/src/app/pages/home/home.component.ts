@@ -6,8 +6,7 @@ import { InquiryFormComponent } from "../../components/inquiry-form/inquiry-form
 import { FooterComponent } from "../../layout/footer/footer.component";
 import { HeaderComponent } from "../../layout/header/header.component";
 import { AiComponent } from "../ai/ai.component";
-import { OurServicesComponent } from "../our-services/our-services.component";
-import { WorkComponent } from "../our-work/our-work.component";
+import { OurBusinessComponent } from "../our-business/our-business.component";
 import { TeamComponent } from "../team/team.component";
 
 @Component({
@@ -17,9 +16,8 @@ import { TeamComponent } from "../team/team.component";
     CommonModule,
     HeaderComponent,
     HeroComponent,
-    OurServicesComponent,
+    OurBusinessComponent,
     TeamComponent,
-    WorkComponent,
     AiComponent,
     InquiryFormComponent,
     FaqComponent,

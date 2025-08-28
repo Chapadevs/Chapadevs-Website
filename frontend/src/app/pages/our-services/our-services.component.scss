@@ -1,11 +1,3 @@
-// Variables - STRICTLY FOLLOWING BRAND DESIGN
-$primary-green: #10b981;
-$teal: #0d9488;
-$light-green: #a7f3d0;
-$white: #ffffff;
-$dark-charcoal: #111827;
-$muted-grey: #6b7280;
-
 // Font imports
 @font-face {
   font-family: 'CreatoDisplay-Medium';
@@ -15,7 +7,13 @@ $muted-grey: #6b7280;
   font-display: swap;
 }
 
-// Typography Variables - BRAND FONTS ONLY
+// Variables
+$primary-green: #10b981;
+$primary-teal: #0d9488;
+$dark-charcoal: #111827;
+$muted-grey: #6b7280;
+$light-green: #a7f3d0;
+$white: #ffffff;
 $font-primary: 'Code Bold', monospace;
 $font-secondary: 'CreatoDisplay-Medium', sans-serif;
 
@@ -23,587 +21,502 @@ $font-secondary: 'CreatoDisplay-Medium', sans-serif;
   @if $breakpoint == mobile {
     @media (max-width: 767px) { @content; }
   } @else if $breakpoint == tablet {
-    @media (min-width: 768px) and (max-width: 1023px) { @content; }
+    @media (min-width: 768px) { @content; }
   } @else if $breakpoint == desktop {
-    @media (min-width: 1024px) and (max-width: 1439px) { @content; }
-  } @else if $breakpoint == large-desktop {
-    @media (min-width: 1440px) { @content; }
+    @media (min-width: 1024px) { @content; }
   }
 }
 
-@keyframes fadeInUp {
+// Simplified animations
+@keyframes floatIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-// Simplified Floating Shapes - BRAND GEOMETRIC PATTERNS
-.floating-shape-1,
-.floating-shape-2,
-.floating-shape-3 {
-  position: absolute;
-  border-radius: 0; // SHARP EDGES - NO ROUNDED CORNERS
-  opacity: 0.08;
-  z-index: 1;
+@keyframes cardFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-3px); }
 }
 
-.floating-shape-1 {
-  width: 120px;
-  height: 120px;
-  background: linear-gradient(45deg, $teal, $light-green);
-  top: 10%;
-  left: 5%;
-  clip-path: polygon(50% 0%, 0% 100%, 100% 100%); // TRIANGLE SHAPE
+@keyframes iconFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
 }
 
-.floating-shape-2 {
-  width: 80px;
-  height: 80px;
-  background: linear-gradient(45deg, $primary-green, $teal);
-  top: 60%;
-  right: 10%;
-  clip-path: polygon(50% 0%, 0% 100%, 100% 100%); // TRIANGLE SHAPE
-}
-
-.floating-shape-3 {
-  width: 100px;
-  height: 100px;
-  background: linear-gradient(45deg, $light-green, $teal);
-  bottom: 20%;
-  left: 15%;
-  clip-path: polygon(50% 0%, 0% 100%, 100% 100%); // TRIANGLE SHAPE
-}
-
-.support-section {
-  background: $white; // BRAND WHITE BACKGROUND
-  padding: 3rem 0 0 0; // Remove bottom padding
+.services-section {
+  background: linear-gradient(135deg, 
+    $white 0%, 
+    rgba(167, 243, 208, 0.2) 25%, 
+    rgba(16, 185, 129, 0.1) 50%, 
+    rgba(13, 148, 136, 0.05) 75%, 
+    $white 100%
+  );
+  min-height: auto;
+  padding: 4rem 0;
   position: relative;
   overflow: hidden;
-  min-height: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center; // Center the entire section content
-  width: 100%;
+
+  @include responsive(tablet) { padding: 5rem 0; }
+  @include responsive(desktop) { padding: 6rem 0; }
+}
+
+// Simplified floating background elements
+.bg-float {
+  position: absolute;
+  z-index: 1;
+  opacity: 0.3;
+  filter: blur(1px);
+}
+
+.bg-float-1 {
+  width: 0;
+  height: 0;
+  border-left: 60px solid transparent;
+  border-right: 60px solid transparent;
+  border-bottom: 104px solid rgba(16, 185, 129, 0.1);
+  top: 10%;
+  left: 5%;
+}
+
+.bg-float-2 {
+  width: 0;
+  height: 0;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-bottom: 69px solid rgba(167, 243, 208, 0.12);
+  top: 70%;
+  right: 10%;
+}
+
+.bg-float-3 {
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 52px solid rgba(13, 148, 136, 0.1);
+  top: 30%;
+  right: 20%;
+}
+
+.bg-float-4 {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 87px solid rgba(16, 185, 129, 0.06);
+  bottom: 20%;
+  left: 15%;
+}
+
+.bg-float-5 {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 35px solid rgba(16, 185, 129, 0.12);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.bg-float-6 {
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 26px solid rgba(13, 148, 136, 0.1);
+  top: 25%;
+  left: 80%;
+}
+
+.bg-float-7 {
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 43px solid rgba(167, 243, 208, 0.12);
+  bottom: 30%;
+  right: 30%;
+}
+
+.services-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-areas: 
+    "title"
+    "left"
+    "right"
+    "bottom";
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto auto;
+  gap: 3rem 3rem 1rem 3rem;
+  align-items: center;
+  justify-items: center;
+  position: relative;
 
   @include responsive(tablet) {
-    padding: 4rem 0 0 0;
+    grid-template-areas: 
+      "left title right"
+      "left bottom right";
+    grid-template-columns: 1fr minmax(250px, 300px) 1fr;
+    grid-template-rows: auto auto;
+    row-gap: 4rem;
+    column-gap: 3rem;
+    align-items: start;
+    justify-items: center;
   }
 
   @include responsive(desktop) {
-    padding: 5rem 0 0 0;
-  }
-
-  @include responsive(large-desktop) {
-    padding: 6rem 0 0 0;
+    grid-template-columns: 1fr minmax(300px, 400px) 1fr;
+    row-gap: 5rem;
+    column-gap: 4rem;
   }
 }
 
 .section-header {
+  grid-area: title;
   text-align: center;
-  margin-bottom: 3rem; // Add bottom margin to create space between title and services
+  max-width: 300px;
+  justify-self: center;
+  align-self: center;
   position: relative;
-  z-index: 2;
-  
-  @include responsive(tablet) { margin-bottom: 4rem; }
-  @include responsive(desktop) { margin-bottom: 5rem; }
-  @include responsive(large-desktop) { margin-bottom: 6rem; }
+  z-index: 10;
+  animation: floatIn 1s ease-out forwards;
+  margin-bottom: 0;
+
+  @include responsive(tablet) { max-width: 350px; }
+  @include responsive(desktop) { max-width: 400px; }
 }
 
 .title-brand-split {
-  font-family: $font-primary; // CODE BOLD FONT
-  font-weight: 700; // BOLD FOR SECTIONS
+  font-family: $font-primary;
+  font-weight: 700;
   text-align: center;
   line-height: 1.1;
   margin-bottom: 0;
+  position: relative;
   
   .title-line-1 {
-    font-size: 5rem;
-    margin-bottom: 0;
-    
-    .dark-text {
-      color: $dark-charcoal; // BRAND DARK CHARCOAL
-      position: relative;
-      transition: all 0.3s ease;
-    }
-    
-    .green-text {
-      color: $primary-green; // BRAND PRIMARY GREEN
-      position: relative;
-      transition: all 0.3s ease;
-    }
-  }
-  
-  &:hover {
-    .dark-text { transform: translateY(-3px); }
-    .green-text {
-      transform: translateY(-3px) scale(1.02);
-    }
-  }
-  
-  @include responsive(mobile) { .title-line-1 { font-size: 4rem; } }
-  @include responsive(tablet) { .title-line-1 { font-size: 5rem; } }
-  @include responsive(desktop) { .title-line-1 { font-size: 6rem; } }
-}
-
-.section-description {
-  font-family: $font-secondary; // COOLVETICA FONT
-  font-size: 1.5rem;
-  color: $muted-grey; // BRAND MUTED GREY
-  line-height: 1.6;
-  max-width: 700px;
-  margin: 0 auto;
-  font-weight: 400; // REGULAR WEIGHT
-  opacity: 0.95;
-
-  @include responsive(tablet) { font-size: 1.75rem; max-width: 800px; }
-  @include responsive(desktop) { font-size: 2rem; max-width: 900px; }
-}
-
-.services-container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0;
-  position: relative;
-  z-index: 2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-  @include responsive(desktop) { max-width: 1100px; }
-  
-  // Additional constraints for very large screens
-  @media (min-width: 1600px) {
-    max-width: 1000px;
-  }
-  
-  @media (min-width: 1920px) {
-    max-width: 900px;
-  }
-  
-  @media (min-width: 2560px) {
-    max-width: 800px;
-  }
-}
-
-// 2-Column, 3-Row Grid Layout - KEEPING EXISTING STRUCTURE
-.services-grid-2x3 {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); // Prevent column expansion
-  grid-template-rows: auto auto auto;
-  gap: 0; // No gap anywhere - columns and rows directly adjacent
-  width: 100%;
-  max-width: 100%; // Let container handle the max-width
-  margin: 0 auto;
-  
-  @include responsive(tablet) { gap: 0; } // No gap anywhere
-  @include responsive(desktop) { gap: 0; } // No gap anywhere
-}
-
-// Image Columns - KEEPING EXISTING POSITIONING
-.image-column {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0; // Remove all padding to eliminate gaps
-  min-height: 400px; // Ensure minimum height for images
-  
-  &.mobile-column {
-    justify-content: center;
-    will-change: transform, opacity;
-  }
-  
-  &.monitor-column {
-    justify-content: center;
-    will-change: transform, opacity;
-  }
-  
-  &.laptop-column {
-    justify-content: center;
-    will-change: opacity;
-  }
-}
-
-.image-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.3s ease;
-  padding: 0; // Remove all padding to eliminate gaps
-  width: 100%;
-  height: 100%;
-  
-  &:hover {
-    transform: translateY(-5px);
-  }
-}
-
-.mobile-container {
-  .mobile-image {
-    max-width: 100%;
-    height: auto;
-    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
-    transition: all 0.3s ease;
-    object-fit: contain; // Ensure image fits within container without clipping
-    
-    @include responsive(tablet) { max-width: 450px; } // Increased from 400px
-    @include responsive(desktop) { max-width: 500px; } // Increased from 450px
-  }
-  
-  &:hover .mobile-image {
-    filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.25));
-    transform: scale(1.02);
-  }
-}
-
-.laptop-container {
-  .laptop-image {
-    max-width: 100%;
-    height: auto;
-    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
-    transition: all 0.3s ease;
-    object-fit: contain; // Ensure image fits within container without clipping
-    
-    @include responsive(tablet) { max-width: 450px; } // Further reduced from 480px
-    @include responsive(desktop) { max-width: 550px; } // Further reduced from 580px
-  }
-  
-  &:hover .laptop-image {
-    filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.25));
-    transform: scale(1.02);
-  }
-}
-
-.monitor-container {
-  .monitor-image {
-    max-width: 100%;
-    height: auto;
-    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
-    transition: all 0.3s ease;
-    object-fit: contain; // Ensure image fits within container without clipping
-    
-    @include responsive(tablet) { max-width: 500px; } // Increased from 400px
-    @include responsive(desktop) { max-width: 600px; } // Increased from 450px
-  }
-  
-  &:hover .monitor-image {
-    filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.25));
-    transform: scale(1.02);
-  }
-}
-
-// Service Columns - KEEPING EXISTING POSITIONING
-.service-column {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  max-width: 100%;
-  min-width: 0; // Allow shrinking
-}
-
-.service-card {
-  background: transparent; // Removed background color
-  border: 1px solid rgba(255, 255, 255, 0.5); // WHITE TRANSPARENT BORDER LIKE HEADER
-  border-radius: 0; // SHARP EDGES - NO ROUNDED CORNERS
-  padding: 1rem 1rem 0.75rem 1rem; // Increased padding significantly for better spacing
-  transition: all 0.3s ease;
-  cursor: pointer;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  width: 100%;
-  max-width: 520px; // Increased max-width for more width
-  min-height: auto; // Let content determine height
-  max-height: none; // Remove height constraint
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: $primary-green; // BRAND PRIMARY GREEN
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-  }
-
-  &:hover {
-    transform: translateY(-5px);
-    background: transparent;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-    
-    &::before {
-      transform: scaleX(1);
-    }
-  }
-
-  @include responsive(tablet) { 
-    padding: 1.25rem 1.25rem 1rem 1.25rem; // Increased tablet padding significantly
-    max-width: 480px; // Increased tablet max-width for more width
-  }
-  @include responsive(desktop) { 
-    padding: 1.5rem 1.5rem 1.25rem 1.5rem; // Increased desktop padding significantly
-    max-width: 500px; // Increased desktop max-width for more width
-  }
-}
-
-.card-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: auto;
-  padding: 1.5rem; // Increased padding significantly for better spacing
-  border: none;
-  border-radius: 0;
-  position: relative;
-  
-  // Creative corner accents - opened frame effect (4 corners)
-  &::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    width: 20px;
-    height: 20px;
-    border-top: 3px solid $primary-green;
-    border-left: 3px solid $primary-green;
-    border-radius: 0;
-  }
-  
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    right: -2px;
-    width: 20px;
-    height: 20px;
-    border-bottom: 3px solid $primary-green;
-    border-right: 3px solid $primary-green;
-    border-radius: 0;
-  }
-  
-  // Additional corner accents for the "opened" effect
-  .corner-accent-top-right {
-    content: '';
-    position: absolute;
-    top: -2px;
-    right: -2px;
-    width: 20px;
-    height: 20px;
-    border-top: 3px solid $primary-green;
-    border-right: 3px solid $primary-green;
-    border-radius: 0;
-  }
-  
-  .corner-accent-bottom-left {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: -2px;
-    width: 20px;
-    height: 20px;
-    border-bottom: 3px solid $primary-green;
-    border-left: 3px solid $primary-green;
-    border-radius: 0;
-  }
-  
-  // Subtle glow effect
-  box-shadow: 
-    0 0 0 1px rgba(16, 185, 129, 0.08),
-    inset 0 0 20px rgba(16, 185, 129, 0.03);
-  
-  h2 {
-    font-family: $font-primary;
-    font-size: 1.5rem; // Increased font size for title
-    font-weight: 700;
-    color: $dark-charcoal;
-    margin: 0 0 0.5625rem 0; // Increased margin slightly
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    transition: all 0.3s ease;
-    position: relative;
-    text-align: center;
-    line-height: 1.2;
-    
-    .green-text {
-      color: $primary-green;
-      transition: all 0.3s ease;
-      margin-right: 0.5rem;
-    }
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     
     .dark-text {
       color: $dark-charcoal;
-      transition: all 0.3s ease;
-      margin-right: 0.5rem;
-    }
-    
-    // Remove margin from last child to avoid extra spacing
-    .green-text:last-child,
-    .dark-text:last-child {
-      margin-right: 0;
-    }
-    
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 3px;
-      background: $primary-green;
-      border-radius: 0;
-      transition: width 0.3s ease;
-    }
-
-    @include responsive(tablet) { 
-      font-size: 1.75rem; // Increased font size for title on tablet
-      margin-bottom: 0.8125rem; // Increased margin slightly
-    }
-    @include responsive(desktop) { 
-      font-size: 2rem; // Increased font size for title on desktop
-      margin-bottom: 0.9375rem; // Increased margin slightly
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      animation: floatIn 0.8s ease-out 0.2s both;
+      position: relative;
+      font-weight: 700;
+      letter-spacing: 0.1em;
     }
   }
 
-  p {
-    font-family: $font-secondary;
-    font-size: 0.875rem; // Reduced font size for main text
-    color: $muted-grey;
-    line-height: 1.5; // Kept reduced line height
-    margin: 0;
-    padding: 0;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    text-align: center;
-    max-width: 280px; // Increased max-width for wider cards
+  .title-line-2 {
+    font-size: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0.5rem;
+    
+    .green-text {
+      color: $primary-green;
+      text-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+      animation: floatIn 0.8s ease-out 0.4s both;
+      position: relative;
+      font-weight: 900;
+      letter-spacing: 0.15em;
+    }
+  }
+  
+  @include responsive(tablet) {
+    .title-line-1 { 
+      font-size: 2.75rem; 
+      margin-bottom: 0.75rem;
+    }
+    .title-line-2 { 
+      font-size: 3.25rem; 
+      margin-top: 0.75rem;
+    }
+  }
+  
+  @include responsive(desktop) {
+    .title-line-1 { 
+      font-size: 3rem; 
+      margin-bottom: 1rem;
+    }
+    .title-line-2 { 
+      font-size: 3.5rem; 
+      margin-top: 1rem;
+    }
+  }
+}
 
-    @include responsive(tablet) { 
-      font-size: 1rem; // Reduced font size for main text on tablet
-      margin-bottom: 0;
-      max-width: 320px; // Increased max-width for wider cards
-    }
-    @include responsive(desktop) { 
-      font-size: 1.125rem; // Reduced font size for main text on desktop
-      margin-bottom: 0;
-      max-width: 360px; // Increased max-width for wider cards
-    }
+.service-card {
+  background: transparent;
+  border-radius: 0;
+  border: none;
+  transition: all 0.3s ease;
+  text-align: center;
+  width: 100%;
+  max-width: 320px;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 5;
+  overflow: visible;
+  margin-bottom: 0;
+
+  // Simplified top border
+  &::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, 
+      transparent 0%,
+      rgba(16, 185, 129, 0.3) 25%,
+      $primary-green 50%,
+      rgba(16, 185, 129, 0.3) 75%,
+      transparent 100%
+    );
+    transition: all 0.3s ease;
+    z-index: 10;
+  }
+
+  &.service-card-left {
+    animation: floatIn 1s ease-out 0.8s both, cardFloat 4s ease-in-out infinite 2s;
+  }
+
+  &.service-card-right {
+    animation: floatIn 1s ease-out 1s both, cardFloat 4s ease-in-out infinite 2.5s;
+  }
+
+  &.service-card-bottom {
+    animation: floatIn 1s ease-out 1.2s both, cardFloat 4s ease-in-out infinite 3s;
+  }
+
+  @include responsive(tablet) {
+    padding: 1.25rem;
+    max-width: 360px;
+  }
+
+  @include responsive(desktop) {
+    padding: 1.5rem;
+    max-width: 400px;
+  }
+}
+
+// Simplified background blur
+.card-bg-blur {
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  right: -15px;
+  bottom: -15px;
+  background: rgba(16, 185, 129, 0.05);
+  border-radius: 50%;
+  filter: blur(15px);
+  z-index: -1;
+  opacity: 0.4;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .card-bg-blur {
+  background: rgba(16, 185, 129, 0.08);
+  opacity: 0.6;
+  transform: scale(1.02);
+}
+
+.service-card:hover::before {
+  height: 3px;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+}
+
+.service-card-left {
+  grid-area: left;
+  justify-self: end;
+  align-self: start;
+}
+
+.service-card-right {
+  grid-area: right;
+  justify-self: start;
+  align-self: start;
+}
+
+.service-card-bottom {
+  grid-area: bottom;
+  justify-self: center;
+  align-self: start;
+  max-width: 600px;
+
+  @include responsive(tablet) { max-width: 500px; }
+  @include responsive(desktop) { max-width: 550px; }
+}
+
+.service-icon {
+  width: 40px; height: 40px;
+  border-radius: 0;
+  margin: 0 auto 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, $primary-green, $primary-teal);
+  border: none;
+  position: relative;
+  transition: all 0.3s ease;
+  animation: iconFloat 3s ease-in-out infinite;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+
+  i {
+    font-size: 1rem;
+    color: $white;
+  }
+
+  @include responsive(tablet) {
+    width: 45px; height: 45px;
+    margin-bottom: 1rem;
+    i { font-size: 1.125rem; }
+  }
+
+  @include responsive(desktop) {
+    width: 50px; height: 50px;
+    margin-bottom: 1.25rem;
+    i { font-size: 1.25rem; }
+  }
+}
+
+.service-card h3 {
+  font-family: 'Coolvetica', sans-serif;
+  font-weight: 800;
+  color: $dark-charcoal;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  position: relative;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 1.25rem;
+
+  @include responsive(tablet) {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  @include responsive(desktop) {
+    font-size: 1.75rem;
+    margin-bottom: 1.25rem;
+  }
+}
+
+.service-card p {
+  font-family: $font-secondary;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #374151;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  flex-grow: 1;
+
+  @include responsive(tablet) {
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+  }
+
+  @include responsive(desktop) {
+    font-size: 1.25rem;
+    margin-bottom: 1.75rem;
   }
 }
 
 .service-tags {
-  display: grid;
-  grid-template-columns: auto auto;
-  gap: 0.5rem; // Much smaller gap between columns
-  margin-top: 0.6875rem; // Increased margin slightly
-  width: 100%;
-  justify-content: center; // Center the columns
-  grid-auto-flow: row; // Ensure tags flow in rows
-  
-  @include responsive(tablet) { 
-    gap: 0.375rem; // Smaller gap on tablet
-  }
-  @include responsive(desktop) { 
-    gap: 0.25rem; // Small gap on desktop
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  margin-top: auto;
+
+  @include responsive(tablet) {
+    gap: 0.625rem;
   }
 }
 
-.tag {
-  background: transparent;
+.service-tag {
+  background: $light-green;
   color: $primary-green;
-  padding: 0.125rem 0.375rem;
-  border: 1px solid $primary-green;
+  padding: 0.375rem 0.75rem;
   border-radius: 0;
-  font-family: $font-secondary;
-  font-size: 0.5rem;
-  font-weight: 500;
-  text-transform: none;
-  letter-spacing: 0.02em;
-  transition: all 0.2s ease;
-  cursor: default;
-  text-align: center;
-  display: block; // Changed from inline-block to block for proper grid layout
+  font-family: $font-primary;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transition: all 0.3s ease;
+  border: 1px solid rgba($primary-green, 0.4);
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);
 
   &:hover {
     background: $primary-green;
-    color: $white;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+    border-color: $primary-green;
   }
 
-  @include responsive(tablet) { 
-    font-size: 0.5rem; // Reduced from 0.625rem
-    padding: 0.1875rem 0.375rem; // Reduced from 0.25rem 0.5rem
+  @include responsive(tablet) {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
   }
-  @include responsive(desktop) { 
-    font-size: 0.625rem; // Reduced from 0.75rem
-    padding: 0.25rem 0.5rem; // Reduced from 0.375rem 0.75rem
+
+  @include responsive(desktop) {
+    font-size: 1rem;
+    padding: 0.625rem 1.125rem;
   }
 }
 
-.service-card:hover .card-content h2::after {
-  width: 120px;
+.service-card:focus-within {
+  outline: 3px solid $primary-green;
+  outline-offset: 4px;
 }
 
-// Responsive Design - KEEPING EXISTING STRUCTURE
+.service-tag:focus {
+  outline: 2px solid $primary-green;
+  outline-offset: 2px;
+}
+
 @include responsive(mobile) {
-  .support-section { 
-    padding: 3rem 1.5rem 3rem 1.5rem; 
-    min-height: auto;
+  .services-grid { gap: 1.5rem 1.5rem 0 1.5rem; }
+  .service-card {
+    max-width: 320px;
+    padding: 1.25rem;
   }
-  
-  .section-header { margin-bottom: 0; }
-  .title-brand-split .title-line-1 { font-size: 4rem; margin-bottom: 0; }
-  .section-description { font-size: 1.25rem; max-width: 100%; }
-  
-  .services-grid-2x3 {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    gap: 0;
+  .title-brand-split {
+    .title-line-1 { 
+      font-size: 2rem; 
+      margin-bottom: 0.5rem;
+    }
+    .title-line-2 { 
+      font-size: 2.5rem; 
+      margin-top: 0.5rem;
+    }
   }
-  
-  .image-column.mobile-column,
-  .image-column.monitor-column,
-  .image-column.laptop-column {
-    justify-content: center;
-    order: -1;
-  }
-  
-  .service-card { 
-    padding: 1.5rem; 
-    text-align: center; 
-    max-width: 100%;
-    background: transparent; // Ensure transparent background on mobile
-  }
-  
-  .card-content {
-    h2 { font-size: 1.5rem; margin-bottom: 1rem; }
-    p { font-size: 1.125rem; margin-bottom: 1.5rem; }
-  }
-  
-  .service-tags { 
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
-    justify-content: center; 
-  }
-  
-  .tag { 
-    font-size: 0.625rem;
-    padding: 0.1875rem 0.5rem;
-  }
-  
-  .mobile-container .mobile-image { max-width: 340px; } // Increased from 280px
-  .laptop-container .laptop-image { max-width: 340px; } // Further reduced from 360px
-  .monitor-container .monitor-image { max-width: 450px; } // Increased from 380px
 }
 
-@include responsive(tablet) {
-  .services-grid-2x3 {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto;
-    gap: 0;
-  }
-}
