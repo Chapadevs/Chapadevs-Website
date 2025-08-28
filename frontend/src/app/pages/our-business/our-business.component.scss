@@ -557,7 +557,11 @@ $font-secondary: 'CreatoDisplay-Medium', sans-serif;
   
   .section-header { margin-bottom: 0; }
   .title-brand-split .title-line-1 { font-size: 3rem; margin-bottom: 0; }
-  .section-description { font-size: 1.25rem; max-width: 100%; }
+  .section-description { 
+    font-size: 1.25rem; 
+    max-width: 100%; 
+    margin-bottom: 2rem; // Add bottom margin for mobile
+  }
   
   .services-grid-2x3 {
     grid-template-columns: 1fr;
@@ -565,18 +569,19 @@ $font-secondary: 'CreatoDisplay-Medium', sans-serif;
     gap: 0;
   }
   
+  // Hide device images on mobile
   .image-column.mobile-column,
   .image-column.monitor-column,
   .image-column.laptop-column {
-    justify-content: center;
-    order: -1;
+    display: none;
   }
   
   .service-card { 
     padding: 1.5rem; 
     text-align: center; 
-    max-width: 100%;
+    max-width: 320px; // Same as our-services component
     background: transparent; // Ensure transparent background on mobile
+    margin: 0 auto 2rem auto; // Center cards and add bottom margin
   }
   
   .card-content {
@@ -595,9 +600,12 @@ $font-secondary: 'CreatoDisplay-Medium', sans-serif;
     padding: 0.1875rem 0.5rem;
   }
   
-  .mobile-container .mobile-image { max-width: 340px; } // Increased from 280px
-  .laptop-container .laptop-image { max-width: 340px; } // Further reduced from 360px
-  .monitor-container .monitor-image { max-width: 450px; } // Increased from 380px
+  // Remove image-related mobile styles since images are hidden
+  .mobile-container .mobile-image,
+  .laptop-container .laptop-image,
+  .monitor-container .monitor-image {
+    display: none;
+  }
 }
 
 @include responsive(tablet) {
