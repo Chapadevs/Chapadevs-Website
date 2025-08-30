@@ -70,12 +70,12 @@ $light-green: #a7f3d0;
 
   @include responsive(desktop) {
     padding: 1rem 0 0 0; // Removed bottom padding
-    margin-top: 5rem; // Increased top margin for desktop
+    margin-top: 3.5rem; // Increased top margin for desktop
   }
 
   @include responsive(large-desktop) {
     padding: 1rem 0 0 0; // Removed bottom padding
-    margin-top: 6rem; // Increased top margin for large desktop
+    margin-top: 4rem; // Increased top margin for large desktop
   }
 }
 

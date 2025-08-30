@@ -520,7 +520,7 @@ $font-secondary: 'CreatoDisplay-Medium', sans-serif;
   border: 1px solid $primary-green;
   border-radius: 0;
   font-family: $font-secondary;
-  font-size: 0.5rem;
+  font-size: 0.625rem;
   font-weight: 500;
   text-transform: none;
   letter-spacing: 0.02em;
@@ -535,12 +535,12 @@ $font-secondary: 'CreatoDisplay-Medium', sans-serif;
   }
 
   @include responsive(tablet) { 
-    font-size: 0.5rem; // Reduced from 0.625rem
+    font-size: 0.625rem; // Increased from 0.5rem
     padding: 0.1875rem 0.375rem; // Reduced from 0.25rem 0.5rem
   }
   @include responsive(desktop) { 
-    font-size: 0.625rem; // Reduced from 0.75rem
-    padding: 0.25rem 0.5rem; // Reduced from 0.375rem 0.75rem
+    font-size: 0.8rem; // Increased from 0.625rem
+    padding: 0.3rem 0.6rem; // Reduced from 0.375rem 0.75rem
   }
 }
 
@@ -596,7 +596,7 @@ $font-secondary: 'CreatoDisplay-Medium', sans-serif;
   }
   
   .tag { 
-    font-size: 0.625rem;
+    font-size: 0.75rem;
     padding: 0.1875rem 0.5rem;
   }
   
