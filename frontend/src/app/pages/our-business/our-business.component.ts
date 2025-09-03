@@ -54,7 +54,7 @@ export class OurBusinessComponent implements OnInit, AfterViewInit {
         this.scrollProgress = 0;
       }
       
-      console.log('Mobile scroll progress:', this.scrollProgress, 'Element position:', currentPosition);
+
     }
 
     // Update monitor column animation
@@ -82,7 +82,7 @@ export class OurBusinessComponent implements OnInit, AfterViewInit {
         this.monitorScrollProgress = 0;
       }
       
-      console.log('Monitor scroll progress:', this.monitorScrollProgress, 'Element position:', currentPosition);
+
     }
 
     // Update laptop column animation (fade-in only, no scaling)
@@ -110,7 +110,7 @@ export class OurBusinessComponent implements OnInit, AfterViewInit {
         this.laptopScrollProgress = 0;
       }
       
-      console.log('Laptop scroll progress:', this.laptopScrollProgress, 'Element position:', currentPosition);
+
     }
   }
 }

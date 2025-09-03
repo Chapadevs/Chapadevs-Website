@@ -21,9 +21,9 @@ export class AppComponent implements OnInit {
     if ('serviceWorker' in navigator) {
       try {
         const registration = await navigator.serviceWorker.register('/sw.js');
-        console.log('Service Worker registered successfully:', registration);
+
       } catch (error) {
-        console.log('Service Worker registration failed:', error);
+
       }
     }
   }
@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
         const lcpObserver = new PerformanceObserver((list) => {
           const entries = list.getEntries();
           const lastEntry = entries[entries.length - 1];
-          console.log('LCP:', lastEntry.startTime);
+
         });
         lcpObserver.observe({ entryTypes: ['largest-contentful-paint'] });
 
@@ -45,7 +45,7 @@ export class AppComponent implements OnInit {
           const entries = list.getEntries();
           entries.forEach(entry => {
             if ('processingStart' in entry && 'startTime' in entry) {
-              console.log('FID:', (entry as any).processingStart - entry.startTime);
+
             }
           });
         });
@@ -61,11 +61,11 @@ export class AppComponent implements OnInit {
               }
             }
           });
-          console.log('CLS:', clsValue);
+
         });
         clsObserver.observe({ entryTypes: ['layout-shift'] });
       } catch (error) {
-        console.log('Performance monitoring failed:', error);
+
       }
     }
   }

@@ -1,10 +1,10 @@
 import { CommonModule } from "@angular/common";
 import { Component, OnInit } from "@angular/core";
 import {
-    FormBuilder,
-    FormGroup,
-    ReactiveFormsModule,
-    Validators,
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
 } from "@angular/forms";
 import emailjs from "@emailjs/browser";
 import { environment } from "../../../environments/environment";
@@ -122,6 +122,17 @@ export class InquiryFormComponent implements OnInit {
     emailjs.init(environment.emailService.publicKey);
   }
 
+  // Email validation function
+  private isValidEmail(email: string): boolean {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+
+  // Mobile-friendly field touch handling
+  onFieldTouch(fieldName: string) {
+    this.inquiryForm.get(fieldName)?.markAsTouched();
+  }
+
   nextStep() {
     if (this.step < this.steps.length - 1) {
       this.step++;
@@ -175,18 +186,21 @@ export class InquiryFormComponent implements OnInit {
       this.submitMessage = "";
 
       try {
-        console.log(
-          "📧 Sending inquiry emails with data:",
-          this.inquiryForm.value
-        );
+
+
+        // Validate email format before sending
+        const customerEmail = this.inquiryForm.value.from_email?.trim();
+        if (!customerEmail || !this.isValidEmail(customerEmail)) {
+          throw new Error('Invalid email address format');
+        }
 
         // Prepare email parameters for both emails
         const adminEmailParams = {
           to_email: "admin@chapadevs.com",
           from_name: `${this.inquiryForm.value.from_name} (Chapadevs Inquiry)`,
-          from_email: this.inquiryForm.value.from_email,
-          reply_to: this.inquiryForm.value.from_email,
-          customer_email: this.inquiryForm.value.from_email,
+          from_email: customerEmail,
+          reply_to: customerEmail,
+          customer_email: customerEmail,
           customer_name: this.inquiryForm.value.from_name,
           company_name: this.inquiryForm.value.company_name || "Not provided",
           phone: this.inquiryForm.value.phone || "Not provided",
@@ -222,7 +236,7 @@ export class InquiryFormComponent implements OnInit {
 
         // Prepare user confirmation email parameters
         const userEmailParams = {
-          customer_email: this.inquiryForm.value.from_email,
+          customer_email: customerEmail,
           customer_name: this.inquiryForm.value.from_name,
           company_name: this.inquiryForm.value.company_name || "",
           project_type: this.inquiryForm.value.project_type,
@@ -232,7 +246,7 @@ export class InquiryFormComponent implements OnInit {
           submission_date: new Date().toLocaleDateString(),
         };
 
-        console.log("📤 Sending admin notification email...");
+
 
         // Send admin notification email
         const adminResult = await emailjs.send(
@@ -241,9 +255,9 @@ export class InquiryFormComponent implements OnInit {
           adminEmailParams
         );
 
-        console.log("✅ Admin email sent successfully:", adminResult);
 
-        console.log("📤 Sending user confirmation email...");
+
+
 
         // Send user confirmation email
         const userResult = await emailjs.send(
@@ -252,10 +266,7 @@ export class InquiryFormComponent implements OnInit {
           userEmailParams
         );
 
-        console.log(
-          "✅ User confirmation email sent successfully:",
-          userResult
-        );
+
 
         // Show success message
         this.isSubmitting = false;
@@ -273,8 +284,15 @@ export class InquiryFormComponent implements OnInit {
         console.error("❌ Error sending emails:", error);
         this.isSubmitting = false;
         this.submitSuccess = false;
-        this.submitMessage =
-          "Sorry, there was an error sending your inquiry. Please try again or contact us directly.";
+        
+        // Provide more specific error messages
+        if (error instanceof Error && error.message === 'Invalid email address format') {
+          this.submitMessage = "Please enter a valid email address.";
+        } else if (error && typeof error === 'object' && 'text' in error) {
+          this.submitMessage = `Email sending failed: ${(error as any).text}. Please check your email address and try again.`;
+        } else {
+          this.submitMessage = "Sorry, there was an error sending your inquiry. Please try again or contact us directly.";
+        }
       }
     }
   }

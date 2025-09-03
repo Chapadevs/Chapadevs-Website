@@ -45,7 +45,10 @@
           <h3 class="step-title">Contact Information</h3>
           <div class="form-group">
             <label for="from_name">Your Name *</label>
-            <input id="from_name" formControlName="from_name" required />
+            <input id="from_name" formControlName="from_name" required class="required-field" (blur)="onFieldTouch('from_name')" />
+            <div *ngIf="inquiryForm.get('from_name')?.invalid && inquiryForm.get('from_name')?.touched" class="error-message">
+              Please enter your name.
+            </div>
           </div>
           <div class="form-group">
             <label for="from_email">Email *</label>
@@ -54,7 +57,12 @@
               formControlName="from_email"
               type="email"
               required
+              class="required-field"
+              (blur)="onFieldTouch('from_email')"
             />
+            <div *ngIf="inquiryForm.get('from_email')?.invalid && inquiryForm.get('from_email')?.touched" class="error-message">
+              Please enter a valid email address.
+            </div>
           </div>
           <div class="form-group">
             <label for="company_name">Company/Organization (optional)</label>
@@ -66,12 +74,15 @@
           </div>
           <div class="form-group">
             <label for="contact_method">Preferred Contact Method *</label>
-            <select id="contact_method" formControlName="contact_method" required>
+            <select id="contact_method" formControlName="contact_method" required class="required-field" (blur)="onFieldTouch('contact_method')">
               <option value="">Select</option>
               <option>Email</option>
               <option>Phone</option>
               <option>WhatsApp</option>
             </select>
+            <div *ngIf="inquiryForm.get('contact_method')?.invalid && inquiryForm.get('contact_method')?.touched" class="error-message">
+              Please select your preferred contact method.
+            </div>
           </div>
         </div>
         <!-- Step 2: Project Details -->
@@ -79,7 +90,7 @@
           <h3 class="step-title">Project Details</h3>
           <div class="form-group">
             <label for="project_type">Project Type *</label>
-            <select id="project_type" formControlName="project_type" required>
+            <select id="project_type" formControlName="project_type" required class="required-field">
               <option value="">Select</option>
               <option>New Website Design & Development</option>
               <option>Website Redesign/Refresh</option>
@@ -89,6 +100,9 @@
               <option>Maintenance/Updates to Existing Site</option>
               <option>Other</option>
             </select>
+            <div *ngIf="inquiryForm.get('project_type')?.invalid && inquiryForm.get('project_type')?.touched" class="error-message">
+              Please select a project type.
+            </div>
           </div>
           <div class="form-group">
             <label for="project_description">Brief Project Description *</label>
@@ -97,12 +111,16 @@
               formControlName="project_description"
               rows="3"
               required
+              class="required-field"
               placeholder="Describe your project in 2-3 sentences"
             ></textarea>
+            <div *ngIf="inquiryForm.get('project_description')?.invalid && inquiryForm.get('project_description')?.touched" class="error-message">
+              Please provide a project description.
+            </div>
           </div>
           <div class="form-group">
             <label>Primary Goals *</label>
-            <div class="checkbox-group">
+            <div class="checkbox-group required-field">
               <label *ngFor="let goal of goalsList">
                 <input
                   type="checkbox"
@@ -127,6 +145,9 @@
                 />
               </label>
             </div>
+            <div *ngIf="inquiryForm.get('goals')?.invalid && inquiryForm.get('goals')?.touched" class="error-message">
+              Please select at least one goal.
+            </div>
           </div>
         </div>
         <!-- Step 3: Features & Design -->
@@ -134,7 +155,7 @@
           <h3 class="step-title">Features & Design</h3>
           <div class="form-group">
             <label>Required Features *</label>
-            <div class="checkbox-group">
+            <div class="checkbox-group required-field">
               <label *ngFor="let feature of featuresList">
                 <input
                   type="checkbox"
@@ -159,6 +180,9 @@
                 />
               </label>
             </div>
+            <div *ngIf="inquiryForm.get('features')?.invalid && inquiryForm.get('features')?.touched" class="error-message">
+              Please select at least one feature.
+            </div>
           </div>
           <div class="form-group">
             <label>Design Style Preference</label>
@@ -180,7 +204,7 @@
           <h3 class="step-title">Timeline & Budget</h3>
           <div class="form-group">
             <label for="budget">Project Budget Range *</label>
-            <select id="budget" formControlName="budget" required>
+            <select id="budget" formControlName="budget" required class="required-field">
               <option value="">Select</option>
               <option>$500 - $1,500</option>
               <option>$1,500 - $3,000</option>
@@ -189,15 +213,21 @@
               <option>$10,000+</option>
               <option>Let's discuss</option>
             </select>
+            <div *ngIf="inquiryForm.get('budget')?.invalid && inquiryForm.get('budget')?.touched" class="error-message">
+              Please select a budget range.
+            </div>
           </div>
           <div class="form-group">
             <label for="timeline">Desired Launch Date *</label>
-            <select id="timeline" formControlName="timeline" required>
+            <select id="timeline" formControlName="timeline" required class="required-field">
               <option value="">Select</option>
               <option>Within 1-2 weeks</option>
               <option>Within 2-4 weeks</option>
               <option>Within 1-2 months</option>
             </select>
+            <div *ngIf="inquiryForm.get('timeline')?.invalid && inquiryForm.get('timeline')?.touched" class="error-message">
+              Please select a timeline.
+            </div>
           </div>
         </div>
         <!-- Step 5: Current Website -->
@@ -205,7 +235,7 @@
           <h3 class="step-title">Current Website</h3>
           <div class="form-group">
             <label>Do you have an existing website? *</label>
-            <div class="radio-group">
+            <div class="radio-group required-field">
               <label
                 ><input type="radio" formControlName="has_website" value="Yes" />
                 Yes</label
@@ -214,6 +244,9 @@
                 ><input type="radio" formControlName="has_website" value="No" />
                 No</label
               >
+            </div>
+            <div *ngIf="inquiryForm.get('has_website')?.invalid && inquiryForm.get('has_website')?.touched" class="error-message">
+              Please select whether you have an existing website.
             </div>
           </div>
           <div *ngIf="inquiryForm.value.has_website === 'Yes'">
@@ -232,7 +265,7 @@
           <h3 class="step-title">Additional Details</h3>
           <div class="form-group">
             <label>Do you have existing branding? *</label>
-            <div class="radio-group">
+            <div class="radio-group required-field">
               <label
                 ><input type="radio" formControlName="branding" value="Yes" />
                 Yes</label
@@ -246,6 +279,9 @@
                 Partial</label
               >
             </div>
+            <div *ngIf="inquiryForm.get('branding')?.invalid && inquiryForm.get('branding')?.touched" class="error-message">
+              Please select your branding status.
+            </div>
           </div>
           <div *ngIf="inquiryForm.value.branding === 'Yes'">
             <div class="form-group">
@@ -257,13 +293,16 @@
           </div>
           <div class="form-group">
             <label for="content_status">Content Status *</label>
-            <select id="content_status" formControlName="content_status" required>
+            <select id="content_status" formControlName="content_status" required class="required-field">
               <option value="">Select</option>
               <option>I have all content ready</option>
               <option>I have some content, need help with rest</option>
               <option>I need help creating all content</option>
               <option>I need copywriting services</option>
             </select>
+            <div *ngIf="inquiryForm.get('content_status')?.invalid && inquiryForm.get('content_status')?.touched" class="error-message">
+              Please select your content status.
+            </div>
           </div>
           <div class="form-group">
             <label for="reference_websites">Reference Websites (optional)</label>

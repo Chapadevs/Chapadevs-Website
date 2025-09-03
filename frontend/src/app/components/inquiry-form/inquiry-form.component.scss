@@ -241,6 +241,28 @@ input, select, textarea {
     color: #9ca3af;
     font-style: italic;
   }
+
+  // Required field styling - only show red when invalid and touched
+  &.required-field.ng-invalid.ng-touched {
+    border-color: #dc2626;
+    background-color: #fef2f2;
+    
+    &:focus {
+      border-color: #dc2626;
+      box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+    }
+  }
+
+  // Invalid field styling
+  &.ng-invalid.ng-touched {
+    border-color: #dc2626;
+    background-color: #fef2f2;
+    
+    &:focus {
+      border-color: #dc2626;
+      box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+    }
+  }
 }
 
 .checkbox-group {
@@ -296,6 +318,19 @@ input, select, textarea {
     }
   }
 
+  // Required field styling for checkbox groups - only show red when invalid and touched
+  &.required-field.ng-invalid.ng-touched {
+    label {
+      border-color: #dc2626;
+      background-color: #fef2f2;
+      
+      &:hover {
+        border-color: #dc2626;
+        background-color: #fef2f2;
+      }
+    }
+  }
+
   @media (max-width: 767px) { grid-template-columns: 1fr; gap: 12px; label { padding: 12px 16px; min-height: 48px; } } // Reduced from 16px 20px and 55px
 }
 
@@ -337,6 +372,19 @@ input, select, textarea {
       &:checked {
         background-color: $primary-green;
         border-color: $primary-green;
+      }
+    }
+  }
+
+  // Required field styling for radio groups - only show red when invalid and touched
+  &.required-field.ng-invalid.ng-touched {
+    label {
+      border-color: #dc2626;
+      background-color: #fef2f2;
+      
+      &:hover {
+        border-color: #dc2626;
+        background-color: #fef2f2;
       }
     }
   }
@@ -448,6 +496,39 @@ input, select, textarea {
   .checkbox-group { grid-template-columns: 1fr; gap: 10px; label { padding: 12px 14px; min-height: 45px; font-size: 0.9rem; input[type="checkbox"] { width: 18px; height: 18px; } } } // Reduced from 12px, 14px 16px, 50px, 0.95rem, and 20px
   .radio-group { gap: 14px; label { padding: 12px 18px; min-width: 75px; min-height: 45px; font-size: 0.9rem; input[type="radio"] { width: 18px; height: 18px; } } } // Reduced from 16px, 14px 20px, 80px, 50px, 0.95rem, and 20px
   .wizard-navigation { flex-direction: column; gap: 0.375rem; padding-top: 0.875rem; } // Reduced from 0.5rem and 1rem
+  
+  // Mobile-specific error message styling
+  .error-message {
+    font-size: 0.8rem;
+    margin-top: 0.375rem;
+    padding: 0.5rem;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 4px;
+    
+    &::before {
+      font-size: 0.9rem;
+    }
+  }
+  
+  // Mobile-specific input styling for validation
+  input, select, textarea {
+    &.required-field.ng-invalid.ng-touched {
+      border-color: #dc2626;
+      background-color: #fef2f2;
+      font-size: 16px; // Prevents zoom on iOS
+    }
+  }
+  
+  // Mobile-specific checkbox/radio group validation styling
+  .checkbox-group, .radio-group {
+    &.required-field.ng-invalid.ng-touched {
+      label {
+        border-color: #dc2626;
+        background-color: #fef2f2;
+      }
+    }
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) { .inquiry-form { padding: 1.25rem; } } // Reduced from 1.5rem
