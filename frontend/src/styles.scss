@@ -18,7 +18,7 @@
 /* Critical typography for above-the-fold content */
 @font-face {
   font-family: "Code Bold";
-  src: url("assets/fonts/Code-Bold.otf") format("opentype");
+  src: url("/assets/fonts/Code-Bold.otf") format("opentype");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -26,7 +26,7 @@
 
 @font-face {
   font-family: "Coolvetica";
-  src: url("assets/fonts/Coolvetica\ Rg.otf") format("opentype");
+  src: url("/assets/fonts/Coolvetica%20Rg.otf") format("opentype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -34,7 +34,7 @@
 
 @font-face {
   font-family: "Creato Display Medium";
-  src: url("assets/fonts/CreatoDisplay-Medium.otf") format("opentype");
+  src: url("/assets/fonts/CreatoDisplay-Medium.otf") format("opentype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
